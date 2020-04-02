@@ -62,8 +62,8 @@ $DomainAdmins = ($DomainAdminsList | Measure-Object).Count
 $SchemaAdminsList = (Get-ADGroupMember -Recursive -Identity "Schema Admins" )
 $SchemaAdmins = ($SchemaAdminsList | Measure-Object).Count
 
-$EnterpriseAdmins = (Get-ADGroupMember -Recursive -Identity "Enterprise Admins" )
-$EnterpriseAdmins = ($EnterpriseAdmins | Measure-Object).Count
+$EnterpriseAdminsList = (Get-ADGroupMember -Recursive -Identity "Enterprise Admins" )
+$EnterpriseAdmins = ($EnterpriseAdminsList | Measure-Object).Count
 
 #Enabled users with password which never expires
 $PasswordNeverExpiresList = (Get-ADUser -filter {PasswordNeverExpires -eq $true -and Enabled -eq $true} )
