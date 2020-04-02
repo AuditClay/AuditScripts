@@ -103,6 +103,7 @@ $adAuditResults = [PSCustomObject]@{
 #ConvertTo-CSV or ConvertTo-JSON
 $adAuditResults
 
+#For each of the measured objects, if it has >0 members, output it to a CSV in the original script directory
 if($DisabledUsers -gt 0)
 {
   $DisabledUsersList | ConvertTo-Csv | Out-File "$PSScriptRoot\DisabledUsers.csv"
