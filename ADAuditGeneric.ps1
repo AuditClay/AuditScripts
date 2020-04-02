@@ -111,35 +111,35 @@ if( $Server -and $Credential )
   Remove-PSDrive -name "ADAudit"
 }
 
-if($DisabledUsersList.Count -gt 0)
+if($DisabledUsers -gt 0)
 {
   $DisabledUsersList | ConvertTo-Csv | Out-File "DisabledUsers.csv"
 }
-if( $StalePasswordUsersList.Count -gt 0 )
+if( $StalePasswordUsers -gt 0 )
 {
   $StalePasswordUsersList | ConvertTo-Csv | Out-File "StalePasswordUsers.csv"
 }
-if( $InactiveUsersList.Count -gt 0 )
+if( $InactiveUsers -gt 0 )
 {
   $InactiveUsersList | ConvertTo-Csv | Out-File "InactiveUsers.csv"
 }
-if( $DomainAdminsList.Count -gt 0 )
+if( $DomainAdmins -gt 0 )
 {
   $DomainAdminsList | ConvertTo-Csv | Out-File "DomainAdmins.csv"
 }
-if( $SchemaAdminsList.Count -gt 0 )
+if( $SchemaAdmins -gt 0 )
 {
   $SchemaAdminsList | ConvertTo-Csv | Out-File "SchemaAdmins.csv"
 }
-if( $EnterpriseAdminsList.Count -gt 0 )
+if( $EnterpriseAdmins -gt 0 )
 {
   $EnterpriseAdminsList | ConvertTo-Csv | Out-File "EnterpriseAdmins.csv"
 }
-if( $PasswordNeverExpiresList.Count -gt 0 )
+if( $PasswordNeverExpires -gt 0 )
 {
   $PasswordNeverExpiresList | ConvertTo-Csv | Out-File "NonExpiringPwdUsers.csv"
 }
-if( $PasswordNeverSetList.Count -gt 0 )
+if( $PasswordNeverSet -gt 0 )
 {
   $PasswordNeverSetList | ConvertTo-Csv | Out-File "PwdNotSetUsers.csv"
 }
