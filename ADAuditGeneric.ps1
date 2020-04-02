@@ -111,11 +111,35 @@ if( $Server -and $Credential )
   Remove-PSDrive -name "ADAudit"
 }
 
-$DisabledUsersList | ConvertTo-Csv | Out-File "DisabledUsers.csv"
-$StalePasswordUsersList | ConvertTo-Csv | Out-File "StalePasswordUsers.csv"
-$InactiveUsersList | ConvertTo-Csv | Out-File "InactiveUsers.csv"
-$DomainAdminsList | ConvertTo-Csv | Out-File "DomainAdmins.csv"
-$SchemaAdminsList | ConvertTo-Csv | Out-File "SchemaAdmins.csv"
-$EnterpriseAdmins | ConvertTo-Csv | Out-File "EnterpriseAdmins.csv"
-$PasswordNeverExpiresList | ConvertTo-Csv | Out-File "NonExpiringPwdUsers.csv"
-$PasswordNeverSetList | ConvertTo-Csv | Out-File "PwdNotSetUsers.csv"
+if($DisabledUsersList.Count -gt 0)
+{
+  $DisabledUsersList | ConvertTo-Csv | Out-File "DisabledUsers.csv"
+}
+if( $StalePasswordUsersList -gt 0 )
+{
+  $StalePasswordUsersList | ConvertTo-Csv | Out-File "StalePasswordUsers.csv"
+}
+if( $InactiveUsersList -gt 0 )
+{
+  $InactiveUsersList | ConvertTo-Csv | Out-File "InactiveUsers.csv"
+}
+if( $DomainAdminsList -gt 0 )
+{
+  $DomainAdminsList | ConvertTo-Csv | Out-File "DomainAdmins.csv"
+}
+if( $SchemaAdminsList -gt 0 )
+{
+  $SchemaAdminsList | ConvertTo-Csv | Out-File "SchemaAdmins.csv"
+}
+if( $EnterpriseAdmins -gt 0 )
+{
+  $EnterpriseAdmins | ConvertTo-Csv | Out-File "EnterpriseAdmins.csv"
+}
+if( $PasswordNeverExpiresList -gt 0 )
+{
+  $PasswordNeverExpiresList | ConvertTo-Csv | Out-File "NonExpiringPwdUsers.csv"
+}
+if( $PasswordNeverSetList -gt 0 )
+{
+  $PasswordNeverSetList | ConvertTo-Csv | Out-File "PwdNotSetUsers.csv"
+}
