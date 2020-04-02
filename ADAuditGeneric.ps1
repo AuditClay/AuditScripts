@@ -131,9 +131,9 @@ if( $SchemaAdminsList.Count -gt 0 )
 {
   $SchemaAdminsList | ConvertTo-Csv | Out-File "SchemaAdmins.csv"
 }
-if( $EnterpriseAdmins.Count -gt 0 )
+if( $EnterpriseAdminsList.Count -gt 0 )
 {
-  $EnterpriseAdmins | ConvertTo-Csv | Out-File "EnterpriseAdmins.csv"
+  $EnterpriseAdminsList | ConvertTo-Csv | Out-File "EnterpriseAdmins.csv"
 }
 if( $PasswordNeverExpiresList.Count -gt 0 )
 {
