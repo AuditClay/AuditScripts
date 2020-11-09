@@ -1,7 +1,7 @@
 #Fake one year's worth of information for patches happening on Saturday morning
 $day1 = (Get-Date -hour 0 -Minute 0 -Second 0 -Millisecond 0).AddDays(6-((Get-Date).DayOfWeek.value__) )
 $day0 = $day1.AddDays(-364)
-$numDays = (New-TimeSpan -Start $day0 -End (get-date)).Days
+$numDays = (New-TimeSpan -Start $day0 -End (get-date)).Days + 2
 
 #Control the data to be output
 $patchPct = 0.75
