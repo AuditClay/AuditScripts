@@ -32,11 +32,10 @@ $j | ConvertFrom-Json
 #XML
 Get-Service -name X* | ConvertTo-Xml 
 
-#What's returned by the COnvertTo-Xml command?
+#What's returned by the ConvertTo-Xml command?
 Get-Service -name X* | ConvertTo-Xml | Format-List *
 
 (Get-Service -name X* | ConvertTo-Xml).InnerXml
-(Get-Service -name X* | ConvertTo-Xml).InnerXml 
 #NOTE - PoSh is missing a ConvertFrom-XML function. 
 #There are third party modules to add this functionality
 
@@ -50,13 +49,10 @@ Get-Content .\service.txt
 Get-WmiObject win32_NetworkAdapterConfiguration 
 Get-WmiObject win32_NetworkAdapterConfiguration | Select-Object *
 
-Get-WmiObject win32_NetworkAdapterConfiguration | 
-  Select-Object Description, MACAddress, DHCPEnabled, IPAddress
+Get-WmiObject win32_NetworkAdapterConfiguration | Select-Object Description, MACAddress, DHCPEnabled, IPAddress
 
 #override the default format for the output
-Get-WmiObject win32_NetworkAdapterConfiguration | 
-  Select-Object Description, MACAddress, DHCPEnabled, IPAddress |
-  Format-List
+Get-WmiObject win32_NetworkAdapterConfiguration | Select-Object Description, MACAddress, DHCPEnabled, IPAddress | Format-List
 
 #Use Where-Object with the comparison statement format
 Get-Service | Where-Object Status -eq 'stopped’
