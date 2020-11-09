@@ -4,8 +4,8 @@ $day0 = $day1.AddDays(-364)
 $numDays = (New-TimeSpan -Start $day0 -End (get-date)).Days
 
 #Control the data to be output
-$patchPct = 0.33
-$numServers = 10
+$patchPct = 0.75
+$numServers = 100
 $maxPatch = 8
 
 #Output filenames
