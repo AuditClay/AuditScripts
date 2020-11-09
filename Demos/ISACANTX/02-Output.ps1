@@ -20,7 +20,7 @@ Get-Command Convert*
 
 Get-Acl | ConvertTo-Csv
 Get-service | ConvertTo-Html | Out-File service.html
-start .\service.html
+Invoke-Item .\service.html
 
 #JSON
 Get-Date | ConvertTo-Json
@@ -31,6 +31,10 @@ $j | ConvertFrom-Json
 
 #XML
 Get-Service -name X* | ConvertTo-Xml 
+
+#What's returned by the COnvertTo-Xml command?
+Get-Service -name X* | ConvertTo-Xml | Format-List *
+
 (Get-Service -name X* | ConvertTo-Xml).InnerXml
 (Get-Service -name X* | ConvertTo-Xml).InnerXml 
 #NOTE - PoSh is missing a ConvertFrom-XML function. 
@@ -38,9 +42,7 @@ Get-Service -name X* | ConvertTo-Xml
 
 
 #Tee-Object redirects to a file, but still passes output to the pipeline
-Get-Service | where status -eq "running" | 
-  Tee-Object -FilePath service.txt | 
-  Sort-Object DisplayName -Descending
+Get-Service | Where-Object status -eq "running" | Tee-Object -FilePath service.txt | Sort-Object DisplayName -Descending
 
 Get-Content .\service.txt
 

@@ -87,6 +87,9 @@ Get-HotFix -ComputerName 10.50.7.10 -Credential $cred
 #grab a list of all installed software on a system (might take a few seconds)
 Get-CimInstance Win32_Product
 
+#What properties are available for us to query?
+Get-CimInstance Win32_Product | Get-Member
+
 #Get just the name, version and install date for each
 Get-CimInstance Win32_Product | Format-List Name, Version, InstallDate 
 

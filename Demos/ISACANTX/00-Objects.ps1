@@ -2,6 +2,7 @@
 #Everything is passed as objects on the command line,
 #even a simple list of integers.
 #List the numbers 1-4 and, treating each as integer, multiply it by 50
+# $_ is a default variable which represents the object currently in view
 1,2,3,4 | ForEach-Object {$_ * 50}
 
 #Convert each integer to a string, and then add another string to it
@@ -15,7 +16,7 @@
 1..20 | ForEach-Object {$_.tostring() + " Hello"}
 
 #Objects have properties (data) and methods (functions)
-#Launch a few instances of notepad so we can look at the processes
+#Launch a few instances of notepad so we can look at the process object
 notepad;notepad;notepad
 
 #Get-Process returns OBJECTS representing the running processes on the host
@@ -25,7 +26,7 @@ Get-Process -Name Notepad
 Get-Process -Name Notepad | Get-Member
 
 #Get the Process ID for each instance (property)
-#The parentheses tell PowerShell to treat the results of the command as an object
+#The parentheses tell PowerShell to treat each result of the command as an object
 (Get-Process -Name Notepad).Id
 
 #Get the amount of CPU time used by each (property)
