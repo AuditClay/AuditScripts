@@ -1,0 +1,2802 @@
+Plugin ID,CVE,CVSS,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output
+"10107","","","None","166.141.160.26","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+Niagara Web Server/3.8.38"
+"10107","","","None","166.141.160.26","tcp","3011","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+Niagara Web Server/3.0"
+"10107","","","None","166.141.160.26","tcp","8080","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+TornadoServer/3.0.1"
+"10107","","","None","166.141.160.26","tcp","8383","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+HyperX/1.0 ( ThreadX )"
+"10107","","","None","166.141.160.26","tcp","8443","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+TornadoServer/3.0.1"
+"10302","","","None","166.141.160.26","tcp","80","Web Server robots.txt Information Disclosure","The remote web server contains a 'robots.txt' file.","The remote host contains a file named 'robots.txt' that is intended to
+prevent web 'robots' from visiting certain directories in a website for
+maintenance or indexing purposes.  A malicious user may also be able to
+use the contents of this file to learn of sensitive documents or
+directories on the affected site and either retrieve them directly or
+target them for other attacks.","Review the contents of the site's robots.txt file, use Robots META tags
+instead of entries in the robots.txt file, and/or adjust the web
+server's access controls to limit access to sensitive material.","http://www.robotstxt.org/wc/exclusion.html","Contents of robots.txt :
+
+User-agent: *
+Disallow: /
+"
+"10302","","","None","166.141.160.26","tcp","3011","Web Server robots.txt Information Disclosure","The remote web server contains a 'robots.txt' file.","The remote host contains a file named 'robots.txt' that is intended to
+prevent web 'robots' from visiting certain directories in a website for
+maintenance or indexing purposes.  A malicious user may also be able to
+use the contents of this file to learn of sensitive documents or
+directories on the affected site and either retrieve them directly or
+target them for other attacks.","Review the contents of the site's robots.txt file, use Robots META tags
+instead of entries in the robots.txt file, and/or adjust the web
+server's access controls to limit access to sensitive material.","http://www.robotstxt.org/wc/exclusion.html","Contents of robots.txt :
+
+User-agent: *
+Disallow: /
+"
+"10386","","","None","166.141.160.26","tcp","80","Web Server No 404 Error Code Check","The remote web server does not return 404 error codes.","The remote web server is configured such that it does not return '404
+Not Found' error codes when a nonexistent file is requested, perhaps
+returning instead a site map, search page or authentication page.
+
+Nessus has enabled some counter measures for this.  However, they
+might be insufficient.  If a great number of security holes are
+produced for this port, they might not all be accurate.","n/a","","
+
+CGI scanning will be disabled for this host because the host responds
+to requests for non-existent URLs with HTTP code 302
+rather than 404. The requested URL was : 
+
+    http://166.141.160.26/GI4GeydBIen2.html
+"
+"10386","","","None","166.141.160.26","tcp","8080","Web Server No 404 Error Code Check","The remote web server does not return 404 error codes.","The remote web server is configured such that it does not return '404
+Not Found' error codes when a nonexistent file is requested, perhaps
+returning instead a site map, search page or authentication page.
+
+Nessus has enabled some counter measures for this.  However, they
+might be insufficient.  If a great number of security holes are
+produced for this port, they might not all be accurate.","n/a","","
+
+CGI scanning will be disabled for this host because the host responds
+to requests for non-existent URLs with HTTP code 301
+rather than 404. The requested URL was : 
+
+    http://166.141.160.26:8080/GI4GeydBIen2.html
+"
+"10386","","","None","166.141.160.26","tcp","8443","Web Server No 404 Error Code Check","The remote web server does not return 404 error codes.","The remote web server is configured such that it does not return '404
+Not Found' error codes when a nonexistent file is requested, perhaps
+returning instead a site map, search page or authentication page.
+
+Nessus has enabled some counter measures for this.  However, they
+might be insufficient.  If a great number of security holes are
+produced for this port, they might not all be accurate.","n/a","","
+
+CGI scanning will be disabled for this host because the host responds
+to requests for non-existent URLs with HTTP code 301
+rather than 404. The requested URL was : 
+
+    https://166.141.160.26:8443/GI4GeydBIen2.html
+"
+"10759","CVE-2000-0649","2.6","Low","166.141.160.26","tcp","80","Web Server HTTP Header Internal IP Disclosure","This web server leaks a private IP address through its HTTP headers.","This may expose internal IP addresses that are usually hidden or
+masked behind a Network Address Translation (NAT) Firewall or proxy
+server. 
+
+There is a known issue with Microsoft IIS 4.0 doing this in its default
+configuration. This may also affect other web servers, web applications,
+web proxies, load balancers and through a variety of misconfigurations
+related to redirection.","None","http://archives.neohapsis.com/archives/ntbugtraq/2000-q3/0025.html
+http://support.microsoft.com/default.aspx?scid=kb;EN-US;Q218180
+http://support.microsoft.com/default.aspx?scid=kb;EN-US;834141","
+When processing the following request :
+
+  GET / HTTP/1.0
+
+this web server leaks the following private IP address :
+
+  192.168.0.121
+
+as found in the following collection of HTTP headers :
+
+HTTP/1.1 302 Moved Temporarily
+content-type: text/html; charset=UTF-8
+date: Fri, 19 Aug 2016 02:10:17 GMT
+content-length: 863
+cache-control: private, must-revalidate
+location: http://192.168.0.121/login
+expires: Thu, 01 Jan 1970 00:00:00 GMT
+set-cookie: niagara_session=s58b941260d7b795f0e991514da9c831190aa2f46ba982b2303; path=/
+server: Niagara Web Server/3.8.38
+
+"
+"10863","","","None","166.141.160.26","tcp","8443","SSL Certificate Information","This plugin displays the SSL certificate.","This plugin connects to every SSL-related port and attempts to 
+extract and dump the X.509 certificate.","n/a","","Subject Name: 
+
+Organization: CradlePoint Technology
+Organization Unit: http://www.cradlepoint.com
+Common Name: cp
+
+Issuer Name: 
+
+Organization: CradlePoint Technology
+Organization Unit: http://www.cradlepoint.com
+Common Name: cp
+
+Serial Number: 00 93 39 64 0D 9B 47 A0 B8 
+
+Version: 3
+
+Signature Algorithm: SHA-1 With RSA Encryption
+
+Not Valid Before: Apr 09 19:48:33 2014 GMT
+Not Valid After: Apr 08 19:48:33 2019 GMT
+
+Public Key Info: 
+
+Algorithm: RSA Encryption
+Key Length: 2048 bits
+Public Key: 00 B0 E5 F8 E9 F5 57 6B 64 EC C3 B1 0F 2F F7 AA 4E 15 92 7E 
+            3E E2 57 78 8B B1 C8 15 D5 B2 EC 07 B5 BC 63 A9 37 1F DF 40 
+            87 9F 32 93 42 44 0F 2F 94 B0 ED 9D BA DA AD E5 BD DC 26 A0 
+            95 0B 19 B0 3D 11 B0 81 CF 2B 54 E1 B5 83 B5 54 F4 B0 C1 6D 
+            60 C5 80 16 C0 CF FB 02 07 B4 0C 18 7C 33 09 2E DE 50 1F E0 
+            3E 58 A6 89 44 12 53 EA 37 40 8C EA D5 90 DB 0F 99 2C 28 DC 
+            C8 27 8F 4A 70 AE CB 12 72 A0 2F 73 A9 02 CA D8 5C E5 94 FB 
+            66 50 3F 5C 4E 11 4D 6E EE 4D AC 83 FB 39 BD 8D 46 F6 9B 3B 
+            2A D2 B1 C8 3B 0F E0 FC C2 E3 FE E0 5A 89 23 D2 C0 E8 50 8B 
+            14 DC 18 B4 A2 BD 5E 22 C5 18 B0 BD 2D C3 0D 73 F0 43 8D DE 
+            DA C0 57 CF 8C 09 01 06 51 51 DD 09 21 0A 90 3D DE 7F EA F8 
+            4C 45 E5 1C 06 4E 4C E8 71 B0 E5 66 E6 B0 62 77 DE B8 7E 0A 
+            BE 51 EF 9F 07 AF CF 36 3F 5D F4 3D 13 A5 F0 A0 2F 
+Exponent: 01 00 01 
+
+Signature Length: 256 bytes / 2048 bits
+Signature: 00 1D B1 B8 AA A2 93 B8 9D 82 51 4C 1A FB B1 0F 2D 32 B9 4D 
+           63 26 8E 9D AB 6D 41 16 A7 CD 1E EA 50 66 42 13 F8 61 82 5B 
+           15 4A 52 2D 99 FA 7E 5D C3 E6 7E 32 B7 72 D7 30 03 C2 DA EA 
+           C3 82 F0 D9 19 E7 3D C2 70 9D E7 41 B7 7F 84 DF 2B 41 F9 C5 
+           00 2F 36 91 12 FB B5 F5 FE BC 59 15 C8 55 11 AD F4 A5 82 9F 
+           97 72 5F 1C 2E 0B 1B FE 1C F8 75 0A 28 99 A6 FB EB 75 0D ED 
+           36 25 1A 86 42 1F 80 39 4E 9B 3D E4 DA DB 2E 12 45 63 74 5E 
+           68 B1 63 26 F9 5A F8 3A 79 C3 5C EA 91 7E F7 4B E7 E8 C0 E3 
+           C2 1A 94 14 32 BD BD 46 D4 8E C8 13 89 3E 60 54 11 6E 2B 29 
+           E8 72 C1 15 60 04 DE 51 93 BE C1 C4 6D 62 99 F5 07 2C EC CF 
+           4B AD 51 71 58 B3 CD 64 96 65 D5 16 49 EB 33 8D E2 B5 CC DD 
+           D8 79 0B 6D 14 0B A5 4A E4 56 93 CD 14 B6 78 D6 13 98 FB 39 
+           7B 83 8E A5 E3 51 D2 41 38 28 1D 77 30 EB 29 C4 E0 
+
+Extension: Subject Key Identifier (2.5.29.14)
+Critical: 0
+Subject Key Identifier: 54 C0 CD FB 08 EE 3C 44 DD 5D F8 5B 55 FC 19 0A 8F B5 7F E9 
+
+
+Extension: Authority Key Identifier (2.5.29.35)
+Critical: 0
+Key Identifier: 54 C0 CD FB 08 EE 3C 44 DD 5D F8 5B 55 FC 19 0A 8F B5 7F E9 
+
+
+Extension: Basic Constraints (2.5.29.19)
+Critical: 0
+CA: TRUE
+
+
+Fingerprints : 
+
+SHA-256 Fingerprint: 33 43 71 47 B3 97 B8 31 85 45 21 06 A1 30 82 97 61 D3 C2 14 
+                     B8 4F 18 15 4B 45 E2 5D CB 70 30 43 
+SHA-1 Fingerprint: 59 51 F4 DB 87 EC EA BA 76 62 87 75 10 A1 8C 0E C1 74 FF 88 
+MD5 Fingerprint: 1D 5F 4C 4F D6 7E 88 09 CF 9D 14 48 C0 EB 46 D7 
+
+"
+"11154","","","None","166.141.160.26","tcp","10001","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 10001
+  Type   : spontaneous
+  Banner : 
+0x0000:  7F 01 FF 47 00 49 88 00 00 00 00 FF FF FF FF FE    ...G.I..........
+           0x0010:  C0 02 B5 01 E4 FE C0 09 4C FE C0 09 70 FE C0 FE    ........L...p...
+           0x0020:  C0 02 B5 01 E6 FE C0 09 70 FE C0 09 70 FE C0 00    ........p...p...
+           0x0030:  00 05 A0 08 98 01 40 02 08 02 A8 00 08 00 08 00    ......@.........
+           0x0040:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 C7    ................
+           0x0050:  7F 01 FF 6F 00 12 FF 00 00 00 00 00 00 00 00 00    ...o............
+           0x0060:  00 00 00 00 00 00 01 BE BE 7F 01 FF 40 00 1C FF    ............@...
+           0x0070:  D8 00 57 00 3D FF D8 01 2A FF D8 01 2E FF D8 88    ..W.=...*.......
+           0x0080:  00 88 00 00 00 00 00 50 04 04 00 8D 7F 02 FF 47    .......P.......G
+           0x0090:  00 49 00 00 00 00 00 FF FF FF FF FE C0 FE C0 FE    .I..............
+           0x00A0:  C0 FE C0 FE C0 FE C0 FE C0 FE C0 FE C0 FE C0 FE    ................
+           0x00B0:  C0 FE C0 FE C0 FE C0 FE C0 FE C0 00 08 00 00 00    ................
+           0x00C0:  00 00 08 01 E0 02 9B 00 00 00 08 00 00 00 00 00    ................
+           0x00D0:  00 00 00 00 00 00 00 00 00 00 00 82 7F 02 FF 6F    ...............o
+           0x00E0:  00 12 FF 00 00 48 00 48 00 48 00 48 00 48 00 48    .....H.H.H.H.H.H
+           0x00F0:  00 48 00 48 40 7F 02 FF 40 00 1C FF D8 FF D8 FF    .H.H@...@.......
+           0x0100:  D8 FF D8 FF D8 FF D8 FF D8 FF D8 00 00 00 00 00    ................
+           0x0110:  00 00 00 00 00 00 00 94 7F 03 FF 47 00 49 88 00    ...........G.I..
+           0x0120:  00 00 00 FF FF FF FF FE C0 FE C0 FE C0 FE C0 FE    ................
+           0x0130:  C0 FE C0 09 70 09 70 FE C0 FE C0 FE C0 FE C0 FE    ....p.p.........
+           0x0140:  C0 FE C0 09 70 09 70 00 00 02 30 02 40 01 B8 01    ....p.p...0.@...
+           0x0150:  F8 01 90 00 00 00 08 00 00 00 00 00 00 00 00 00    ................
+           0x0160:  00 00 00 00 00 00 00 20 7F 03 FF 6F 00 12 FF 00    ....... ...o....
+           0x0170:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+           0x0180:  01 7F 03 FF 40 00 1C FF D8 FF D8 FF D8 FF D8 FF    ....@...........
+           0x0190:  D8 FF D8 01 2E 01 2E 88 00 88 00 00 00 00 00 00    ................
+           0x01A0:  00 00 00 55 7F 04 FF 47 00 49 28 00 00 00 00 FF    ...U...G.I(.....
+           0x01B0:  FF FF FF 02 43 01 A0 02 3C FE C0 FE C0 FE C0 FE    ....C...<.......
+           0x01C0:  C0 FE C0 02 43 01 9F 02 3C FE C0 FE C0 FE C0 FE    ....C...<.......
+           0x01D0:  C0 FE C0 02 46 00 18 00 00 02 40 00 00 00 00 00    ....F.....@.....
+           0x01E0:  00 00 08 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+           0x01F0:  00 00 00 93 7F 04 FF 6F 00 12 FF 00 00 00 00 00    .......o........
+           0x0200:  00 00 00 00 00 00 00 00 00 00 00 00 02 7F 04 FF    ................
+           0x0210:  40 00 1C 00 48 00 34 00 48 FF D8 FF D8 FF D8 FF    @...H.4.H.......
+           0x0220:  D8 FF D8 28 00 28 00 00 00 00 00 03 04 00 00 2C    ...(.(.........,
+           0x0230:  7F 05 FF 47 00 49 00 00 00 00 00 FF FF FF FF 02    ...G.I..........
+           0x0240:  42 02 5B 02 55 FE C0 FE C0 FE C0 FE C0 FE C0 02    B.[.U...........
+           0x0250:  43 02 5D 02 56 FE C0 FE C0 FE C0 FE C0 FE C0 00    C.].V...........
+           0x0260:  00 00 30 00 00 02 40 00 00 00 00 00 00 00 00 00    ..0...@.........
+           0x0270:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 E1    ................
+           0x0280:  20 7F 05 FF 6F 00 12 FF 00 02 45 00 00 00 00 00     ...o.....E.....
+           0x0290:  00 00 00 00 00 00 00 00 00 4A 7F 05 FF 40 00 1C    .........J...@..
+           0x02A0:  00 48 00 4B 00 4B FF D8 FF D8 FF D8 FF D8 FF D8    .H.K.K..........
+           0x02B0:  00 00 00 00 00 00 00 00 32 05 00 00 27 7F 06 FF    ........2...'...
+           0x02C0:  47 00 49 20 00 00 00 00 FF FF FF FF 02 A1 02 A0    G.I ............
+           0x02D0:  FE C0 FE C0 FE C0 FE C0 FE C0 FE C0 02 9D 02 A1    ................
+           0x02E0:  FE C0 FE C0 FE C0 FE C0 FE C0 FE C0 00 00 02 08    ................
+           0x02F0:  02 08 00 00 00 00 00 00 00 00 00 08 00 00 00 00    ................
+           0x0300:  00 00 00 00 00 00 00 00 00 00 00 00 BB 7F 06 FF    ................
+           0x0310:  6F 00 12 FF 00 00 00 00 00 00 00 00 00 00 00 00    o...............
+           0x0320:  00 00 00 00 00 04 7F 06 FF 40 00 1C 00 54 00 54    .........@...T.T
+           0x0330:  FF D8 FF D8 FF D8 FF D8 FF D8 FF D8 20 00 20 00    ............ . .
+           0x0340:  00 00 00 00 01 00 00 00 D3 7F 07 FF 47 00 49 20    ............G.I 
+           0x0350:  00 00 00 00 FF FF FF FF 02 A5 02 95 FE C0 FE C0    ................
+           0x0360:  00 00 00 00 FE C0 FE C0 02 A4 02 95 FE C0 FE C0    ................
+           0x0370:  00 00 00 00 FE C0 FE C0 00 00 02 08 02 08 00 00    ................
+           0x0380:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+           0x0390:  00 00 00 00 00 00 00 00 B0 7F 07 FF 6F 00 12 FF    ............o...
+           0x03A0:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+           0x03B0:  00 05 7F 07 FF 40 00 1C 00 55 00 53 FF D8 FF D8    .....@...U.S....
+           0x03C0:  00 00 00 00 FF D8 FF D8 20 00 20 00 00 00 00 00    ........ . .....
+           0x03D0:  55 00 00 00 7A 7F 08 FF 47 00 49 28 00 00 00 00    U...z...G.I(....
+           0x03E0:  FF FF FF FF 02 89 01 ED FE E1 20 FE E7 FE E1 20    .......... .... 
+           0x03F0:  FE E1 20 FE E7 FE E7 02 89 01 EE FE E1 20 FE E7    .. .......... ..
+           0x0400:  FE E7 FE E1 20 FE E1 20 FE E7 00 00 00 00 00 00    .... .. ........
+           0x0410:  02 40 00 00 00 00 00 00 00 08 00 00 00 00 00 00    .@..............
+           0x0420:  00 00 00 00 00 00 00 00 00 00 0F 7F 08 FF 6F 00    ..............o.
+           0x0430:  12 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+           0x0440:  00 00 00 06 7F 08 FF 40 00 1C 00 51 00 3E FF DC    .......@...Q.>..
+           0x0450:  FF DD FF DC FF DC FF DD FF DD 28 00 28 00 00 00    ..........(.(...
+           0x0460:  00 00 51 71 11 77 30 7F 09 FF 47 00 49 00 00 00    ..Qq.w0...G.I...
+           0x0470:  00 00 FF FF FF FF 02 A8 02 A1 02 9D 02 9F FE C0    ................
+           0x0480:  02 A4 02 A4 FE C0 02 A7 02 A3 02 9C 02 9D FE C0    ................
+           0x0490:  02 A4 02 A4 FE C0 00 00 00 00 02 08 01 C8 02 A2    ................
+           0x04A0:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+           0x04B0:  00 00 00 00 00 00 32 7F 09 FF 6F 00 12 FF 00 00    ......2...o.....
+           0x04C0:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07    ................
+           0x04D0:  7F 09 FF 40 00 1C 00 55 00 54 00 54 00 54 FF D8    ...@...U.T.T.T..
+           0x04E0:  00 55 00 55 FF D8 00 00 00 00 00 00 00 00 10 75    .U.U...........u
+           0x04F0:  40 04 55 7F 0A FF 47 00 49 00 00 00 00 00 FF FF    @.U...G.I.......
+           0x0500:  FF FF 02 AB 02 A4 02 A3 02 9D FE C0 02 A4 02 A9    ................
+           0x0510:  02 A8 02 AB 02 A4 02 A0 02 9D FE C0 02 A4 02 A9    ................
+           0x0520:  02 A7 00 00 00 00 01 F0 01 C8 02 A6 00 00 00 00    ................
+           0x0530:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+           0x0540:  00 00 12 7F 0A FF 6F 00 12 FF 00 00 00 00 00 00    ......o.........
+           0x0550:  00 00 00 00 00 00 00 00 00 00 00 08 7F 0A FF 40    ...............@
+           0x0560:  00 1C 00 55 00 55 00 54 00 54 FF D8 00 55 00 55    ...U.U.T.T...U.U
+           0x0570:  00 55 00 00 00 00 00 00 00 00 43 53 40 01 E3 7F    .U........CS@...
+           0x0580:  FD 01 1C 00 00 99 7F 01 FD 9C 00 0C 40 00 02 00    ............@...
+           0x0590:  00 00 00 00 00 00 00 00 67 7F 01 FF 47 00 49 88    ........g...G.I.
+           0x05A0:  00 00 00 00 FF FF FF FF FE C0 02 B5 01 E4 FE C0    ................
+           0x05B0:  09 4C FE C0 09 70 FE C0 FE C0 02 B5 01 E4 FE C0    .L...p..........
+           0x05C0:  09 70 FE C0 09 70 FE C0 00 00 05 A0 08 98 01 40    .p...p.........@
+           0x05D0:  02 08 02 A8 00 08 00 08 00 00 00 00 00 00 00 00    ................
+           0x05E0:  00 00 00 00 00 00 00 00 C5 7F 01 FF 6F 00 12 FF    ............o...
+           0x05F0:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01    ................
+           0x0600:  BE BE 7F 01 FF 40 00 1C FF D8 00 57 00 3D FF D8    .....@.....W.=..
+           0x0610:  01 2A FF D8 01 2E FF D8 88 00 88 00 00 00 00 00    .*..............
+           0x0620:  50 04 04 00 8D 7F 02 FF 47 00 49 00 00 00 00 00    P.......G.I.....
+           0x0630:  FF FF FF FF FE C0 FE C0 FE C0 FE C0 FE C0 FE C0    ................
+           0x0640:  FE C0 FE C0 FE C0 FE C0 FE C0 FE C0 FE C0 FE C0    ................
+           0x0650:  FE C0 FE C0 00 08 00 00 00 00 00 08 01 E0 02 9B    ................
+           0x0660:  00 00 00 08 00 00 00 00 00 00 00 00 00 00 00 00    ................
+           0x0670:  00 00 00 00 82 7F 02 FF 6F 00 12 FF 00 00 48 00    ........o.....H.
+           0x0680:  48 00 48 00 48 00 48 00 48 00 48 00 48 40 7F 02    H.H.H.H.H.H.H@..
+           0x0690:  FF 40 00 1C FF D8 FF D8 FF D8 FF D8 FF D8 FF D8    .@..............
+           0x06A0:  FF D8 FF D8 00 00 00 00 00 00 00 00 00 00 00 00    ................
+           0x06B0:  94 7F 03 FF 47 00 49 88 00 00 00 00 FF FF FF FF    ....G.I.........
+           0x06C0:  FE C0 FE C0 FE C0 FE C0 FE C0 FE C0 09 70 09 70    .............p.p
+           *
+           0x06E0:  00 00 02 30 02 40 01 B8 01 F8 01 90 00 00 00 08    ...0.@..........
+           0x06F0:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+           0x0700:  20 7F 03 FF 6F 00 12 FF 00 00 00 00 00 00 00 00     ...o...........
+           0x0710:  00 00 00 00 00 00 00 00 00 01 7F 03 FF 40 00 1C    .............@..
+           0x0720:  FF D8 FF D8 FF D8 FF D8 FF D8 FF D8 01 2E 01 2E    ................
+           0x0730:  88 00 88 00 00 00 00 00 00 00 00 00 55 7F 04 FF    ............U...
+           0x0740:  47 00 49 28 00 00 00 00 FF FF FF FF 02 43 01 A0    G.I(.........C..
+           0x0750:  02 3C FE C0 FE C0 FE C0 FE C0 FE C0 02 43 01 9F    .<...........C..
+           0x0760:  02 3C FE C0 FE C0 FE C0 FE C0 FE C0 02 46 00 18    .<...........F..
+           0x0770:  00 00 02 40 00 00 00 00 00 00 00 08 00 00 00 00    ...@............
+           0x0780:  00 00 00 00 00 00 00 00 00 00 00 00 93 7F 04 FF    ................
+           0x0790:  6F 00 12 FF 00 00 00 00 00 00 00 00 00 00 00 00    o...............
+           0x07A0:  00 00 00 00 00 02 7F 04 FF 40 00 1C 00 48 00 34    .........@...H.4
+           0x07B0:  00 48 FF D8 FF D8 FF D8 FF D8 FF D8 28 00 28 00    .H..........(.(.
+           0x07C0:  00 00 00 00 03 04 00 00 2C 7F 05 FF 47 00 49 00    ........,...G.I.
+           0x07D0:  00 00 00 00 FF FF FF FF 02 42 02 5B 02 55 FE C0    .........B.[.U..
+           0x07E0:  FE C0 FE C0 FE C0 FE C0 02 43 02 5D 02 56 FE C0    .........C.].V..
+           0x07F0:  FE C0 FE C0 FE C0 FE C0 00 00 00 30 00 00 02       ...........0... 
+           
+"
+"11219","","","None","166.141.160.26","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","166.141.160.26","tcp","8080","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8080/tcp was found to be open"
+"11219","","","None","166.141.160.26","tcp","502","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 502/tcp was found to be open"
+"11219","","","None","166.141.160.26","tcp","8181","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8181/tcp was found to be open"
+"11219","","","None","166.141.160.26","tcp","8443","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8443/tcp was found to be open"
+"11219","","","None","166.141.160.26","tcp","8484","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8484/tcp was found to be open"
+"11219","","","None","166.141.160.26","tcp","3011","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 3011/tcp was found to be open"
+"11219","","","None","166.141.160.26","tcp","10001","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 10001/tcp was found to be open"
+"11219","","","None","166.141.160.26","tcp","8383","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8383/tcp was found to be open"
+"11219","","","None","166.141.160.26","tcp","1911","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 1911/tcp was found to be open"
+"11936","","","None","166.141.160.26","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Lantronix Universal Device Server UDS1100
+Confidence level : 80
+Method : HTML
+
+ 
+The remote host is running Lantronix Universal Device Server UDS1100"
+"19506","","","None","166.141.160.26","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:50 
+Scan duration : 4742 sec
+"
+"22964","","","None","166.141.160.26","tcp","8484","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","166.141.160.26","tcp","8443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A TLSv1.1 server answered on this port.
+"
+"22964","","","None","166.141.160.26","tcp","80","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port."
+"22964","","","None","166.141.160.26","tcp","3011","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port."
+"22964","","","None","166.141.160.26","tcp","8080","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port."
+"22964","","","None","166.141.160.26","tcp","8181","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port."
+"22964","","","None","166.141.160.26","tcp","8383","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port."
+"22964","","","None","166.141.160.26","tcp","8443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port through TLSv1.1."
+"24260","","","None","166.141.160.26","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : no
+Headers :
+
+  content-type: text/html; charset=UTF-8
+  date: Fri, 19 Aug 2016 02:03:40 GMT
+  content-length: 863
+  cache-control: private, must-revalidate
+  location: http://166.141.160.26/login
+  expires: Thu, 01 Jan 1970 00:00:00 GMT
+  server: Niagara Web Server/3.8.38
+  
+"
+"24260","","","None","166.141.160.26","tcp","3011","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : no
+Options allowed : (Not implemented)
+Headers :
+
+  x-frame-options: deny
+  Connection: close
+  Content-Length: 53
+  Content-Type: text/html
+  Niagara-Platform: QNX
+  Niagara-HostId: Qnx-NPM3-0000-17BF-B12A
+  Baja-Station-Brand: vykon
+  Niagara-Started: 2016-6-9-7-51-42
+  Server: Niagara Web Server/3.0
+  
+"
+"24260","","","None","166.141.160.26","tcp","8080","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : no
+Options allowed : (Not implemented)
+Headers :
+
+  Date: Fri, 19 Aug 2016 01:49:18 GMT
+  Content-Length: 0
+  Content-Type: text/html; charset=UTF-8
+  Location: /admin/
+  Server: TornadoServer/3.0.1
+  
+"
+"24260","","","None","166.141.160.26","tcp","8383","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : yes
+Options allowed : GET, POST
+Headers :
+
+  Date: 
+  Server: HyperX/1.0 ( ThreadX ) 
+  Content-Length: 0
+  WWW-Authenticate: Basic realm=""PM5500""
+  Keep-Alive: timeout=10, max=100
+  Connection: Keep-Alive
+  Cache-Control: public, max-age=3600
+  
+"
+"24260","","","None","166.141.160.26","tcp","8443","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : yes
+Keep-Alive : no
+Options allowed : (Not implemented)
+Headers :
+
+  Date: Fri, 19 Aug 2016 01:49:26 GMT
+  Content-Length: 0
+  Content-Type: text/html; charset=UTF-8
+  Location: /admin/
+  Server: TornadoServer/3.0.1
+  
+"
+"25220","","","None","166.141.160.26","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"35291","CVE-2004-2761","4.0","Medium","166.141.160.26","tcp","8443","SSL Certificate Signed Using Weak Hashing Algorithm","An SSL certificate in the certificate chain has been signed using a
+weak hash algorithm.","The remote service uses an SSL certificate chain that has been signed
+using a cryptographically weak hashing algorithm (e.g. MD2, MD4, MD5,
+or SHA1). These signature algorithms are known to be vulnerable to
+collision attacks. An attacker can exploit this to generate another
+certificate with the same digital signature, allowing an attacker to
+masquerade as the affected service.
+
+Note that this plugin reports all SSL certificate chains signed with
+SHA-1 that expire after January 1, 2017 as vulnerable. This is in
+accordance with Google's gradual sunsetting of the SHA-1 cryptographic
+hash algorithm.
+
+Note that certificates in the chain that are contained in the Nessus
+CA database have been ignored.","Contact the Certificate Authority to have the certificate reissued.","http://tools.ietf.org/html/rfc3279
+http://www.phreedom.org/research/rogue-ca/
+http://technet.microsoft.com/en-us/security/advisory/961509","
+The following certificates were part of the certificate chain sent by
+the remote host, but contain hashes that are considered to be weak.
+
+|-Subject             : O=CradlePoint Technology/OU=http://www.cradlepoint.com/CN=cp
+|-Signature Algorithm : SHA-1 With RSA Encryption
+|-Valid From          : Apr 09 19:48:33 2014 GMT
+|-Valid To            : Apr 08 19:48:33 2019 GMT
+"
+"43111","","","None","166.141.160.26","tcp","8383","HTTP Methods Allowed (per directory)","This plugin determines which HTTP methods are allowed on various CGI
+directories.","By calling the OPTIONS method, it is possible to determine which HTTP 
+methods are allowed on each directory. 
+
+As this list may be incomplete, the plugin also tests - if 'Thorough
+tests' are enabled or 'Enable web applications tests' is set to 'yes'
+in the scan policy - various known HTTP methods on each directory and
+considers them as unsupported if it receives a response code of 400,
+403, 405, or 501. 
+
+Note that the plugin output is only informational and does not
+necessarily indicate the presence of any security vulnerabilities.","n/a","","Based on the response to an OPTIONS request :
+
+  - HTTP methods  POST GET are allowed on : 
+
+    /
+
+"
+"50845","","","None","166.141.160.26","tcp","8443","OpenSSL Detection","The remote service appears to use OpenSSL to encrypt traffic.","Based on its response to a TLS request with a specially crafted
+server name extension, it seems that the remote service is using the
+OpenSSL library to encrypt traffic.
+
+Note that this plugin can only detect OpenSSL implementations that
+have enabled support for TLS extensions (RFC 4366).","n/a","http://www.openssl.org",""
+"51192","","6.4","Medium","166.141.160.26","tcp","8443","SSL Certificate Cannot Be Trusted","The SSL certificate for this service cannot be trusted.","The server's X.509 certificate does not have a signature from a known
+public certificate authority.  This situation can occur in three
+different ways, each of which results in a break in the chain below
+which certificates cannot be trusted. 
+
+First, the top of the certificate chain sent by the server might not
+be descended from a known public certificate authority.  This can
+occur either when the top of the chain is an unrecognized, self-signed
+certificate, or when intermediate certificates are missing that would
+connect the top of the certificate chain to a known public certificate
+authority. 
+
+Second, the certificate chain may contain a certificate that is not
+valid at the time of the scan.  This can occur either when the scan
+occurs before one of the certificate's 'notBefore' dates, or after one
+of the certificate's 'notAfter' dates. 
+
+Third, the certificate chain may contain a signature that either
+didn't match the certificate's information, or could not be verified.  
+Bad signatures can be fixed by getting the certificate with
+the bad signature to be re-signed by its issuer.  Signatures that
+could not be verified are the result of the certificate's issuer using
+a signing algorithm that Nessus either does not support or does not
+recognize. 
+
+If the remote host is a public host in production, any break in the
+chain makes it more difficult for users to verify the authenticity and 
+identity of the web server. This could make it easier to carry out 
+man-in-the-middle attacks against the remote host.","Purchase or generate a proper certificate for this service.","","
+The following certificate was at the top of the certificate
+chain sent by the remote host, but is signed by an unknown
+certificate authority :
+
+|-Subject : O=CradlePoint Technology/OU=http://www.cradlepoint.com/CN=cp
+|-Issuer  : O=CradlePoint Technology/OU=http://www.cradlepoint.com/CN=cp
+"
+"54615","","","None","166.141.160.26","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"56984","","","None","166.141.160.26","tcp","8443","SSL / TLS Versions Supported","The remote service encrypts communications.","This plugin detects which SSL and TLS versions are supported by the
+remote service for encrypting communications.","n/a","","
+This port supports SSLv3/TLSv1.0/TLSv1.1/TLSv1.2.
+"
+"57582","","6.4","Medium","166.141.160.26","tcp","8443","SSL Self-Signed Certificate","The SSL certificate chain for this service ends in an unrecognized
+self-signed certificate.","The X.509 certificate chain for this service is not signed by a
+recognized certificate authority.  If the remote host is a public host
+in production, this nullifies the use of SSL as anyone could establish
+a man-in-the-middle attack against the remote host. 
+
+Note that this plugin does not check for certificate chains that end
+in a certificate that is not self-signed, but is signed by an
+unrecognized certificate authority.","Purchase or generate a proper certificate for this service.","","
+The following certificate was found at the top of the certificate
+chain sent by the remote host, but is self-signed and was not
+found in the list of known certificate authorities :
+
+|-Subject : O=CradlePoint Technology/OU=http://www.cradlepoint.com/CN=cp
+"
+"66334","","","None","166.141.160.26","tcp","0","Patch Report","The remote host is missing several patches.","The remote host is missing one or more security patches. This plugin
+lists the newest version of each patch to install to make sure the
+remote host is up-to-date.","Install the patches listed below.","","
+
+. You need to take the following action :
+[ OpenSSL 'ChangeCipherSpec' MiTM Vulnerability (77200) ]
+
++ Action to take : 
+
+
+"
+"67142","","","None","166.141.160.26","tcp","80","Tridium Niagara AX Web Server Detection","The remote host is running a SCADA-related web server.","The remote host is running the Tridium Niagara AX Web Server, Tridium
+Niagara AX is a development framework used to create software for use in
+SCADA environments.","n/a","http://www.tridium.com/cs/products_/_services/niagaraax","
+Tridium Niagara AX Web Server was detected :
+
+  URL     : http://166.141.160.26/
+  Version : 3.8.38
+"
+"67142","","","None","166.141.160.26","tcp","3011","Tridium Niagara AX Web Server Detection","The remote host is running a SCADA-related web server.","The remote host is running the Tridium Niagara AX Web Server, Tridium
+Niagara AX is a development framework used to create software for use in
+SCADA environments.","n/a","http://www.tridium.com/cs/products_/_services/niagaraax","
+Tridium Niagara AX Web Server was detected :
+
+  URL     : http://166.141.160.26:3011/
+  Version : 3.0
+"
+"77200","CVE-2010-5298","9.3","High","166.141.160.26","tcp","8443","OpenSSL 'ChangeCipherSpec' MiTM Vulnerability","The remote host is affected by a vulnerability that could allow
+sensitive data to be decrypted.","The OpenSSL service on the remote host is vulnerable to a
+man-in-the-middle (MiTM) attack, based on its acceptance of a
+specially crafted handshake.
+
+This flaw could allow a MiTM attacker to decrypt or forge SSL messages
+by telling the service to begin encrypted communications before key
+material has been exchanged, which causes predictable keys to be used
+to secure future traffic.
+
+Note that Nessus has only tested for an SSL/TLS MiTM vulnerability
+(CVE-2014-0224). However, Nessus has inferred that the OpenSSL service
+on the remote host is also affected by six additional vulnerabilities
+that were disclosed in OpenSSL's June 5th, 2014 security advisory :
+
+  - An error exists in the 'ssl3_read_bytes' function
+    that permits data to be injected into other sessions
+    or allows denial of service attacks. Note that this
+    issue is exploitable only if SSL_MODE_RELEASE_BUFFERS
+    is enabled. (CVE-2010-5298)
+
+  - An error exists related to the implementation of the
+    Elliptic Curve Digital Signature Algorithm (ECDSA) that
+    allows nonce disclosure via the 'FLUSH+RELOAD' cache
+    side-channel attack. (CVE-2014-0076)
+
+  - A buffer overflow error exists related to invalid DTLS
+    fragment handling that permits the execution of
+    arbitrary code or allows denial of service attacks.
+    Note that this issue only affects OpenSSL when used
+    as a DTLS client or server. (CVE-2014-0195)
+
+  - An error exists in the 'do_ssl3_write' function that
+    permits a NULL pointer to be dereferenced, which could
+    allow denial of service attacks. Note that this issue
+    is exploitable only if SSL_MODE_RELEASE_BUFFERS is
+    enabled. (CVE-2014-0198)
+
+  - An error exists related to DTLS handshake handling that
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL when used as a DTLS client.
+    (CVE-2014-0221)
+
+  - An error exists in the 'dtls1_get_message_fragment'
+    function related to anonymous ECDH cipher suites. This
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL TLS clients. (CVE-2014-3470)
+
+OpenSSL did not release individual patches for these vulnerabilities,
+instead they were all patched under a single version release. Note
+that the service will remain vulnerable after patching until the
+service or host is restarted.","OpenSSL 0.9.8 SSL/TLS users (client and/or server) should upgrade to
+0.9.8za. OpenSSL 1.0.0 SSL/TLS users (client and/or server) should
+upgrade to 1.0.0m. OpenSSL 1.0.1 SSL/TLS users (client and/or server)
+should upgrade to 1.0.1h.","http://www.nessus.org/u?d5709faa
+https://www.imperialviolet.org/2014/06/05/earlyccs.html
+https://www.openssl.org/news/secadv/20140605.txt","
+The remote service on port 8443 accepted an early ChangeCipherSpec message, which caused 
+the MAC and encryption keys to be derived entirely from public information. The entire SSL 
+handshake was completed, with the server accepting and producing messages encrypted and 
+authenticated using these weak keys.
+"
+"77200","CVE-2014-0076","9.3","High","166.141.160.26","tcp","8443","OpenSSL 'ChangeCipherSpec' MiTM Vulnerability","The remote host is affected by a vulnerability that could allow
+sensitive data to be decrypted.","The OpenSSL service on the remote host is vulnerable to a
+man-in-the-middle (MiTM) attack, based on its acceptance of a
+specially crafted handshake.
+
+This flaw could allow a MiTM attacker to decrypt or forge SSL messages
+by telling the service to begin encrypted communications before key
+material has been exchanged, which causes predictable keys to be used
+to secure future traffic.
+
+Note that Nessus has only tested for an SSL/TLS MiTM vulnerability
+(CVE-2014-0224). However, Nessus has inferred that the OpenSSL service
+on the remote host is also affected by six additional vulnerabilities
+that were disclosed in OpenSSL's June 5th, 2014 security advisory :
+
+  - An error exists in the 'ssl3_read_bytes' function
+    that permits data to be injected into other sessions
+    or allows denial of service attacks. Note that this
+    issue is exploitable only if SSL_MODE_RELEASE_BUFFERS
+    is enabled. (CVE-2010-5298)
+
+  - An error exists related to the implementation of the
+    Elliptic Curve Digital Signature Algorithm (ECDSA) that
+    allows nonce disclosure via the 'FLUSH+RELOAD' cache
+    side-channel attack. (CVE-2014-0076)
+
+  - A buffer overflow error exists related to invalid DTLS
+    fragment handling that permits the execution of
+    arbitrary code or allows denial of service attacks.
+    Note that this issue only affects OpenSSL when used
+    as a DTLS client or server. (CVE-2014-0195)
+
+  - An error exists in the 'do_ssl3_write' function that
+    permits a NULL pointer to be dereferenced, which could
+    allow denial of service attacks. Note that this issue
+    is exploitable only if SSL_MODE_RELEASE_BUFFERS is
+    enabled. (CVE-2014-0198)
+
+  - An error exists related to DTLS handshake handling that
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL when used as a DTLS client.
+    (CVE-2014-0221)
+
+  - An error exists in the 'dtls1_get_message_fragment'
+    function related to anonymous ECDH cipher suites. This
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL TLS clients. (CVE-2014-3470)
+
+OpenSSL did not release individual patches for these vulnerabilities,
+instead they were all patched under a single version release. Note
+that the service will remain vulnerable after patching until the
+service or host is restarted.","OpenSSL 0.9.8 SSL/TLS users (client and/or server) should upgrade to
+0.9.8za. OpenSSL 1.0.0 SSL/TLS users (client and/or server) should
+upgrade to 1.0.0m. OpenSSL 1.0.1 SSL/TLS users (client and/or server)
+should upgrade to 1.0.1h.","http://www.nessus.org/u?d5709faa
+https://www.imperialviolet.org/2014/06/05/earlyccs.html
+https://www.openssl.org/news/secadv/20140605.txt","
+The remote service on port 8443 accepted an early ChangeCipherSpec message, which caused 
+the MAC and encryption keys to be derived entirely from public information. The entire SSL 
+handshake was completed, with the server accepting and producing messages encrypted and 
+authenticated using these weak keys.
+"
+"77200","CVE-2014-0195","9.3","High","166.141.160.26","tcp","8443","OpenSSL 'ChangeCipherSpec' MiTM Vulnerability","The remote host is affected by a vulnerability that could allow
+sensitive data to be decrypted.","The OpenSSL service on the remote host is vulnerable to a
+man-in-the-middle (MiTM) attack, based on its acceptance of a
+specially crafted handshake.
+
+This flaw could allow a MiTM attacker to decrypt or forge SSL messages
+by telling the service to begin encrypted communications before key
+material has been exchanged, which causes predictable keys to be used
+to secure future traffic.
+
+Note that Nessus has only tested for an SSL/TLS MiTM vulnerability
+(CVE-2014-0224). However, Nessus has inferred that the OpenSSL service
+on the remote host is also affected by six additional vulnerabilities
+that were disclosed in OpenSSL's June 5th, 2014 security advisory :
+
+  - An error exists in the 'ssl3_read_bytes' function
+    that permits data to be injected into other sessions
+    or allows denial of service attacks. Note that this
+    issue is exploitable only if SSL_MODE_RELEASE_BUFFERS
+    is enabled. (CVE-2010-5298)
+
+  - An error exists related to the implementation of the
+    Elliptic Curve Digital Signature Algorithm (ECDSA) that
+    allows nonce disclosure via the 'FLUSH+RELOAD' cache
+    side-channel attack. (CVE-2014-0076)
+
+  - A buffer overflow error exists related to invalid DTLS
+    fragment handling that permits the execution of
+    arbitrary code or allows denial of service attacks.
+    Note that this issue only affects OpenSSL when used
+    as a DTLS client or server. (CVE-2014-0195)
+
+  - An error exists in the 'do_ssl3_write' function that
+    permits a NULL pointer to be dereferenced, which could
+    allow denial of service attacks. Note that this issue
+    is exploitable only if SSL_MODE_RELEASE_BUFFERS is
+    enabled. (CVE-2014-0198)
+
+  - An error exists related to DTLS handshake handling that
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL when used as a DTLS client.
+    (CVE-2014-0221)
+
+  - An error exists in the 'dtls1_get_message_fragment'
+    function related to anonymous ECDH cipher suites. This
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL TLS clients. (CVE-2014-3470)
+
+OpenSSL did not release individual patches for these vulnerabilities,
+instead they were all patched under a single version release. Note
+that the service will remain vulnerable after patching until the
+service or host is restarted.","OpenSSL 0.9.8 SSL/TLS users (client and/or server) should upgrade to
+0.9.8za. OpenSSL 1.0.0 SSL/TLS users (client and/or server) should
+upgrade to 1.0.0m. OpenSSL 1.0.1 SSL/TLS users (client and/or server)
+should upgrade to 1.0.1h.","http://www.nessus.org/u?d5709faa
+https://www.imperialviolet.org/2014/06/05/earlyccs.html
+https://www.openssl.org/news/secadv/20140605.txt","
+The remote service on port 8443 accepted an early ChangeCipherSpec message, which caused 
+the MAC and encryption keys to be derived entirely from public information. The entire SSL 
+handshake was completed, with the server accepting and producing messages encrypted and 
+authenticated using these weak keys.
+"
+"77200","CVE-2014-0198","9.3","High","166.141.160.26","tcp","8443","OpenSSL 'ChangeCipherSpec' MiTM Vulnerability","The remote host is affected by a vulnerability that could allow
+sensitive data to be decrypted.","The OpenSSL service on the remote host is vulnerable to a
+man-in-the-middle (MiTM) attack, based on its acceptance of a
+specially crafted handshake.
+
+This flaw could allow a MiTM attacker to decrypt or forge SSL messages
+by telling the service to begin encrypted communications before key
+material has been exchanged, which causes predictable keys to be used
+to secure future traffic.
+
+Note that Nessus has only tested for an SSL/TLS MiTM vulnerability
+(CVE-2014-0224). However, Nessus has inferred that the OpenSSL service
+on the remote host is also affected by six additional vulnerabilities
+that were disclosed in OpenSSL's June 5th, 2014 security advisory :
+
+  - An error exists in the 'ssl3_read_bytes' function
+    that permits data to be injected into other sessions
+    or allows denial of service attacks. Note that this
+    issue is exploitable only if SSL_MODE_RELEASE_BUFFERS
+    is enabled. (CVE-2010-5298)
+
+  - An error exists related to the implementation of the
+    Elliptic Curve Digital Signature Algorithm (ECDSA) that
+    allows nonce disclosure via the 'FLUSH+RELOAD' cache
+    side-channel attack. (CVE-2014-0076)
+
+  - A buffer overflow error exists related to invalid DTLS
+    fragment handling that permits the execution of
+    arbitrary code or allows denial of service attacks.
+    Note that this issue only affects OpenSSL when used
+    as a DTLS client or server. (CVE-2014-0195)
+
+  - An error exists in the 'do_ssl3_write' function that
+    permits a NULL pointer to be dereferenced, which could
+    allow denial of service attacks. Note that this issue
+    is exploitable only if SSL_MODE_RELEASE_BUFFERS is
+    enabled. (CVE-2014-0198)
+
+  - An error exists related to DTLS handshake handling that
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL when used as a DTLS client.
+    (CVE-2014-0221)
+
+  - An error exists in the 'dtls1_get_message_fragment'
+    function related to anonymous ECDH cipher suites. This
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL TLS clients. (CVE-2014-3470)
+
+OpenSSL did not release individual patches for these vulnerabilities,
+instead they were all patched under a single version release. Note
+that the service will remain vulnerable after patching until the
+service or host is restarted.","OpenSSL 0.9.8 SSL/TLS users (client and/or server) should upgrade to
+0.9.8za. OpenSSL 1.0.0 SSL/TLS users (client and/or server) should
+upgrade to 1.0.0m. OpenSSL 1.0.1 SSL/TLS users (client and/or server)
+should upgrade to 1.0.1h.","http://www.nessus.org/u?d5709faa
+https://www.imperialviolet.org/2014/06/05/earlyccs.html
+https://www.openssl.org/news/secadv/20140605.txt","
+The remote service on port 8443 accepted an early ChangeCipherSpec message, which caused 
+the MAC and encryption keys to be derived entirely from public information. The entire SSL 
+handshake was completed, with the server accepting and producing messages encrypted and 
+authenticated using these weak keys.
+"
+"77200","CVE-2014-0221","9.3","High","166.141.160.26","tcp","8443","OpenSSL 'ChangeCipherSpec' MiTM Vulnerability","The remote host is affected by a vulnerability that could allow
+sensitive data to be decrypted.","The OpenSSL service on the remote host is vulnerable to a
+man-in-the-middle (MiTM) attack, based on its acceptance of a
+specially crafted handshake.
+
+This flaw could allow a MiTM attacker to decrypt or forge SSL messages
+by telling the service to begin encrypted communications before key
+material has been exchanged, which causes predictable keys to be used
+to secure future traffic.
+
+Note that Nessus has only tested for an SSL/TLS MiTM vulnerability
+(CVE-2014-0224). However, Nessus has inferred that the OpenSSL service
+on the remote host is also affected by six additional vulnerabilities
+that were disclosed in OpenSSL's June 5th, 2014 security advisory :
+
+  - An error exists in the 'ssl3_read_bytes' function
+    that permits data to be injected into other sessions
+    or allows denial of service attacks. Note that this
+    issue is exploitable only if SSL_MODE_RELEASE_BUFFERS
+    is enabled. (CVE-2010-5298)
+
+  - An error exists related to the implementation of the
+    Elliptic Curve Digital Signature Algorithm (ECDSA) that
+    allows nonce disclosure via the 'FLUSH+RELOAD' cache
+    side-channel attack. (CVE-2014-0076)
+
+  - A buffer overflow error exists related to invalid DTLS
+    fragment handling that permits the execution of
+    arbitrary code or allows denial of service attacks.
+    Note that this issue only affects OpenSSL when used
+    as a DTLS client or server. (CVE-2014-0195)
+
+  - An error exists in the 'do_ssl3_write' function that
+    permits a NULL pointer to be dereferenced, which could
+    allow denial of service attacks. Note that this issue
+    is exploitable only if SSL_MODE_RELEASE_BUFFERS is
+    enabled. (CVE-2014-0198)
+
+  - An error exists related to DTLS handshake handling that
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL when used as a DTLS client.
+    (CVE-2014-0221)
+
+  - An error exists in the 'dtls1_get_message_fragment'
+    function related to anonymous ECDH cipher suites. This
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL TLS clients. (CVE-2014-3470)
+
+OpenSSL did not release individual patches for these vulnerabilities,
+instead they were all patched under a single version release. Note
+that the service will remain vulnerable after patching until the
+service or host is restarted.","OpenSSL 0.9.8 SSL/TLS users (client and/or server) should upgrade to
+0.9.8za. OpenSSL 1.0.0 SSL/TLS users (client and/or server) should
+upgrade to 1.0.0m. OpenSSL 1.0.1 SSL/TLS users (client and/or server)
+should upgrade to 1.0.1h.","http://www.nessus.org/u?d5709faa
+https://www.imperialviolet.org/2014/06/05/earlyccs.html
+https://www.openssl.org/news/secadv/20140605.txt","
+The remote service on port 8443 accepted an early ChangeCipherSpec message, which caused 
+the MAC and encryption keys to be derived entirely from public information. The entire SSL 
+handshake was completed, with the server accepting and producing messages encrypted and 
+authenticated using these weak keys.
+"
+"77200","CVE-2014-0224","9.3","High","166.141.160.26","tcp","8443","OpenSSL 'ChangeCipherSpec' MiTM Vulnerability","The remote host is affected by a vulnerability that could allow
+sensitive data to be decrypted.","The OpenSSL service on the remote host is vulnerable to a
+man-in-the-middle (MiTM) attack, based on its acceptance of a
+specially crafted handshake.
+
+This flaw could allow a MiTM attacker to decrypt or forge SSL messages
+by telling the service to begin encrypted communications before key
+material has been exchanged, which causes predictable keys to be used
+to secure future traffic.
+
+Note that Nessus has only tested for an SSL/TLS MiTM vulnerability
+(CVE-2014-0224). However, Nessus has inferred that the OpenSSL service
+on the remote host is also affected by six additional vulnerabilities
+that were disclosed in OpenSSL's June 5th, 2014 security advisory :
+
+  - An error exists in the 'ssl3_read_bytes' function
+    that permits data to be injected into other sessions
+    or allows denial of service attacks. Note that this
+    issue is exploitable only if SSL_MODE_RELEASE_BUFFERS
+    is enabled. (CVE-2010-5298)
+
+  - An error exists related to the implementation of the
+    Elliptic Curve Digital Signature Algorithm (ECDSA) that
+    allows nonce disclosure via the 'FLUSH+RELOAD' cache
+    side-channel attack. (CVE-2014-0076)
+
+  - A buffer overflow error exists related to invalid DTLS
+    fragment handling that permits the execution of
+    arbitrary code or allows denial of service attacks.
+    Note that this issue only affects OpenSSL when used
+    as a DTLS client or server. (CVE-2014-0195)
+
+  - An error exists in the 'do_ssl3_write' function that
+    permits a NULL pointer to be dereferenced, which could
+    allow denial of service attacks. Note that this issue
+    is exploitable only if SSL_MODE_RELEASE_BUFFERS is
+    enabled. (CVE-2014-0198)
+
+  - An error exists related to DTLS handshake handling that
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL when used as a DTLS client.
+    (CVE-2014-0221)
+
+  - An error exists in the 'dtls1_get_message_fragment'
+    function related to anonymous ECDH cipher suites. This
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL TLS clients. (CVE-2014-3470)
+
+OpenSSL did not release individual patches for these vulnerabilities,
+instead they were all patched under a single version release. Note
+that the service will remain vulnerable after patching until the
+service or host is restarted.","OpenSSL 0.9.8 SSL/TLS users (client and/or server) should upgrade to
+0.9.8za. OpenSSL 1.0.0 SSL/TLS users (client and/or server) should
+upgrade to 1.0.0m. OpenSSL 1.0.1 SSL/TLS users (client and/or server)
+should upgrade to 1.0.1h.","http://www.nessus.org/u?d5709faa
+https://www.imperialviolet.org/2014/06/05/earlyccs.html
+https://www.openssl.org/news/secadv/20140605.txt","
+The remote service on port 8443 accepted an early ChangeCipherSpec message, which caused 
+the MAC and encryption keys to be derived entirely from public information. The entire SSL 
+handshake was completed, with the server accepting and producing messages encrypted and 
+authenticated using these weak keys.
+"
+"77200","CVE-2014-3470","9.3","High","166.141.160.26","tcp","8443","OpenSSL 'ChangeCipherSpec' MiTM Vulnerability","The remote host is affected by a vulnerability that could allow
+sensitive data to be decrypted.","The OpenSSL service on the remote host is vulnerable to a
+man-in-the-middle (MiTM) attack, based on its acceptance of a
+specially crafted handshake.
+
+This flaw could allow a MiTM attacker to decrypt or forge SSL messages
+by telling the service to begin encrypted communications before key
+material has been exchanged, which causes predictable keys to be used
+to secure future traffic.
+
+Note that Nessus has only tested for an SSL/TLS MiTM vulnerability
+(CVE-2014-0224). However, Nessus has inferred that the OpenSSL service
+on the remote host is also affected by six additional vulnerabilities
+that were disclosed in OpenSSL's June 5th, 2014 security advisory :
+
+  - An error exists in the 'ssl3_read_bytes' function
+    that permits data to be injected into other sessions
+    or allows denial of service attacks. Note that this
+    issue is exploitable only if SSL_MODE_RELEASE_BUFFERS
+    is enabled. (CVE-2010-5298)
+
+  - An error exists related to the implementation of the
+    Elliptic Curve Digital Signature Algorithm (ECDSA) that
+    allows nonce disclosure via the 'FLUSH+RELOAD' cache
+    side-channel attack. (CVE-2014-0076)
+
+  - A buffer overflow error exists related to invalid DTLS
+    fragment handling that permits the execution of
+    arbitrary code or allows denial of service attacks.
+    Note that this issue only affects OpenSSL when used
+    as a DTLS client or server. (CVE-2014-0195)
+
+  - An error exists in the 'do_ssl3_write' function that
+    permits a NULL pointer to be dereferenced, which could
+    allow denial of service attacks. Note that this issue
+    is exploitable only if SSL_MODE_RELEASE_BUFFERS is
+    enabled. (CVE-2014-0198)
+
+  - An error exists related to DTLS handshake handling that
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL when used as a DTLS client.
+    (CVE-2014-0221)
+
+  - An error exists in the 'dtls1_get_message_fragment'
+    function related to anonymous ECDH cipher suites. This
+    could allow denial of service attacks. Note that this
+    issue only affects OpenSSL TLS clients. (CVE-2014-3470)
+
+OpenSSL did not release individual patches for these vulnerabilities,
+instead they were all patched under a single version release. Note
+that the service will remain vulnerable after patching until the
+service or host is restarted.","OpenSSL 0.9.8 SSL/TLS users (client and/or server) should upgrade to
+0.9.8za. OpenSSL 1.0.0 SSL/TLS users (client and/or server) should
+upgrade to 1.0.0m. OpenSSL 1.0.1 SSL/TLS users (client and/or server)
+should upgrade to 1.0.1h.","http://www.nessus.org/u?d5709faa
+https://www.imperialviolet.org/2014/06/05/earlyccs.html
+https://www.openssl.org/news/secadv/20140605.txt","
+The remote service on port 8443 accepted an early ChangeCipherSpec message, which caused 
+the MAC and encryption keys to be derived entirely from public information. The entire SSL 
+handshake was completed, with the server accepting and producing messages encrypted and 
+authenticated using these weak keys.
+"
+"84502","","","None","166.141.160.26","tcp","8443","HSTS Missing From HTTPS Server","The remote web server is not enforcing HSTS.","The remote HTTPS server is not enforcing HTTP Strict Transport
+Security (HSTS). The lack of HSTS allows downgrade attacks,
+SSL-stripping man-in-the-middle attacks, and weakens cookie-hijacking
+protections.","Configure the remote web server to use HSTS.","https://tools.ietf.org/html/rfc6797","
+  The remote HTTPS server does not send the HTTP
+  ""Strict-Transport-Security"" header.
+"
+"10919","","","None","166.148.161.244","tcp","0","Open Port Re-check","Previously open ports are now closed.","One of several ports that were previously open are now closed or
+unresponsive.
+
+There are several possible reasons for this :
+
+  - The scan may have caused a service to freeze or stop
+    running.
+
+  - An administrator may have stopped a particular service
+    during the scanning process.
+
+This might be an availability problem related to the following :
+
+  - A network outage has been experienced during the scan,
+    and the remote network cannot be reached anymore by the
+    scanner.
+
+  - This scanner may has been blacklisted by the system
+    administrator or by an automatic intrusion detection /
+    prevention system that detected the scan.
+
+  - The remote host is now down, either because a user
+    turned it off during the scan or because a select denial
+    of service was effective.
+
+In any case, the audit of the remote host might be incomplete and may
+need to be done again.","- Increase checks_read_timeout and/or reduce max_checks.
+
+- Disable any IPS during the Nessus scan","","Port 80 was detected as being open but is now unresponsive
+"
+"11219","","","None","166.148.161.244","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","166.148.161.244","tcp","502","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 502/tcp was found to be open"
+"19506","","","None","166.148.161.244","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:49 
+Scan duration : 4573 sec
+"
+"22964","","","None","166.148.161.244","tcp","80","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port."
+"45590","","","None","166.148.161.244","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+Following application CPE matched on the remote system :
+
+  cpe:/a:igor_sysoev:nginx:1.0.15
+"
+"83301","","5.0","Medium","166.148.161.244","tcp","502","Modbus/TCP Device Identification","Read the Modbus/TCP Device Identification using the Encapsulated
+Interface Transport code 43 and MEI Type 14.","Nessus sent a Modbus Encapsulated Interface read request with MEI type
+14 to obtain the device's Vendor Name, Product Code, and Major and
+Minor Revision. If supported, the data can include Vendor URL, Product
+Name, Model Name, and User Application Name. The alternative is to
+detect Modbus on valid error responses from a device not supporting
+the function code 43 and MEI 14.","Restrict access to the Modbus port (TCP/502) to authorized Modbus
+clients.","http://www.modbus.org/","
+ Modbus Function: 43 MEI: 14
+
+ Basic Device Identification:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+    Product Code: 171 CBU 98090
+
+    Major Minor Revision: v01.00
+
+ Regular Device Identification:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+    Product Code: 171 CBU 98090
+
+    Major Minor Revision: v01.00
+
+ Extended Device Identification:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+    Product Code: 171 CBU 98090
+
+    Major Minor Revision: v01.00
+
+ Specific Identification Object:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+ Unknown Device Identification:
+  Error Code: ILLEGAL DATA VALUE
+"
+"10281","","","None","166.149.53.214","tcp","2332","Telnet Server Detection","A Telnet server is listening on the remote port.","The remote host is running a Telnet server, a remote terminal
+server.","Disable this service if you do not use it.","","Here is the banner from the remote Telnet server :
+
+------------------------------ snip ------------------------------
+
+
+        Welcome to the Sierra Wireless Inc.  ALEOS Environment
+
+LS300 login: 
+------------------------------ snip ------------------------------
+"
+"11219","","","None","166.149.53.214","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","166.149.53.214","tcp","2332","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 2332/tcp was found to be open"
+"11219","","","None","166.149.53.214","tcp","502","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 502/tcp was found to be open"
+"11219","","","None","166.149.53.214","tcp","9443","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 9443/tcp was found to be open"
+"19506","","","None","166.149.53.214","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:34 
+Scan duration : 4979 sec
+"
+"22964","","","None","166.149.53.214","tcp","9443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A TLSv1.1 server answered on this port.
+"
+"22964","","","None","166.149.53.214","tcp","80","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port."
+"22964","","","None","166.149.53.214","tcp","2332","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A telnet server is running on this port."
+"22964","","","None","166.149.53.214","tcp","9443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port through TLSv1.1."
+"42263","","5.8","Medium","166.149.53.214","tcp","2332","Unencrypted Telnet Server","The remote Telnet server transmits traffic in cleartext.","The remote host is running a Telnet server over an unencrypted
+channel.
+
+Using Telnet over an unencrypted channel is not recommended as logins,
+passwords, and commands are transferred in cleartext. This allows a 
+remote, man-in-the-middle attacker to eavesdrop on a Telnet session to
+obtain credentials or other sensitive information and to modify
+traffic exchanged between a client and server.
+
+SSH is preferred over Telnet since it protects credentials from
+eavesdropping and can tunnel additional data streams such as an X11
+session.","Disable the Telnet service and use SSH instead.","","
+Nessus collected the following banner from the remote Telnet server :
+
+------------------------------ snip ------------------------------
+
+
+        Welcome to the Sierra Wireless Inc.  ALEOS Environment
+
+LS300 login: 
+------------------------------ snip ------------------------------
+"
+"10092","","","None","166.154.128.9","tcp","21","FTP Server Detection","An FTP server is listening on a remote port.","It is possible to obtain the banner of the remote FTP server by
+connecting to a remote port.","n/a","","
+The remote FTP banner is :
+
+220  OS-9 ftp server ready
+"
+"10281","","","None","166.154.128.9","tcp","23","Telnet Server Detection","A Telnet server is listening on the remote port.","The remote host is running a Telnet server, a remote terminal
+server.","Disable this service if you do not use it.","","Here is the banner from the remote Telnet server :
+
+------------------------------ snip ------------------------------
+
+OS-9/68K V3.2   Siemens CPU2070E - 68300   16/08/18 19:09:47
+
+User name?: 
+------------------------------ snip ------------------------------
+"
+"10863","","","None","166.154.128.9","tcp","9443","SSL Certificate Information","This plugin displays the SSL certificate.","This plugin connects to every SSL-related port and attempts to 
+extract and dump the X.509 certificate.","n/a","","Subject Name: 
+
+Country: US
+State/Province: CA
+Locality: SF
+Organization: Sierra Wireless
+Organization Unit: AirLink
+Common Name: SWI
+Email Address: support@sierrawireless.com
+
+Issuer Name: 
+
+Country: US
+State/Province: CA
+Locality: SF
+Organization: Sierra Wireless
+Organization Unit: AirLink
+Common Name: SWI
+Email Address: support@sierrawireless.com
+
+Serial Number: 00 CD D6 B4 7B C9 AB D1 51 
+
+Version: 3
+
+Signature Algorithm: SHA-1 With RSA Encryption
+
+Not Valid Before: Dec 10 00:45:35 2010 GMT
+Not Valid After: Dec 07 00:45:35 2020 GMT
+
+Public Key Info: 
+
+Algorithm: RSA Encryption
+Key Length: 2048 bits
+Public Key: 00 C9 43 CA 6B 15 3C 10 A7 37 C5 61 88 EE AD 86 6E 3E DB 16 
+            17 31 2C 40 F8 20 42 AE 2C 3C 71 DC D3 33 FF 79 28 EE 81 AF 
+            A7 CD E7 BE 27 79 34 C0 D3 2D 6F E5 07 32 94 81 93 E1 F0 6E 
+            43 53 65 B6 D9 D7 A9 88 B3 24 F5 9F 79 F7 01 B7 6D B3 3E 2A 
+            00 D3 E3 F9 C7 AA 03 86 8E 5D C9 C3 28 0E 30 C4 DE B8 88 ED 
+            23 74 53 79 EB 7A 08 16 B9 8A F8 95 0A CA E4 FB C9 FA F0 9E 
+            18 25 E6 55 5C 6A 95 78 D3 59 EE 27 9B CB CA 7C 08 BC 68 13 
+            7D 4A 3E 27 25 82 26 68 AB 87 FF 9D 01 FC 3C B9 BC AA CB 83 
+            10 8B E2 37 04 63 1A B0 61 2F 61 1D 3F 56 49 C1 9E 83 7B 1D 
+            E8 6F B2 4D 78 A0 21 E6 95 61 3A 71 F3 D4 B8 5D FA A6 1E CD 
+            74 F0 62 1C B3 96 3B 3C 89 AA D3 D6 8C 06 50 54 25 A8 2B A9 
+            A4 4C 29 90 EA 96 BE 98 D6 BB 4D CC A9 3E 74 D7 2C 85 71 41 
+            25 97 74 D7 B3 D2 E7 0C E0 7B 2D 24 89 38 FF 95 73 
+Exponent: 01 00 01 
+
+Signature Length: 256 bytes / 2048 bits
+Signature: 00 9F 51 63 82 4A F2 88 F5 45 78 0C B7 B5 2F EF C7 8F 66 B6 
+           3A F5 9A 9C C4 FB 27 3F 19 C4 05 F5 3E 37 E3 45 F0 ED 82 1A 
+           60 A2 C7 5A A3 95 F6 A3 7B 35 8A 59 66 55 CE 3F 2D 1C 95 FD 
+           F5 B1 32 0C 08 32 B5 90 BB EA 34 4A C4 97 F8 4A EF 2D B8 2B 
+           8B 24 BE CF 01 0F DE 9C F4 EB 10 58 19 BA DF 03 3A EA 91 3E 
+           93 F6 F4 C2 B8 02 E7 E7 70 52 76 7B CD 0A 28 6D D4 43 7E 94 
+           2A 46 B9 78 21 04 7A 6D BC A0 7C 89 5E BD 29 CA 18 22 B1 01 
+           CB 1A A6 02 56 DC AC 5A D5 4F 7B FD BC 98 CD D2 D2 DF 94 05 
+           B4 B0 5E 5C 2F 5F C2 49 52 CA 73 1D 45 95 EF 58 8A 32 92 FB 
+           93 E5 8E 30 2C 18 03 0D 36 A7 6B E5 96 6E 9A F2 0A C4 43 D9 
+           FC 6C 1D 90 64 D3 C0 90 CF 86 46 A7 F0 32 83 0A 4C 3E 3E 2C 
+           4F 27 8E EF A0 45 70 E5 55 17 41 04 B7 DA AC B8 53 C3 08 85 
+           8E 39 86 A8 BA 09 C8 51 E2 95 1D F6 71 3D 94 2A C6 
+
+Extension: Subject Key Identifier (2.5.29.14)
+Critical: 0
+Subject Key Identifier: D2 A2 E0 B6 D0 BB 7D 95 D0 B7 3B D9 D2 72 5A FA 10 2C 65 61 
+
+
+Extension: Authority Key Identifier (2.5.29.35)
+Critical: 0
+Key Identifier: D2 A2 E0 B6 D0 BB 7D 95 D0 B7 3B D9 D2 72 5A FA 10 2C 65 61 
+Serial Number: 82 09 00 CD D6 B4 7B C9 AB D1 51 
+
+
+Extension: Basic Constraints (2.5.29.19)
+Critical: 0
+CA: TRUE
+
+
+Fingerprints : 
+
+SHA-256 Fingerprint: 5C FE DC AD B2 4D AB D9 DB 92 5C C5 60 22 33 01 F5 69 29 E6 
+                     20 F5 E0 15 F9 6C 5A 8D 6D CD 0A D5 
+SHA-1 Fingerprint: 32 CD 1A 86 73 46 C7 91 5B 15 5A 18 FF 37 E5 40 05 C8 9E 5D 
+MD5 Fingerprint: 67 05 8E 11 84 A2 46 50 FB B0 46 40 73 46 1D 23 
+
+"
+"11153","","","None","166.154.128.9","tcp","8088","Service Detection (HELP Request)","The remote service could be identified.","It was possible to identify the remote service by its banner or by
+looking at the error message it sends when it receives a 'HELP'
+request.","n/a","","A web server seems to be running on this port."
+"11154","","","None","166.154.128.9","tcp","2332","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 2332
+  Type   : spontaneous
+  Banner : 
+0x00:  41 69 72 4C 69 6E 6B 20 41 54 20 43 6F 6D 6D 61    AirLink AT Comma
+           0x10:  6E 64 20 49 6E 74 65 72 70 72 65 74 65 72 0D 0A    nd Interpreter..
+           0x20:  50 61 73 73 77 6F 72 64 3A 20 FF FB 01             Password: ...   
+           
+"
+"11219","","","None","166.154.128.9","tcp","23","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 23/tcp was found to be open"
+"11219","","","None","166.154.128.9","tcp","21","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 21/tcp was found to be open"
+"11219","","","None","166.154.128.9","tcp","2332","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 2332/tcp was found to be open"
+"11219","","","None","166.154.128.9","tcp","8088","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8088/tcp was found to be open"
+"11219","","","None","166.154.128.9","tcp","12345","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 12345/tcp was found to be open"
+"11219","","","None","166.154.128.9","tcp","5150","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5150/tcp was found to be open"
+"11219","","","None","166.154.128.9","tcp","9443","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 9443/tcp was found to be open"
+"19506","","","None","166.154.128.9","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:33 
+Scan duration : 6507 sec
+"
+"22964","","","None","166.154.128.9","tcp","5150","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","166.154.128.9","tcp","12345","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","166.154.128.9","tcp","9443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A TLSv1 server answered on this port.
+"
+"22964","","","None","166.154.128.9","tcp","21","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An FTP server is running on this port."
+"22964","","","None","166.154.128.9","tcp","23","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A telnet server is running on this port."
+"22964","","","None","166.154.128.9","tcp","9443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port through TLSv1."
+"35291","CVE-2004-2761","4.0","Medium","166.154.128.9","tcp","9443","SSL Certificate Signed Using Weak Hashing Algorithm","An SSL certificate in the certificate chain has been signed using a
+weak hash algorithm.","The remote service uses an SSL certificate chain that has been signed
+using a cryptographically weak hashing algorithm (e.g. MD2, MD4, MD5,
+or SHA1). These signature algorithms are known to be vulnerable to
+collision attacks. An attacker can exploit this to generate another
+certificate with the same digital signature, allowing an attacker to
+masquerade as the affected service.
+
+Note that this plugin reports all SSL certificate chains signed with
+SHA-1 that expire after January 1, 2017 as vulnerable. This is in
+accordance with Google's gradual sunsetting of the SHA-1 cryptographic
+hash algorithm.
+
+Note that certificates in the chain that are contained in the Nessus
+CA database have been ignored.","Contact the Certificate Authority to have the certificate reissued.","http://tools.ietf.org/html/rfc3279
+http://www.phreedom.org/research/rogue-ca/
+http://technet.microsoft.com/en-us/security/advisory/961509","
+The following certificates were part of the certificate chain sent by
+the remote host, but contain hashes that are considered to be weak.
+
+|-Subject             : C=US/ST=CA/L=SF/O=Sierra Wireless/OU=AirLink/CN=SWI/E=support@sierrawireless.com
+|-Signature Algorithm : SHA-1 With RSA Encryption
+|-Valid From          : Dec 10 00:45:35 2010 GMT
+|-Valid To            : Dec 07 00:45:35 2020 GMT
+"
+"42263","","5.8","Medium","166.154.128.9","tcp","23","Unencrypted Telnet Server","The remote Telnet server transmits traffic in cleartext.","The remote host is running a Telnet server over an unencrypted
+channel.
+
+Using Telnet over an unencrypted channel is not recommended as logins,
+passwords, and commands are transferred in cleartext. This allows a 
+remote, man-in-the-middle attacker to eavesdrop on a Telnet session to
+obtain credentials or other sensitive information and to modify
+traffic exchanged between a client and server.
+
+SSH is preferred over Telnet since it protects credentials from
+eavesdropping and can tunnel additional data streams such as an X11
+session.","Disable the Telnet service and use SSH instead.","","
+Nessus collected the following banner from the remote Telnet server :
+
+------------------------------ snip ------------------------------
+
+OS-9/68K V3.2   Siemens CPU2070E - 68300   16/08/18 19:09:47
+
+User name?: 
+------------------------------ snip ------------------------------
+"
+"51192","","6.4","Medium","166.154.128.9","tcp","9443","SSL Certificate Cannot Be Trusted","The SSL certificate for this service cannot be trusted.","The server's X.509 certificate does not have a signature from a known
+public certificate authority.  This situation can occur in three
+different ways, each of which results in a break in the chain below
+which certificates cannot be trusted. 
+
+First, the top of the certificate chain sent by the server might not
+be descended from a known public certificate authority.  This can
+occur either when the top of the chain is an unrecognized, self-signed
+certificate, or when intermediate certificates are missing that would
+connect the top of the certificate chain to a known public certificate
+authority. 
+
+Second, the certificate chain may contain a certificate that is not
+valid at the time of the scan.  This can occur either when the scan
+occurs before one of the certificate's 'notBefore' dates, or after one
+of the certificate's 'notAfter' dates. 
+
+Third, the certificate chain may contain a signature that either
+didn't match the certificate's information, or could not be verified.  
+Bad signatures can be fixed by getting the certificate with
+the bad signature to be re-signed by its issuer.  Signatures that
+could not be verified are the result of the certificate's issuer using
+a signing algorithm that Nessus either does not support or does not
+recognize. 
+
+If the remote host is a public host in production, any break in the
+chain makes it more difficult for users to verify the authenticity and 
+identity of the web server. This could make it easier to carry out 
+man-in-the-middle attacks against the remote host.","Purchase or generate a proper certificate for this service.","","
+The following certificate was at the top of the certificate
+chain sent by the remote host, but is signed by an unknown
+certificate authority :
+
+|-Subject : C=US/ST=CA/L=SF/O=Sierra Wireless/OU=AirLink/CN=SWI/E=support@sierrawireless.com
+|-Issuer  : C=US/ST=CA/L=SF/O=Sierra Wireless/OU=AirLink/CN=SWI/E=support@sierrawireless.com
+"
+"56984","","","None","166.154.128.9","tcp","9443","SSL / TLS Versions Supported","The remote service encrypts communications.","This plugin detects which SSL and TLS versions are supported by the
+remote service for encrypting communications.","n/a","","
+This port supports SSLv2/SSLv3/TLSv1.0.
+"
+"57582","","6.4","Medium","166.154.128.9","tcp","9443","SSL Self-Signed Certificate","The SSL certificate chain for this service ends in an unrecognized
+self-signed certificate.","The X.509 certificate chain for this service is not signed by a
+recognized certificate authority.  If the remote host is a public host
+in production, this nullifies the use of SSL as anyone could establish
+a man-in-the-middle attack against the remote host. 
+
+Note that this plugin does not check for certificate chains that end
+in a certificate that is not self-signed, but is signed by an
+unrecognized certificate authority.","Purchase or generate a proper certificate for this service.","","
+The following certificate was found at the top of the certificate
+chain sent by the remote host, but is self-signed and was not
+found in the list of known certificate authorities :
+
+|-Subject : C=US/ST=CA/L=SF/O=Sierra Wireless/OU=AirLink/CN=SWI/E=support@sierrawireless.com
+"
+"10092","","","None","166.155.45.2","tcp","21","FTP Server Detection","An FTP server is listening on a remote port.","It is possible to obtain the banner of the remote FTP server by
+connecting to a remote port.","n/a","","
+The remote FTP banner is :
+
+220 host FTP server (VxWorks 6.4) ready.
+"
+"10107","","","None","166.155.45.2","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+nginx"
+"11153","","","None","166.155.45.2","tcp","80","Service Detection (HELP Request)","The remote service could be identified.","It was possible to identify the remote service by its banner or by
+looking at the error message it sends when it receives a 'HELP'
+request.","n/a","","A web server seems to be running on this port."
+"11219","","","None","166.155.45.2","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","166.155.45.2","tcp","21","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 21/tcp was found to be open"
+"11219","","","None","166.155.45.2","tcp","502","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 502/tcp was found to be open"
+"11936","","","None","166.155.45.2","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : FortiOS on Fortinet FortiGate
+Confidence level : 65
+Method : SinFP
+
+ 
+The remote host is running FortiOS on Fortinet FortiGate"
+"19506","","","None","166.155.45.2","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:33 
+Scan duration : 3228 sec
+"
+"22964","","","None","166.155.45.2","tcp","21","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An FTP server is running on this port."
+"24260","","","None","166.155.45.2","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : no
+Options allowed : (Not implemented)
+Headers :
+
+  Server: nginx
+  Date: Fri, 19 Aug 2016 01:24:56 GMT
+  Content-Type: text/html
+  Content-Length: 347
+  Last-Modified: Thu, 03 Dec 2015 06:41:38 GMT
+  Connection: keep-alive
+  Accept-Ranges: bytes
+  
+"
+"45590","","","None","166.155.45.2","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:fortinet:fortios
+"
+"54615","","","None","166.155.45.2","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : firewall
+Confidence level : 65
+"
+"83301","","5.0","Medium","166.155.45.2","tcp","502","Modbus/TCP Device Identification","Read the Modbus/TCP Device Identification using the Encapsulated
+Interface Transport code 43 and MEI Type 14.","Nessus sent a Modbus Encapsulated Interface read request with MEI type
+14 to obtain the device's Vendor Name, Product Code, and Major and
+Minor Revision. If supported, the data can include Vendor URL, Product
+Name, Model Name, and User Application Name. The alternative is to
+detect Modbus on valid error responses from a device not supporting
+the function code 43 and MEI 14.","Restrict access to the Modbus port (TCP/502) to authorized Modbus
+clients.","http://www.modbus.org/","
+ Modbus Function: 43 MEI: 14
+
+ Basic Device Identification:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+    Product Code: BMX P34 2020
+
+    Major Minor Revision: v2.6
+
+ Regular Device Identification:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+    Product Code: BMX P34 2020
+
+    Major Minor Revision: v2.6
+
+ Extended Device Identification:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+    Product Code: BMX P34 2020
+
+    Major Minor Revision: v2.6
+
+ Specific Identification Object:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+ Unknown Device Identification:
+  Error Code: ILLEGAL DATA VALUE
+"
+"10551","","","None","166.219.255.150","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : Siemens, SIMATIC S7, internal, X1
+ ifPhysAddress : 2863369325bd
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : Siemens, SIMATIC S7, Ethernet Port, X1 P1
+ ifPhysAddress : 2863369325be
+
+"
+"10800","","","None","166.219.255.150","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens, SIMATIC S7, CPU-1200, 6ES7 214-1HG40-0XB0, HW: 4, FW: V.4.1.3, S C-FDSB7099
+ sysObjectID  : 0.0
+ sysUptime    : 0d 19h 29m 21s
+ sysContact   : 
+ sysName      : 
+ sysLocation  : 
+ sysServices  : 76
+
+"
+"11936","","","None","166.219.255.150","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"14274","","","None","166.219.255.150","tcp","102","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 102/tcp was found to be open"
+"14274","","","None","166.219.255.150","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","166.219.255.150","udp","34964","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 34964/udp was found to be open"
+"14274","","","None","166.219.255.150","udp","49153","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 49153/udp was found to be open"
+"14274","","","None","166.219.255.150","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 1 open TCP ports and 3 open UDP ports.
+"
+"19506","","","None","166.219.255.150","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : snmp_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:33 
+Scan duration : 906 sec
+"
+"34022","","","None","166.219.255.150","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+192.168.1.0/255.255.255.0
+"
+"35296","","","None","166.219.255.150","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","166.219.255.150","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+28:63:36:93:25:be : Siemens AG - Industrial Automation - EWA
+28:63:36:93:25:bd : Siemens AG - Industrial Automation - EWA
+"
+"40448","","","None","166.219.255.150","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","166.219.255.150","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"54615","","","None","166.219.255.150","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"81591","","","None","166.219.255.150","tcp","102","Siemens SIMATIC S7-1200 PLC Firmware Detection","The remote device is a Siemens SIMATIC S7-1200 PLC.","The remote device has been identified as a Siemens SIMATIC S7-1200
+Programmable Logic Controller (PLC), which is managed and monitored
+using the S7 protocol.","n/a","http://www.nessus.org/u?198ba3cd","
+  Model             : S7-1200
+  Installed version : 4.1
+"
+"10092","","","None","166.239.205.62","tcp","21","FTP Server Detection","An FTP server is listening on a remote port.","It is possible to obtain the banner of the remote FTP server by
+connecting to a remote port.","n/a","","
+The remote FTP banner is :
+
+220 Wind River FTP server 6.8 ready.
+"
+"10281","","","None","166.239.205.62","tcp","2332","Telnet Server Detection","A Telnet server is listening on the remote port.","The remote host is running a Telnet server, a remote terminal
+server.","Disable this service if you do not use it.","","Here is the banner from the remote Telnet server :
+
+------------------------------ snip ------------------------------
+
+
+        Welcome to the Sierra Wireless Inc.  ALEOS Environment
+
+GX400 login: 
+------------------------------ snip ------------------------------
+"
+"10863","","","None","166.239.205.62","tcp","9443","SSL Certificate Information","This plugin displays the SSL certificate.","This plugin connects to every SSL-related port and attempts to 
+extract and dump the X.509 certificate.","n/a","","Subject Name: 
+
+Country: US
+State/Province: CA
+Locality: SF
+Organization: Sierra Wireless
+Organization Unit: AirLink
+Common Name: SWI
+Email Address: support@sierrawireless.com
+
+Issuer Name: 
+
+Country: US
+State/Province: CA
+Locality: SF
+Organization: Sierra Wireless
+Organization Unit: AirLink
+Common Name: SWI
+Email Address: support@sierrawireless.com
+
+Serial Number: 00 B4 E4 BB 87 2A 0E 04 3A 
+
+Version: 1
+
+Signature Algorithm: SHA-1 With RSA Encryption
+
+Not Valid Before: Feb 21 17:32:09 2014 GMT
+Not Valid After: Feb 19 17:32:09 2024 GMT
+
+Public Key Info: 
+
+Algorithm: RSA Encryption
+Key Length: 1024 bits
+Public Key: 00 D0 16 15 0D 53 AE 49 AD 7C 5D EF F7 20 7C 74 04 CF 2A C1 
+            C7 A6 EA E3 41 CE C9 2A E3 EA F6 32 D2 0A 1D 8D 72 16 A3 CB 
+            CD 21 F6 CC A6 A1 3D CF 37 E2 94 E6 3E 9F 43 E5 72 A6 AF 39 
+            85 83 8D F8 9F A0 FC 9E 65 3D 6D B5 EB EB 2A 86 CD 18 6D 9E 
+            5B CD E0 47 22 80 FA A5 B3 0C A9 A0 3C D8 89 76 CC 19 48 F0 
+            88 57 51 75 8F 72 15 62 9C 6B C6 9B B1 E9 4B C6 45 97 21 26 
+            13 3D D6 B7 5D 1D 77 72 DF 
+Exponent: 01 00 01 
+
+Signature Length: 128 bytes / 1024 bits
+Signature: 00 82 61 06 32 62 27 77 B5 3C 2D 37 54 32 A3 E4 F2 A6 3E 9B 
+           51 6F 92 37 F0 A2 38 3C A8 AC CD 5E 93 1D 3B 5A BA 64 7E 95 
+           63 55 46 5B 9F 0C E0 9A 7D F4 34 52 34 6D FB 8C 3A 4D 61 85 
+           D3 DA C5 88 12 ED F3 90 5D 9C 9F A5 63 C3 01 89 5F 78 E6 29 
+           80 00 B4 D2 32 5B 45 5D A2 A1 92 56 D0 0C 9A 8C A3 BB 4B 30 
+           C7 F1 07 70 48 51 FE 24 D1 54 56 DE 0C 3C 5C 6C ED 20 8C FF 
+           74 89 DE 74 4F F2 C8 B7 F7 
+
+Fingerprints : 
+
+SHA-256 Fingerprint: 13 2D 2C E4 D3 A5 5C 73 AA 5B F9 5C 67 1E 9C 0E 87 F0 AB 9D 
+                     3C 34 78 2D C8 F9 16 2F C7 13 FC 31 
+SHA-1 Fingerprint: 6D D1 DA A6 EC 77 9A 92 A5 2F 7F 40 2A AB E8 BC F0 93 A5 9A 
+MD5 Fingerprint: 48 3E 2A E8 DF 48 94 24 97 CD F7 5A 93 87 6A C5 
+
+"
+"11219","","","None","166.239.205.62","tcp","21","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 21/tcp was found to be open"
+"11219","","","None","166.239.205.62","tcp","2332","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 2332/tcp was found to be open"
+"11219","","","None","166.239.205.62","tcp","502","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 502/tcp was found to be open"
+"11219","","","None","166.239.205.62","tcp","8088","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8088/tcp was found to be open"
+"11219","","","None","166.239.205.62","tcp","9443","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 9443/tcp was found to be open"
+"11936","","","None","166.239.205.62","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Digital UNIX 4.0
+Confidence level : 65
+Method : SinFP
+
+ 
+The remote host is running Digital UNIX 4.0"
+"19506","","","None","166.239.205.62","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:33 
+Scan duration : 3594 sec
+"
+"20007","","5.0","Medium","166.239.205.62","tcp","9443","SSL Version 2 and 3 Protocol Detection","The remote service encrypts traffic using a protocol with known
+weaknesses.","The remote service accepts connections encrypted using SSL 2.0 and/or
+SSL 3.0. These versions of SSL are affected by several cryptographic
+flaws. An attacker can exploit these flaws to conduct
+man-in-the-middle attacks or to decrypt communications between the
+affected service and clients.
+
+NIST has determined that SSL 3.0 is no longer acceptable for secure
+communications. As of the date of enforcement found in PCI DSS v3.1,
+any version of SSL will not meet the PCI SSC'S definition of 'strong
+cryptography'.","Consult the application's documentation to disable SSL 2.0 and 3.0.
+Use TLS 1.1 (with approved cipher suites) or higher instead.","http://www.schneier.com/paper-ssl.pdf
+http://support.microsoft.com/kb/187498
+http://www.nessus.org/u?247c4540
+https://www.openssl.org/~bodo/ssl-poodle.pdf
+http://www.nessus.org/u?5d15ba70
+https://www.imperialviolet.org/2014/10/14/poodle.html
+https://tools.ietf.org/html/draft-ietf-tls-downgrade-scsv-00","
+- SSLv3 is enabled and the server supports at least one cipher.
+"
+"21643","","","None","166.239.205.62","tcp","9443","SSL Cipher Suites Supported","The remote service encrypts communications using SSL.","This plugin detects which SSL ciphers are supported by the remote
+service for encrypting communications.","n/a","https://www.openssl.org/docs/manmaster/apps/ciphers.html
+http://www.nessus.org/u?7d537016","
+Here is the list of SSL ciphers supported by the remote server :
+Each group is reported per SSL Version.
+
+SSL Version : TLSv1
+  High Strength Ciphers (>= 112-bit key)
+      RC4-MD5                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=MD5    
+      RC4-SHA                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=SHA1   
+
+
+SSL Version : SSLv3
+  High Strength Ciphers (>= 112-bit key)
+      RC4-MD5                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=MD5    
+      RC4-SHA                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=SHA1   
+
+The fields above are :
+
+  {OpenSSL ciphername}
+  Kx={key exchange}
+  Au={authentication}
+  Enc={symmetric encryption method}
+  Mac={message authentication code}
+  {export flag}
+"
+"22964","","","None","166.239.205.62","tcp","8088","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","166.239.205.62","tcp","9443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A TLSv1 server answered on this port.
+"
+"22964","","","None","166.239.205.62","tcp","21","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An FTP server is running on this port."
+"22964","","","None","166.239.205.62","tcp","2332","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A telnet server is running on this port."
+"25220","","","None","166.239.205.62","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"35291","CVE-2004-2761","4.0","Medium","166.239.205.62","tcp","9443","SSL Certificate Signed Using Weak Hashing Algorithm","An SSL certificate in the certificate chain has been signed using a
+weak hash algorithm.","The remote service uses an SSL certificate chain that has been signed
+using a cryptographically weak hashing algorithm (e.g. MD2, MD4, MD5,
+or SHA1). These signature algorithms are known to be vulnerable to
+collision attacks. An attacker can exploit this to generate another
+certificate with the same digital signature, allowing an attacker to
+masquerade as the affected service.
+
+Note that this plugin reports all SSL certificate chains signed with
+SHA-1 that expire after January 1, 2017 as vulnerable. This is in
+accordance with Google's gradual sunsetting of the SHA-1 cryptographic
+hash algorithm.
+
+Note that certificates in the chain that are contained in the Nessus
+CA database have been ignored.","Contact the Certificate Authority to have the certificate reissued.","http://tools.ietf.org/html/rfc3279
+http://www.phreedom.org/research/rogue-ca/
+http://technet.microsoft.com/en-us/security/advisory/961509","
+The following certificates were part of the certificate chain sent by
+the remote host, but contain hashes that are considered to be weak.
+
+|-Subject             : C=US/ST=CA/L=SF/O=Sierra Wireless/OU=AirLink/CN=SWI/E=support@sierrawireless.com
+|-Signature Algorithm : SHA-1 With RSA Encryption
+|-Valid From          : Feb 21 17:32:09 2014 GMT
+|-Valid To            : Feb 19 17:32:09 2024 GMT
+"
+"42263","","5.8","Medium","166.239.205.62","tcp","2332","Unencrypted Telnet Server","The remote Telnet server transmits traffic in cleartext.","The remote host is running a Telnet server over an unencrypted
+channel.
+
+Using Telnet over an unencrypted channel is not recommended as logins,
+passwords, and commands are transferred in cleartext. This allows a 
+remote, man-in-the-middle attacker to eavesdrop on a Telnet session to
+obtain credentials or other sensitive information and to modify
+traffic exchanged between a client and server.
+
+SSH is preferred over Telnet since it protects credentials from
+eavesdropping and can tunnel additional data streams such as an X11
+session.","Disable the Telnet service and use SSH instead.","","
+Nessus collected the following banner from the remote Telnet server :
+
+------------------------------ snip ------------------------------
+
+
+        Welcome to the Sierra Wireless Inc.  ALEOS Environment
+
+GX400 login: 
+------------------------------ snip ------------------------------
+"
+"42880","CVE-2009-3555","5.8","Medium","166.239.205.62","tcp","9443","SSL / TLS Renegotiation Handshakes MiTM Plaintext Data Injection","The remote service allows insecure renegotiation of TLS / SSL
+connections.","The remote service encrypts traffic using TLS / SSL but allows a client
+to insecurely renegotiate the connection after the initial handshake.
+An unauthenticated, remote attacker may be able to leverage this issue
+to inject an arbitrary amount of plaintext into the beginning of the
+application protocol stream, which could facilitate man-in-the-middle
+attacks if the service assumes that the sessions before and after
+renegotiation are from the same 'client' and merges them at the
+application layer.","Contact the vendor for specific patch information.","http://www.ietf.org/mail-archive/web/tls/current/msg03948.html
+http://www.g-sec.lu/practicaltls.pdf
+http://tools.ietf.org/html/rfc5746","
+TLSv1 supports insecure renegotiation.
+
+SSLv3 supports insecure renegotiation.
+"
+"50845","","","None","166.239.205.62","tcp","9443","OpenSSL Detection","The remote service appears to use OpenSSL to encrypt traffic.","Based on its response to a TLS request with a specially crafted
+server name extension, it seems that the remote service is using the
+OpenSSL library to encrypt traffic.
+
+Note that this plugin can only detect OpenSSL implementations that
+have enabled support for TLS extensions (RFC 4366).","n/a","http://www.openssl.org",""
+"51192","","6.4","Medium","166.239.205.62","tcp","9443","SSL Certificate Cannot Be Trusted","The SSL certificate for this service cannot be trusted.","The server's X.509 certificate does not have a signature from a known
+public certificate authority.  This situation can occur in three
+different ways, each of which results in a break in the chain below
+which certificates cannot be trusted. 
+
+First, the top of the certificate chain sent by the server might not
+be descended from a known public certificate authority.  This can
+occur either when the top of the chain is an unrecognized, self-signed
+certificate, or when intermediate certificates are missing that would
+connect the top of the certificate chain to a known public certificate
+authority. 
+
+Second, the certificate chain may contain a certificate that is not
+valid at the time of the scan.  This can occur either when the scan
+occurs before one of the certificate's 'notBefore' dates, or after one
+of the certificate's 'notAfter' dates. 
+
+Third, the certificate chain may contain a signature that either
+didn't match the certificate's information, or could not be verified.  
+Bad signatures can be fixed by getting the certificate with
+the bad signature to be re-signed by its issuer.  Signatures that
+could not be verified are the result of the certificate's issuer using
+a signing algorithm that Nessus either does not support or does not
+recognize. 
+
+If the remote host is a public host in production, any break in the
+chain makes it more difficult for users to verify the authenticity and 
+identity of the web server. This could make it easier to carry out 
+man-in-the-middle attacks against the remote host.","Purchase or generate a proper certificate for this service.","","
+The following certificate was at the top of the certificate
+chain sent by the remote host, but is signed by an unknown
+certificate authority :
+
+|-Subject : C=US/ST=CA/L=SF/O=Sierra Wireless/OU=AirLink/CN=SWI/E=support@sierrawireless.com
+|-Issuer  : C=US/ST=CA/L=SF/O=Sierra Wireless/OU=AirLink/CN=SWI/E=support@sierrawireless.com
+"
+"51891","","","None","166.239.205.62","tcp","9443","SSL Session Resume Supported","The remote host allows resuming SSL sessions.","This script detects whether a host allows resuming SSL sessions by
+performing a full SSL handshake to receive a session ID, and then
+reconnecting with the previously used session ID.  If the server
+accepts the session ID in the second connection, the server maintains
+a cache of sessions that can be resumed.","n/a","","
+This port supports resuming SSLv3 sessions.
+"
+"54615","","","None","166.239.205.62","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : general-purpose
+Confidence level : 65
+"
+"56984","","","None","166.239.205.62","tcp","9443","SSL / TLS Versions Supported","The remote service encrypts communications.","This plugin detects which SSL and TLS versions are supported by the
+remote service for encrypting communications.","n/a","","
+This port supports SSLv3/TLSv1.0.
+"
+"57582","","6.4","Medium","166.239.205.62","tcp","9443","SSL Self-Signed Certificate","The SSL certificate chain for this service ends in an unrecognized
+self-signed certificate.","The X.509 certificate chain for this service is not signed by a
+recognized certificate authority.  If the remote host is a public host
+in production, this nullifies the use of SSL as anyone could establish
+a man-in-the-middle attack against the remote host. 
+
+Note that this plugin does not check for certificate chains that end
+in a certificate that is not self-signed, but is signed by an
+unrecognized certificate authority.","Purchase or generate a proper certificate for this service.","","
+The following certificate was found at the top of the certificate
+chain sent by the remote host, but is self-signed and was not
+found in the list of known certificate authorities :
+
+|-Subject : C=US/ST=CA/L=SF/O=Sierra Wireless/OU=AirLink/CN=SWI/E=support@sierrawireless.com
+"
+"65821","CVE-2013-2566","2.6","Low","166.239.205.62","tcp","9443","SSL RC4 Cipher Suites Supported (Bar Mitzvah)","The remote service supports the use of the RC4 cipher.","The remote host supports the use of RC4 in one or more cipher suites.
+The RC4 cipher is flawed in its generation of a pseudo-random stream
+of bytes so that a wide variety of small biases are introduced into
+the stream, decreasing its randomness.
+
+If plaintext is repeatedly encrypted (e.g., HTTP cookies), and an
+attacker is able to obtain many (i.e., tens of millions) ciphertexts,
+the attacker may be able to derive the plaintext.","Reconfigure the affected application, if possible, to avoid use of RC4
+ciphers. Consider using TLS 1.2 with AES-GCM suites subject to browser
+and web server support.","http://www.nessus.org/u?217a3666
+http://cr.yp.to/talks/2013.03.12/slides.pdf
+http://www.isg.rhul.ac.uk/tls/
+http://www.imperva.com/docs/HII_Attacking_SSL_when_using_RC4.pdf","
+List of RC4 cipher suites supported by the remote server :
+
+  High Strength Ciphers (>= 112-bit key)
+
+    TLSv1
+      RC4-MD5                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=MD5    
+      RC4-SHA                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=SHA1   
+
+The fields above are :
+
+  {OpenSSL ciphername}
+  Kx={key exchange}
+  Au={authentication}
+  Enc={symmetric encryption method}
+  Mac={message authentication code}
+  {export flag}
+"
+"65821","CVE-2015-2808","2.6","Low","166.239.205.62","tcp","9443","SSL RC4 Cipher Suites Supported (Bar Mitzvah)","The remote service supports the use of the RC4 cipher.","The remote host supports the use of RC4 in one or more cipher suites.
+The RC4 cipher is flawed in its generation of a pseudo-random stream
+of bytes so that a wide variety of small biases are introduced into
+the stream, decreasing its randomness.
+
+If plaintext is repeatedly encrypted (e.g., HTTP cookies), and an
+attacker is able to obtain many (i.e., tens of millions) ciphertexts,
+the attacker may be able to derive the plaintext.","Reconfigure the affected application, if possible, to avoid use of RC4
+ciphers. Consider using TLS 1.2 with AES-GCM suites subject to browser
+and web server support.","http://www.nessus.org/u?217a3666
+http://cr.yp.to/talks/2013.03.12/slides.pdf
+http://www.isg.rhul.ac.uk/tls/
+http://www.imperva.com/docs/HII_Attacking_SSL_when_using_RC4.pdf","
+List of RC4 cipher suites supported by the remote server :
+
+  High Strength Ciphers (>= 112-bit key)
+
+    TLSv1
+      RC4-MD5                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=MD5    
+      RC4-SHA                      Kx=RSA         Au=RSA      Enc=RC4(128)             Mac=SHA1   
+
+The fields above are :
+
+  {OpenSSL ciphername}
+  Kx={key exchange}
+  Au={authentication}
+  Enc={symmetric encryption method}
+  Mac={message authentication code}
+  {export flag}
+"
+"69551","","","Low","166.239.205.62","tcp","9443","SSL Certificate Chain Contains RSA Keys Less Than 2048 bits","The X.509 certificate chain used by this service contains certificates
+with RSA keys shorter than 2048 bits.","At least one of the X.509 certificates sent by the remote host has a
+key that is shorter than 2048 bits. According to industry standards
+set by the Certification Authority/Browser (CA/B) Forum, certificates
+issued after January 1, 2014 must be at least 2048 bits.
+
+Some browser SSL implementations may reject keys less than 2048 bits
+after January 1, 2014. Additionally, some SSL certificate vendors may
+revoke certificates less than 2048 bits before January 1, 2014.
+
+Note that Nessus will not flag root certificates with RSA keys less
+than 2048 bits if they were issued prior to December 31, 2010, as the
+standard considers them exempt.","Replace the certificate in the chain with the RSA key less than 2048
+bits in length with a longer key, and reissue any certificates signed
+by the old certificate.","https://www.cabforum.org/Baseline_Requirements_V1.pdf","
+The following certificates were part of the certificate chain
+sent by the remote host, but contain RSA keys that are considered
+to be weak :
+
+|-Subject        : C=US/ST=CA/L=SF/O=Sierra Wireless/OU=AirLink/CN=SWI/E=support@sierrawireless.com
+|-RSA Key Length : 1024 bits
+"
+"83301","","5.0","Medium","166.239.205.62","tcp","502","Modbus/TCP Device Identification","Read the Modbus/TCP Device Identification using the Encapsulated
+Interface Transport code 43 and MEI Type 14.","Nessus sent a Modbus Encapsulated Interface read request with MEI type
+14 to obtain the device's Vendor Name, Product Code, and Major and
+Minor Revision. If supported, the data can include Vendor URL, Product
+Name, Model Name, and User Application Name. The alternative is to
+detect Modbus on valid error responses from a device not supporting
+the function code 43 and MEI 14.","Restrict access to the Modbus port (TCP/502) to authorized Modbus
+clients.","http://www.modbus.org/","
+ Modbus Function: 43 MEI: 14
+
+ Basic Device Identification:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+    Product Code: 171 CBU 98090
+
+    Major Minor Revision: v01.00
+
+ Regular Device Identification:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+    Product Code: 171 CBU 98090
+
+    Major Minor Revision: v01.00
+
+ Extended Device Identification:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+    Product Code: 171 CBU 98090
+
+    Major Minor Revision: v01.00
+
+ Specific Identification Object:
+
+   Basic Identification (stream and individual access)
+
+    Vendor Name: Schneider Electric  
+
+ Unknown Device Identification:
+  Error Code: ILLEGAL DATA VALUE
+"
+"10092","","","None","166.239.227.42","tcp","21","FTP Server Detection","An FTP server is listening on a remote port.","It is possible to obtain the banner of the remote FTP server by
+connecting to a remote port.","n/a","","
+The remote FTP banner is :
+
+220 host FTP server (VxWorks 6.4) ready.
+"
+"10551","","","None","166.239.227.42","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : lo0
+ ifPhysAddress : 
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : end0
+ ifPhysAddress : 0080f410d2ce
+
+"
+"10800","","","None","166.239.227.42","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : 
+ sysObjectID  : 1.3.6.1.4.1.3833.1.7.255.23
+ sysUptime    : 19d 18h 6m 37s
+ sysContact   : 
+ sysName      : 
+ sysLocation  : 
+ sysServices  : 79
+
+"
+"14274","","","None","166.239.227.42","tcp","21","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 21/tcp was found to be open"
+"14274","","","None","166.239.227.42","tcp","80","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 80/tcp was found to be open"
+"14274","","","None","166.239.227.42","udp","67","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 67/udp was found to be open"
+"14274","","","None","166.239.227.42","udp","68","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 68/udp was found to be open"
+"14274","","","None","166.239.227.42","udp","69","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 69/udp was found to be open"
+"14274","","","None","166.239.227.42","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","166.239.227.42","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 2 open TCP ports and 4 open UDP ports.
+"
+"19506","","","None","166.239.227.42","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : snmp_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:32 
+Scan duration : 1322 sec
+"
+"22964","","","None","166.239.227.42","tcp","21","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An FTP server is running on this port."
+"23823","","5.0","Medium","166.239.227.42","udp","161","Modicon PLC CPU Type SNMP Request Model Type Remote Disclosure","It is possible to obtain the model information of a Modicon PLC using
+an SNMP Get Request.","The Modicon Quantum, Premium, and Momentum brands of PLC's have a
+private SNMP MIB that is available on the Internet.  The type of
+Modicon PLC has been obtained via an SNMP Get Request.  The response
+will be the model type such as 'Quantum'. 
+
+An attacker may use this information to profile the SCADA system and
+investigate known vulnerabilities of the PLC.","Change default community strings to a value not easily guessed and
+filter access to the SNMP port.","","
+  OID         : 1.3.6.1.4.1.3833.1.7.11.0
+  Modicon CPU : Modicon M340
+"
+"23824","","5.0","Medium","166.239.227.42","udp","161","Modicon PLC IO Scan Status SNMP Request Scan Status Remote Disclosure","It is possible to obtain the scan status of a Modicon PLC using an
+SNMP Get Request.","The Modicon Quantum, Premium and Momentum brands of PLC's have a
+private SNMP MIB that is available on the Internet.  The scan status
+has been obtained via an SNMP Get Request.  The scan status is either
+idle, operational or stopped. 
+
+An attacker may use this information to determine the status of a PLC.","Change default community strings to a value not easily guessed and
+filter access to the SNMP port.","","
+  OID                    : 1.3.6.1.4.1.3833.1.3.1.0
+  PLC IO Scan Scan State : idle
+"
+"23825","","5.0","Medium","166.239.227.42","udp","161","Modicon PLC Modbus Slave Mode SNMP Request Modbus Mode Remote Disclosure","It is possible to obtain the Modbus mode of a Modicon PLC using an
+SNMP Get Request.","The Modicon Quantum, Premium and Momentum brands of PLC's have a
+private SNMP MIB that is available on the Internet.  The Modbus mode
+has been obtained via an SNMP Get Request.  The Modbus mode is either
+direct, gateway, unit or some combination of these three types.
+
+The Modbus mode could help an attacker determine the type of attack
+necessary against the PLC.","Change default community strings to a value not easily guessed and
+filter access to the SNMP port.","","
+  OID               : 1.3.6.1.4.1.3833.1.2.2.0
+  Modbus Slave Mode : 2
+"
+"25220","","","None","166.239.227.42","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"34022","","","None","166.239.227.42","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+24.239.16.169/255.255.255.255
+52.36.138.116/255.255.255.255
+54.199.201.52/255.255.255.255
+89.163.210.72/255.255.255.255
+94.158.155.221/255.255.255.255
+95.211.144.96/255.255.255.255
+120.132.50.135/255.255.255.255
+123.59.59.52/255.255.255.255
+127.0.0.1/255.255.255.255
+141.212.122.144/255.255.255.255
+159.224.72.173/255.255.255.255
+159.224.95.183/255.255.255.255
+168.1.128.36/255.255.255.255
+169.229.3.91/255.255.255.255
+173.227.0.76/255.255.255.255
+180.97.106.37/255.255.255.255
+180.97.106.162/255.255.255.255
+183.129.160.229/255.255.255.255
+185.93.185.10/255.255.255.255
+189.62.152.157/255.255.255.255
+191.96.249.42/255.255.255.255
+192.168.0.0/255.255.255.0
+198.20.69.74/255.255.255.255
+"
+"35296","","","None","166.239.227.42","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","166.239.227.42","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:80:f4:10:d2:ce : TELEMECANIQUE ELECTRIQUE
+"
+"40448","","","None","166.239.227.42","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","166.239.227.42","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"

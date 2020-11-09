@@ -10,6 +10,9 @@ Get-PSDrive
 #Get a list of all the PowerShell aliases defined
 Get-ChildItem alias:
 
+#Import the active directory module to get access to the AD PSDrive provider
+Import-Module ActiveDirectory
+
 #Create a drive mapped to Active Directory. First, we'll need a set of
 #credentials, because this PC is not domain-joined
 $cred=Get-Credential
@@ -20,7 +23,7 @@ New-PSDrive -name "AD" -PSProvider ActiveDirectory -Root "" -Server "10.50.7.10"
 #See the new PSDrive
 Get-PSDrive
 
-#Set the AD drive as out location
+#Set the AD drive as our location
 Set-Location AD:
 
 #What's in there?

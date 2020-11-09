@@ -1,0 +1,1299 @@
+Plugin ID,CVE,CVSS,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output
+"10092","","","None","113.203.144.231","tcp","21","FTP Server Detection","An FTP server is listening on a remote port.","It is possible to obtain the banner of the remote FTP server by
+connecting to a remote port.","n/a","","
+The remote FTP banner is :
+
+220 Ftp firmware update utility
+"
+"10114","CVE-1999-0524","","None","113.203.144.231","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is -17539 seconds.
+"
+"10150","","","None","113.203.144.231","tcp","445","Windows NetBIOS / SMB Remote Host Information Disclosure","It was possible to obtain the network name of the remote host.","The remote host is listening on UDP port 137 or TCP port 445, and
+replies to NetBIOS nbtscan or SMB requests.
+
+Note that this plugin gathers information to be used in other plugins,
+but does not itself generate a report.","n/a","","The following 2 NetBIOS names have been gathered :
+
+ BRCM-SAMBA_TEST  = Computer name
+ BRCM-SAMBA_TEST  = Workgroup / Domain name
+"
+"10394","","","None","113.203.144.231","tcp","445","Microsoft Windows SMB Log In Possible","It was possible to log into the remote host.","The remote host is running a Microsoft Windows operating system or
+Samba, a CIFS/SMB server for Unix. It was possible to log into it
+using one of the following accounts :
+
+- NULL session
+- Guest account
+- Supplied credentials","n/a","http://support.microsoft.com/kb/143474
+http://support.microsoft.com/kb/246261","- NULL sessions are enabled on the remote host.
+"
+"10785","","","None","113.203.144.231","tcp","445","Microsoft Windows SMB NativeLanManager Remote System Information Disclosure","It is possible to obtain information about the remote operating
+system.","It is possible to obtain the remote operating system name and version
+(Windows and/or Samba) by sending an authentication request to port
+139 or 445. This script requires SMB1 enabled on the host.","n/a","","The remote Operating System is : Unix
+The remote native lan manager is : Samba 3.0.37
+The remote SMB Domain Name is : BRCM-SAMBA_TEST
+"
+"11011","","","None","113.203.144.231","tcp","445","Microsoft Windows SMB Service Detection","A file / print sharing service is listening on the remote host.","The remote service understands the CIFS (Common Internet File System)
+or Server Message Block (SMB) protocol, used to provide shared access
+to files, printers, etc between nodes on a network.","n/a","","
+A CIFS server is running on this port.
+"
+"11011","","","None","113.203.144.231","tcp","139","Microsoft Windows SMB Service Detection","A file / print sharing service is listening on the remote host.","The remote service understands the CIFS (Common Internet File System)
+or Server Message Block (SMB) protocol, used to provide shared access
+to files, printers, etc between nodes on a network.","n/a","","
+An SMB server is running on this port.
+"
+"11219","","","None","113.203.144.231","tcp","139","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 139/tcp was found to be open"
+"11219","","","None","113.203.144.231","tcp","21","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 21/tcp was found to be open"
+"11219","","","None","113.203.144.231","tcp","445","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 445/tcp was found to be open"
+"11219","","","None","113.203.144.231","tcp","12345","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 12345/tcp was found to be open"
+"11936","","","None","113.203.144.231","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : FreeBSD 4.4
+Confidence level : 65
+Method : SinFP
+
+ 
+The remote host is running FreeBSD 4.4"
+"19506","","","None","113.203.144.231","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:45 
+Scan duration : 2750 sec
+"
+"22964","","","None","113.203.144.231","tcp","21","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An FTP server is running on this port."
+"25220","","","None","113.203.144.231","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"25240","","","None","113.203.144.231","tcp","445","Samba Server Detection","An SMB server is running on the remote host.","The remote host is running Samba, a CIFS/SMB server for Linux and
+Unix.","n/a","http://www.samba.org/","The remote host tries to hide its SMB server type by changing the MAC
+address and the LAN manager name. 
+
+However by sending several valid and invalid RPC requests it was
+possible to fingerprint the remote SMB server as Samba."
+"42410","","","None","113.203.144.231","tcp","445","Microsoft Windows NTLMSSP Authentication Request Remote Network Name Disclosure","It is possible to obtain the network name of the remote host.","The remote host listens on tcp port 445 and replies to SMB requests.
+
+By sending an NTLMSSP authentication request it is possible to obtain
+the name of the remote system and the name of its domain.","n/a","","The following 2 NetBIOS names have been gathered :
+
+ BRCM-SAMBA_TEST  = Computer name
+ BRCM-SAMBA_TEST  = Workgroup / Domain name
+"
+"45590","","","None","113.203.144.231","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:freebsd:freebsd:4.4 -> FreeBSD 4.4
+
+Following application CPE matched on the remote system :
+
+  cpe:/a:samba:samba:3.0.37 -> Samba 3.0.37
+"
+"54615","","","None","113.203.144.231","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : general-purpose
+Confidence level : 65
+"
+"57608","","5.0","Medium","113.203.144.231","tcp","445","SMB Signing Disabled","Signing is not required on the remote SMB server.","Signing is not required on the remote SMB server. An unauthenticated,
+remote attacker can exploit this to conduct man-in-the-middle attacks
+against the SMB server.","Enforce message signing in the host's configuration. On Windows, this
+is found in the policy setting 'Microsoft network server: Digitally
+sign communications (always)'. On Samba, the setting is called 'server
+signing'. See the 'see also' links for further details.","https://support.microsoft.com/en-us/kb/887429
+http://technet.microsoft.com/en-us/library/cc731957.aspx
+http://www.nessus.org/u?74b80723
+http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html
+http://www.nessus.org/u?a3cac4ea",""
+"58327","CVE-2012-0870","10.0","Critical","113.203.144.231","tcp","445","Samba 'AndX' Request Heap-Based Buffer Overflow","The remote Samba service is vulnerable to a heap overflow attack.","The remote Samba install is prone to a heap-based buffer overflow
+attack.
+
+An attacker can exploit this issue to execute arbitrary code with the
+privileges of the application. Failed exploit attempts will result in
+a denial of service condition.","Apply patches from the vendor.","https://www.samba.org/samba/security/CVE-2012-0870.html
+https://www.samba.org/samba/history/security.html",""
+"66334","","","None","113.203.144.231","tcp","0","Patch Report","The remote host is missing several patches.","The remote host is missing one or more security patches. This plugin
+lists the newest version of each patch to install to make sure the
+remote host is up-to-date.","Install the patches listed below.","","
+
+. You need to take the following action :
+[ Samba Badlock Vulnerability (90509) ]
+
++ Action to take : 
+
+
+"
+"90509","CVE-2016-2118","6.8","Medium","113.203.144.231","tcp","445","Samba Badlock Vulnerability","An SMB server running on the remote host is affected by the Badlock
+vulnerability.","The version of Samba, a CIFS/SMB server for Linux and Unix, running on
+the remote host is affected by a flaw, known as Badlock, that exists
+in the Security Account Manager (SAM) and Local Security
+Authority (Domain Policy) (LSAD) protocols due to improper
+authentication level negotiation over Remote Procedure Call (RPC)
+channels. A man-in-the-middle attacker who is able to able to
+intercept the traffic between a client and a server hosting a SAM
+database can exploit this flaw to force a downgrade of the
+authentication level, which allows the execution of arbitrary Samba
+network calls in the context of the intercepted user, such as viewing
+or modifying sensitive security data in the Active Directory (AD)
+database or disabling critical services.","Upgrade to Samba version 4.2.11 / 4.3.8 / 4.4.2 or later.","http://badlock.org
+https://www.samba.org/samba/security/CVE-2016-2118.html","
+Nessus detected that the Samba Badlock patch has not been applied.
+"
+"10114","CVE-1999-0524","","None","113.203.145.136","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 77 seconds.
+"
+"11154","","","None","113.203.145.136","tcp","5554","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5554
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 05 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 06 63 6D 61 00    ............cma.
+           0x20:                                                                     
+           
+"
+"11154","","","None","113.203.145.136","tcp","5555","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5555
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 02 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 03 73 63 6D 00    ............scm.
+           0x20:                                                                     
+           
+"
+"11219","","","None","113.203.145.136","tcp","1024","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 1024/tcp was found to be open"
+"11219","","","None","113.203.145.136","tcp","5554","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5554/tcp was found to be open"
+"11219","","","None","113.203.145.136","tcp","5555","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5555/tcp was found to be open"
+"11936","","","None","113.203.145.136","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Linux Kernel 2.4
+Linux Kernel 2.6
+Confidence level : 59
+Method : SinFP
+
+ 
+The remote host is running one of these operating systems : 
+Linux Kernel 2.4
+Linux Kernel 2.6"
+"19506","","","None","113.203.145.136","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:28 
+Scan duration : 2772 sec
+"
+"22964","","","None","113.203.145.136","tcp","1024","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"45590","","","None","113.203.145.136","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE's : 
+
+  cpe:/o:linux:linux_kernel:2.4
+  cpe:/o:linux:linux_kernel:2.6
+"
+"54615","","","None","113.203.145.136","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : general-purpose
+Confidence level : 59
+"
+"10114","CVE-1999-0524","","None","113.203.145.230","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The ICMP timestamps seem to be in little endian format (not in network format)
+The difference between the local and remote clocks is 6935 seconds.
+"
+"11219","","","None","113.203.145.230","tcp","8888","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8888/tcp was found to be open"
+"11936","","","None","113.203.145.230","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Dell PowerConnect Switch
+Confidence level : 70
+Method : SinFP
+
+ 
+The remote host is running Dell PowerConnect Switch"
+"19506","","","None","113.203.145.230","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:28 
+Scan duration : 2280 sec
+"
+"22964","","","None","113.203.145.230","tcp","8888","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"54615","","","None","113.203.145.230","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : switch
+Confidence level : 70
+"
+"10114","CVE-1999-0524","","None","113.203.146.106","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 809 seconds.
+"
+"11154","","","None","113.203.146.106","tcp","5554","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5554
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 1D 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 1E 63 6D 61 00    ............cma.
+           0x20:                                                                     
+           
+"
+"11154","","","None","113.203.146.106","tcp","5555","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5555
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 12 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 13 73 63 6D 00    ............scm.
+           0x20:                                                                     
+           
+"
+"11219","","","None","113.203.146.106","tcp","1632","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 1632/tcp was found to be open"
+"11219","","","None","113.203.146.106","tcp","5554","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5554/tcp was found to be open"
+"11219","","","None","113.203.146.106","tcp","5555","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5555/tcp was found to be open"
+"11936","","","None","113.203.146.106","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Linux Kernel 2.4
+Linux Kernel 2.6
+Confidence level : 59
+Method : SinFP
+
+ 
+The remote host is running one of these operating systems : 
+Linux Kernel 2.4
+Linux Kernel 2.6"
+"19506","","","None","113.203.146.106","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:19 
+Scan duration : 2599 sec
+"
+"22964","","","None","113.203.146.106","tcp","1632","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"25220","","","None","113.203.146.106","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"45590","","","None","113.203.146.106","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE's : 
+
+  cpe:/o:linux:linux_kernel:2.4
+  cpe:/o:linux:linux_kernel:2.6
+"
+"54615","","","None","113.203.146.106","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : general-purpose
+Confidence level : 59
+"
+"10114","CVE-1999-0524","","None","113.203.146.184","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The ICMP timestamps seem to be in little endian format (not in network format)
+The difference between the local and remote clocks is 6311 seconds.
+"
+"11219","","","None","113.203.146.184","tcp","8888","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8888/tcp was found to be open"
+"11936","","","None","113.203.146.184","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Dell PowerConnect Switch
+Confidence level : 70
+Method : SinFP
+
+ 
+The remote host is running Dell PowerConnect Switch"
+"19506","","","None","113.203.146.184","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:19 
+Scan duration : 2216 sec
+"
+"22964","","","None","113.203.146.184","tcp","8888","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"54615","","","None","113.203.146.184","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : switch
+Confidence level : 70
+"
+"10114","CVE-1999-0524","","None","113.203.147.178","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 3615 seconds.
+"
+"11219","","","None","113.203.147.178","tcp","8888","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8888/tcp was found to be open"
+"11936","","","None","113.203.147.178","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Dell PowerConnect Switch
+Confidence level : 70
+Method : SinFP
+
+ 
+The remote host is running Dell PowerConnect Switch"
+"19506","","","None","113.203.147.178","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:11 
+Scan duration : 2535 sec
+"
+"22964","","","None","113.203.147.178","tcp","8888","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"54615","","","None","113.203.147.178","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : switch
+Confidence level : 70
+"
+"10092","","","None","113.203.147.8","tcp","21","FTP Server Detection","An FTP server is listening on a remote port.","It is possible to obtain the banner of the remote FTP server by
+connecting to a remote port.","n/a","","
+The remote FTP banner is :
+
+220 MAX-216M1R FTP version 1.0 ready at Tue Mar 01 11:37:12 2011
+"
+"10800","","","None","113.203.147.8","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : MAX-216M1R
+ sysObjectID  : 1.3.6.1.4.1
+ sysUptime    : 0d 1h 9m 58s
+ sysContact   : 
+ sysName      : MAX-216M1R
+ sysLocation  : 
+ sysServices  : 14
+
+"
+"10863","","","None","113.203.147.8","tcp","443","SSL Certificate Information","This plugin displays the SSL certificate.","This plugin connects to every SSL-related port and attempts to 
+extract and dump the X.509 certificate.","n/a","","Subject Name: 
+
+Country: TW
+Organization: ZyXEL
+Organization Unit: WiMAX Forum(R) Devices
+Common Name: 0023F87af031 MAX206M2
+
+Issuer Name: 
+
+Country: TW
+Organization: ZyXEL
+Organization Unit: WiMAX Forum(R) Devices
+Common Name: ZyXEL Device CA
+
+Serial Number: 2F 6A 1C 9F 75 B2 48 9F 50 AE F5 21 DE FA 2E 42 
+
+Version: 3
+
+Signature Algorithm: SHA-256 With RSA Encryption
+
+Not Valid Before: Aug 14 00:00:00 2009 GMT
+Not Valid After: Aug 14 23:59:59 2029 GMT
+
+Public Key Info: 
+
+Algorithm: RSA Encryption
+Key Length: 2048 bits
+Public Key: 00 CC 92 AD 21 A8 53 DC 59 21 71 2B B5 B8 1C 7A 43 65 0C B1 
+            80 65 CC 59 A7 D7 1A 94 2A 71 27 B1 E7 39 2A C4 58 A2 CD 79 
+            3D 35 F3 CF 1F 12 03 AB 95 0B 44 FE 6E E1 C5 E4 76 0C 0C 8D 
+            22 DA BD ED 0F 3F 30 C9 10 70 AD 52 8F 6A F1 38 F1 71 E8 78 
+            71 86 58 37 97 27 45 52 2A 2F 68 21 B0 50 63 1E 24 85 1B ED 
+            31 63 61 16 39 1A 75 F6 48 6D 5F 06 6C 33 DA 5C E6 1C 84 9A 
+            84 7F 1C 4E A1 06 1E 27 54 EE 5D 61 59 35 32 EF 6F AA B1 B5 
+            F0 B1 90 A0 D0 12 04 D8 DC 21 1D FB CC 13 AD B9 66 2B C2 EA 
+            D2 47 7E A2 02 3D DB 9B 25 F9 F5 79 63 4D 9B 42 3C 53 7C F9 
+            45 DD 13 F9 67 B4 4F BF BF 85 DA 6A DA 4E E5 46 8D AC 1B 5A 
+            96 19 52 98 A7 DE B3 A7 F9 69 85 07 D6 07 46 89 C4 FD B9 E3 
+            D1 7A C0 C8 53 18 23 88 F6 74 77 69 30 68 CB A5 81 8B 2C BB 
+            2E 67 6E 56 97 CB 87 5C A6 A1 3A 88 BC FC 24 43 4F 
+Exponent: 01 00 01 
+
+Signature Length: 256 bytes / 2048 bits
+Signature: 00 8D EF 7D 3C 5E 2D 7C 51 28 99 55 0F CF BC EF F2 11 69 35 
+           F8 22 5A FF B0 74 9F 63 89 20 7D 9C 7E BB 23 5D AE 99 7B EE 
+           76 F9 B6 E6 50 B7 42 E5 C6 EB 7F AA 17 1C 9C 6B 3E 45 07 33 
+           F9 5F EF 25 01 6C DB 67 0A AA FD 06 67 BA EC E2 3E 0E 6A 7F 
+           FE 39 37 98 8C 9C 80 A9 B4 5A A3 27 92 13 B9 24 BF 3A A4 85 
+           68 FB 7C FB F6 E5 08 57 0E B2 11 33 E6 85 6C 03 A6 B6 89 74 
+           33 B7 72 1D 58 0C 2F E5 C8 EE 5E 1F CA 71 7E 92 EE 2A ED C4 
+           44 E8 EE F0 8F D0 95 CD A6 1E 45 B5 B4 CF BE AE 95 5A C6 7D 
+           6B C9 9C 5E 0A 2B 00 0A 08 C0 09 A7 24 55 F0 E4 57 68 E2 F2 
+           55 97 F7 C2 D0 76 93 87 FB A1 48 7C 3B 6B CD ED 9E E5 F3 CC 
+           3D 47 4B 68 94 81 C1 E4 FF 51 2F EF B4 51 E8 A6 E4 67 81 4C 
+           8B C8 70 B5 B0 62 DB FC 89 8E 5F 30 A4 5E 78 E3 5B 1D 13 F1 
+           CC FB 04 6E 8D B1 46 AC A5 DD A8 AC 25 3C 95 43 28 
+
+Extension: Key Usage (2.5.29.15)
+Critical: 0
+Key Usage: Digital Signature, Key Encipherment
+
+
+Extension: Authority Key Identifier (2.5.29.35)
+Critical: 0
+Key Identifier: EA 4A 8E 92 E9 12 F7 E3 53 26 58 73 54 E8 96 8E 74 44 30 D5 
+
+
+Extension: Policies (2.5.29.32)
+Critical: 0
+Policy ID #1: 1.3.6.1.4.1.24757.1.1
+
+
+Fingerprints : 
+
+SHA-256 Fingerprint: 0A 24 CD A4 EC D7 1E 54 A9 AB F6 CB 4E 59 66 7E 9E 29 DC B2 
+                     B0 53 A9 37 A0 1F 2A B8 25 58 A6 8F 
+SHA-1 Fingerprint: 2D 54 9C C4 D9 73 F4 5E FA 67 5B 7E 2F AF 32 C0 76 36 99 54 
+MD5 Fingerprint: A8 E8 0C D8 B6 23 9B BA A0 96 54 19 42 BD E2 72 
+
+"
+"11936","","","None","113.203.147.8","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : FortiOS on Fortinet FortiGate
+Confidence level : 65
+Method : SinFP
+
+Not all fingerprints could give a match. If you think some or all of
+the following could be used to identify the host's operating system,
+please email them to os-signatures@nessus.org. Be sure to include a
+brief description of the host itself, such as the actual operating
+system or product / model names.
+
+HTTP:!:Server: RomPager/4.51 UPnP/1.0
+SinFP:
+   P1:B11013:F0x12:W4096:O0204ffff:M1024:
+   P2:B11013:F0x12:W4096:O0204ffff:M1024:
+   P3:B00000:F0x00:W0:O0:M0
+   P4:6801_7_p=443R
+SNMP:!:MAX-216M1R
+SSLcert:!:i/CN:ZyXEL Device CAi/O:ZyXELi/OU:WiMAX Forum(R) Devicess/CN:0023F87af031 MAX206M2s/O:ZyXELs/OU:WiMAX Forum(R) Devices
+2d549cc4d973f45efa675b7e2faf32c076369954
+
+
+ 
+The remote host is running FortiOS on Fortinet FortiGate"
+"14274","","","None","113.203.147.8","tcp","21","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 21/tcp was found to be open"
+"14274","","","None","113.203.147.8","tcp","22","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 22/tcp was found to be open"
+"14274","","","None","113.203.147.8","tcp","23","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 23/tcp was found to be open"
+"14274","","","None","113.203.147.8","tcp","443","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 443/tcp was found to be open"
+"14274","","","None","113.203.147.8","tcp","8080","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 8080/tcp was found to be open"
+"14274","","","None","113.203.147.8","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","113.203.147.8","udp","1025","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 1025/udp was found to be open"
+"14274","","","None","113.203.147.8","udp","1900","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 1900/udp was found to be open"
+"14274","","","None","113.203.147.8","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 5 open TCP ports and 3 open UDP ports.
+"
+"19506","","","None","113.203.147.8","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : snmp_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:15 
+Scan duration : 1774 sec
+"
+"22964","","","None","113.203.147.8","tcp","443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A TLSv1 server answered on this port.
+"
+"22964","","","None","113.203.147.8","tcp","21","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An FTP server is running on this port."
+"22964","","","None","113.203.147.8","tcp","443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port through TLSv1."
+"34022","","","None","113.203.147.8","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+113.203.147.0/255.255.255.0
+113.203.172.0/255.255.255.0
+113.203.180.0/255.255.255.0
+192.168.5.0/255.255.255.0
+"
+"35296","","","None","113.203.147.8","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv2c.
+"
+"40448","","","None","113.203.147.8","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+This host supports SNMP version SNMPv2c.
+"
+"41028","CVE-1999-0517","7.5","High","113.203.147.8","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"45590","","","None","113.203.147.8","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:fortinet:fortios
+"
+"51192","","6.4","Medium","113.203.147.8","tcp","443","SSL Certificate Cannot Be Trusted","The SSL certificate for this service cannot be trusted.","The server's X.509 certificate does not have a signature from a known
+public certificate authority.  This situation can occur in three
+different ways, each of which results in a break in the chain below
+which certificates cannot be trusted. 
+
+First, the top of the certificate chain sent by the server might not
+be descended from a known public certificate authority.  This can
+occur either when the top of the chain is an unrecognized, self-signed
+certificate, or when intermediate certificates are missing that would
+connect the top of the certificate chain to a known public certificate
+authority. 
+
+Second, the certificate chain may contain a certificate that is not
+valid at the time of the scan.  This can occur either when the scan
+occurs before one of the certificate's 'notBefore' dates, or after one
+of the certificate's 'notAfter' dates. 
+
+Third, the certificate chain may contain a signature that either
+didn't match the certificate's information, or could not be verified.  
+Bad signatures can be fixed by getting the certificate with
+the bad signature to be re-signed by its issuer.  Signatures that
+could not be verified are the result of the certificate's issuer using
+a signing algorithm that Nessus either does not support or does not
+recognize. 
+
+If the remote host is a public host in production, any break in the
+chain makes it more difficult for users to verify the authenticity and 
+identity of the web server. This could make it easier to carry out 
+man-in-the-middle attacks against the remote host.","Purchase or generate a proper certificate for this service.","","
+The following certificate was at the top of the certificate
+chain sent by the remote host, but is signed by an unknown
+certificate authority :
+
+|-Subject : C=TW/O=ZyXEL/OU=WiMAX Forum(R) Devices/CN=ZyXEL Device CA
+|-Issuer  : C=US/O=WiMAX Forum(R)/CN=WiMAX Forum(R) Device Root - CA1
+"
+"54615","","","None","113.203.147.8","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : firewall
+Confidence level : 65
+"
+"56984","","","None","113.203.147.8","tcp","443","SSL / TLS Versions Supported","The remote service encrypts communications.","This plugin detects which SSL and TLS versions are supported by the
+remote service for encrypting communications.","n/a","","
+This port supports SSLv3.
+"
+"76474","","5.0","Medium","113.203.147.8","udp","161","SNMP 'GETBULK' Reflection DDoS","The remote SNMP daemon is affected by a vulnerability that allows a
+reflected distributed denial of service attack.","The remote SNMP daemon is responding with a large amount of data to a
+'GETBULK' request with a larger than normal value for
+'max-repetitions'. A remote attacker can use this SNMP server to
+conduct a reflected distributed denial of service attack on an
+arbitrary remote host.","Disable the SNMP service on the remote host if you do not use it.
+Otherwise, restrict and monitor access to this service, and consider
+changing the default 'public' community string.","http://www.nessus.org/u?8b551b5c
+http://www.nessus.org/u?bdb53cfc","
+Nessus was able to determine the SNMP service can be abused in an SNMP
+Reflection DDoS attack :
+
+  Request size  (bytes) : 42
+  Response size (bytes) : 1500
+"
+"10114","CVE-1999-0524","","None","113.203.147.9","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The ICMP timestamps seem to be in little endian format (not in network format)
+The difference between the local and remote clocks is 6578 seconds.
+"
+"10919","","","None","113.203.147.9","tcp","0","Open Port Re-check","Previously open ports are now closed.","One of several ports that were previously open are now closed or
+unresponsive.
+
+There are several possible reasons for this :
+
+  - The scan may have caused a service to freeze or stop
+    running.
+
+  - An administrator may have stopped a particular service
+    during the scanning process.
+
+This might be an availability problem related to the following :
+
+  - A network outage has been experienced during the scan,
+    and the remote network cannot be reached anymore by the
+    scanner.
+
+  - This scanner may has been blacklisted by the system
+    administrator or by an automatic intrusion detection /
+    prevention system that detected the scan.
+
+  - The remote host is now down, either because a user
+    turned it off during the scan or because a select denial
+    of service was effective.
+
+In any case, the audit of the remote host might be incomplete and may
+need to be done again.","- Increase checks_read_timeout and/or reduce max_checks.
+
+- Disable any IPS during the Nessus scan","","Port 8888 was detected as being open but is now unresponsive
+"
+"11219","","","None","113.203.147.9","tcp","8888","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8888/tcp was found to be open"
+"11936","","","None","113.203.147.9","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Dell PowerConnect Switch
+Confidence level : 70
+Method : SinFP
+
+ 
+The remote host is running Dell PowerConnect Switch"
+"19506","","","None","113.203.147.9","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:12 
+Scan duration : 3074 sec
+"
+"22964","","","None","113.203.147.9","tcp","8888","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"54615","","","None","113.203.147.9","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : switch
+Confidence level : 70
+"
+"10114","CVE-1999-0524","","None","113.203.148.126","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 116 seconds.
+"
+"11154","","","None","113.203.148.126","tcp","5554","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5554
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 07 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 08 63 6D 61 00    ............cma.
+           0x20:                                                                     
+           
+"
+"11154","","","None","113.203.148.126","tcp","5555","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5555
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 02 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 03 73 63 6D 00    ............scm.
+           0x20:                                                                     
+           
+"
+"11219","","","None","113.203.148.126","tcp","1024","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 1024/tcp was found to be open"
+"11219","","","None","113.203.148.126","tcp","5554","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5554/tcp was found to be open"
+"11219","","","None","113.203.148.126","tcp","5555","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5555/tcp was found to be open"
+"11936","","","None","113.203.148.126","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Linux Kernel 2.4
+Linux Kernel 2.6
+Confidence level : 59
+Method : SinFP
+
+ 
+The remote host is running one of these operating systems : 
+Linux Kernel 2.4
+Linux Kernel 2.6"
+"19506","","","None","113.203.148.126","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:10 
+Scan duration : 2009 sec
+"
+"22964","","","None","113.203.148.126","tcp","1024","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"25220","","","None","113.203.148.126","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"45590","","","None","113.203.148.126","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE's : 
+
+  cpe:/o:linux:linux_kernel:2.4
+  cpe:/o:linux:linux_kernel:2.6
+"
+"54615","","","None","113.203.148.126","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : general-purpose
+Confidence level : 59
+"

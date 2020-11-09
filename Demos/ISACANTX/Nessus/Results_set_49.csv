@@ -1,0 +1,2677 @@
+Plugin ID,CVE,CVSS,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output
+"10107","","","None","5.11.167.179","tcp","200","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+Schneider-WEB/V2.2.0"
+"10107","","","None","5.11.167.179","tcp","8088","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+httpd_four-faith"
+"10386","","","None","5.11.167.179","tcp","8088","Web Server No 404 Error Code Check","The remote web server does not return 404 error codes.","The remote web server is configured such that it does not return '404
+Not Found' error codes when a nonexistent file is requested, perhaps
+returning instead a site map, search page or authentication page.
+
+Nessus has enabled some counter measures for this.  However, they
+might be insufficient.  If a great number of security holes are
+produced for this port, they might not all be accurate.","n/a","","
+Unfortunately, Nessus has been unable to find a way to recognize this
+page so some CGI-related checks have been disabled.
+"
+"11026","","","None","5.11.167.179","tcp","0","Wireless Access Point Detection","The remote host is a wireless access point.","Nessus has determined that the remote host is a wireless access point
+(AP).
+
+Ensure that proper physical and logical controls are in place for its
+use. A misconfigured access point may allow an attacker to gain access
+to an internal network without being physically present on the
+premises. If the access point is using an 'off-the-shelf'
+configuration (such as 40 or 104 bit WEP encryption), the data being
+passed through the access point may be vulnerable to hijacking or
+sniffing.","n/a","","
+Nessus has determined that this device is an access point based on a
+phrase found on the server's default web page. That is, Nessus
+maintains a list of commonly-used technical phrases which can be
+associated with wireless technologies. When Nessus encounters these
+phrases during a scan, a determination is made regarding the nature of
+the device. The exact phrase which Nessus flagged on is :
+
+  id=""wireless_table"" summary=""wireless clients table"">
+"
+"11219","","","None","5.11.167.179","tcp","8088","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8088/tcp was found to be open"
+"11219","","","None","5.11.167.179","tcp","200","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 200/tcp was found to be open"
+"11219","","","None","5.11.167.179","tcp","6000","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 6000/tcp was found to be open"
+"11219","","","None","5.11.167.179","tcp","6001","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 6001/tcp was found to be open"
+"11219","","","None","5.11.167.179","tcp","502","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 502/tcp was found to be open"
+"19506","","","None","5.11.167.179","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 7159 sec
+"
+"20108","","","None","5.11.167.179","tcp","200","Web Server / Application favicon.ico Vendor Fingerprinting","The remote web server contains a graphic image that is prone to
+information disclosure.","The 'favicon.ico' file found on the remote web server belongs to a
+popular web server. This may be used to fingerprint the web server.","Remove the 'favicon.ico' file or create a custom one for your site.","","
+  MD5 fingerprint : 8c291e32e7c7c65124d19eb17bceca87
+  Web server      : Schneider Electric Modicon 340 / BMX P34 CPU B
+"
+"22964","","","None","5.11.167.179","tcp","200","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port."
+"22964","","","None","5.11.167.179","tcp","8088","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port."
+"24260","","","None","5.11.167.179","tcp","200","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.0
+SSL : no
+Options allowed : (Not implemented)
+"
+"24260","","","None","5.11.167.179","tcp","8088","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.0
+SSL : no
+Keep-Alive : no
+Headers :
+
+  Content-Type: text/html
+  Server: httpd_four-faith
+  Date: Fri, 19 Aug 2016 10:14:41 GMT
+  Connection: close
+  Cache-Control: no-store, no-cache, must-revalidate
+  Cache-Control: post-check=0, pre-check=0
+  Pragma: no-cache
+  Cache-Control: no-cache
+  Pragma: no-cache
+  Expires: 0
+  
+"
+"10107","","","None","5.11.243.222","tcp","443","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+Goahead/2.5.0 PeerSec-MatrixSSL/3.2.1-OPEN"
+"10107","","","None","5.11.243.222","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+Goahead/2.5.0 PeerSec-MatrixSSL/3.2.1-OPEN"
+"10114","CVE-1999-0524","","None","5.11.243.222","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The ICMP timestamps seem to be in little endian format (not in network format)
+The difference between the local and remote clocks is 5548 seconds.
+"
+"10281","","","None","5.11.243.222","tcp","23","Telnet Server Detection","A Telnet server is listening on the remote port.","The remote host is running a Telnet server, a remote terminal
+server.","Disable this service if you do not use it.","","Here is the banner from the remote Telnet server :
+
+------------------------------ snip ------------------------------
+Cellular Router Configure Environmen
+Username: 
+------------------------------ snip ------------------------------
+"
+"10539","CVE-1999-0024","5.0","Medium","5.11.243.222","udp","53","DNS Server Recursive Query Cache Poisoning Weakness","The remote name server allows recursive queries to be performed
+by the host running nessusd.","It is possible to query the remote name server for third-party
+names.
+
+If this is your internal nameserver, then the attack vector may
+be limited to employees or guest access if allowed.
+
+If you are probing a remote nameserver, then it allows anyone
+to use it to resolve third party names (such as www.nessus.org).
+This allows attackers to perform cache poisoning attacks against
+this nameserver.
+
+If the host allows these recursive queries via UDP, then the
+host can be used to 'bounce' Denial of Service attacks against
+another network or system.","Restrict recursive queries to the hosts that should
+use this nameserver (such as those of the LAN connected to it).
+
+If you are using bind 8, you can do this by using the instruction
+'allow-recursion' in the 'options' section of your named.conf.
+
+If you are using bind 9, you can define a grouping of internal addresses
+using the 'acl' command.
+
+Then, within the options block, you can explicitly state:
+'allow-recursion { hosts_defined_in_acl }'
+
+If you are using another name server, consult its documentation.","http://www.nessus.org/u?c4dcf24a",""
+"10863","","","None","5.11.243.222","tcp","443","SSL Certificate Information","This plugin displays the SSL certificate.","This plugin connects to every SSL-related port and attempts to 
+extract and dump the X.509 certificate.","n/a","","Subject Name: 
+
+Country: CN
+State/Province: GuangDong
+Locality: guangzhou
+Organization: Robustel
+Organization Unit: Robustel
+Common Name: 172.16.2.222
+Email Address: info@roubstel.com
+
+Issuer Name: 
+
+Country: CN
+State/Province: GuangDong
+Locality: guangzhou
+Organization: Robustel
+Organization Unit: Robustel
+Common Name: 172.16.2.222
+Email Address: info@robustel.com
+
+Serial Number: 00 C1 EF BE 0F D9 B0 56 D5 
+
+Version: 1
+
+Signature Algorithm: SHA-1 With RSA Encryption
+
+Not Valid Before: Sep 27 08:02:14 2012 GMT
+Not Valid After: Jan 05 08:02:14 2013 GMT
+
+Public Key Info: 
+
+Algorithm: RSA Encryption
+Key Length: 1024 bits
+Public Key: 00 DD E9 31 E0 6E C0 78 98 17 C0 5F 3C 11 64 6B 8D 85 58 5D 
+            26 1B EA F8 D7 98 B6 C8 02 F1 93 9E F9 96 97 3C 0B AD 64 33 
+            10 A6 7F 44 A4 D1 FE 32 52 68 AF B6 A2 4F E1 8D 45 BB 4F AF 
+            61 77 B4 78 6C 3F 28 98 CA 97 5E 03 C7 68 D3 8E E4 FF 91 2E 
+            4C 0B 7F 15 B7 36 E5 B4 9C 86 C2 72 9E 6B AD D0 6C D9 99 DA 
+            F0 FB 1E A5 0D E3 54 E9 A5 A4 FF 38 AC B7 65 40 F8 60 B9 06 
+            19 D3 10 79 4D 96 D8 DD 9F 
+Exponent: 01 00 01 
+
+Signature Length: 256 bytes / 2048 bits
+Signature: 00 55 E0 AD 5A DE CD 2C D5 13 DE 4A EA 4B 98 00 0A DB 12 00 
+           DC 19 7B DE B0 B4 33 22 EE BB 41 E6 C1 34 CD 5D F5 77 4D 23 
+           B8 B4 EE 57 A8 A2 2A 57 41 AD 1D A6 B1 84 76 71 62 7C DF 66 
+           01 DF DB C4 26 F3 90 0E CE 66 93 F8 BA 17 62 4D 5F DE BE 09 
+           07 04 01 97 FE D1 D6 19 FE BD EE 5D 71 BD 60 01 18 82 D1 95 
+           9B 80 7E 97 6A 44 EA 31 8D 48 E6 B1 F2 38 53 16 7A 75 CA 82 
+           C9 26 EC 44 45 A6 CE A2 4C 33 FE BC 09 BD F3 E0 8E A5 39 73 
+           9A 97 37 2F 8A 0D 3B 26 37 B4 B8 C0 07 66 78 6E 84 28 1F D2 
+           58 56 93 18 59 D7 42 33 F0 F9 D9 44 8A 39 75 F2 FF 63 2B 41 
+           53 2C 84 27 A8 23 A3 22 CD BF C8 42 B8 80 B9 E5 EC 34 76 1E 
+           8A FA 85 9C 48 37 A0 CB C5 02 13 5B C1 DD F1 66 9A 25 27 88 
+           49 E0 F8 E8 21 D8 13 20 CC 46 BE BF 40 80 F3 F5 B0 DE 19 97 
+           81 A3 78 DB DF 7D D2 FB B5 1D C7 B9 D9 03 7C 4D 5C 
+
+Fingerprints : 
+
+SHA-256 Fingerprint: 0B DA EE 6A F1 26 2F EF 5D 0F 03 DD 02 F7 EF CD 54 09 74 E0 
+                     B6 BF 6D 2E F8 A5 16 72 13 56 04 74 
+SHA-1 Fingerprint: E7 D5 31 38 3D 90 DE F9 62 5D 26 9C 70 03 1C 2D D2 E6 A5 E6 
+MD5 Fingerprint: 12 19 43 1A CF 43 3F 4E 40 81 C5 34 8D 06 19 47 
+
+"
+"11002","","","None","5.11.243.222","udp","53","DNS Server Detection","A DNS server is listening on the remote host.","The remote service is a Domain Name System (DNS) server, which
+provides a mapping between hostnames and IP addresses.","Disable this service if it is not needed or restrict access to
+internal hosts only if the service is available externally.","http://en.wikipedia.org/wiki/Domain_Name_System",""
+"11002","","","None","5.11.243.222","tcp","53","DNS Server Detection","A DNS server is listening on the remote host.","The remote service is a Domain Name System (DNS) server, which
+provides a mapping between hostnames and IP addresses.","Disable this service if it is not needed or restrict access to
+internal hosts only if the service is available externally.","http://en.wikipedia.org/wiki/Domain_Name_System",""
+"11153","","","None","5.11.243.222","tcp","80","Service Detection (HELP Request)","The remote service could be identified.","It was possible to identify the remote service by its banner or by
+looking at the error message it sends when it receives a 'HELP'
+request.","n/a","","A web server seems to be running on this port."
+"11219","","","None","5.11.243.222","tcp","23","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 23/tcp was found to be open"
+"11219","","","None","5.11.243.222","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","5.11.243.222","tcp","443","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 443/tcp was found to be open"
+"11219","","","None","5.11.243.222","tcp","53","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 53/tcp was found to be open"
+"11219","","","None","5.11.243.222","tcp","502","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 502/tcp was found to be open"
+"11219","","","None","5.11.243.222","tcp","22","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 22/tcp was found to be open"
+"11219","","","None","5.11.243.222","tcp","504","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 504/tcp was found to be open"
+"11936","","","None","5.11.243.222","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : KYOCERA Printer
+Linux Kernel 2.6
+Confidence level : 54
+Method : SinFP
+
+ 
+The remote host is running one of these operating systems : 
+KYOCERA Printer
+Linux Kernel 2.6"
+"12217","","5.0","Medium","5.11.243.222","udp","53","DNS Server Cache Snooping Remote Information Disclosure","The remote DNS server is vulnerable to cache snooping attacks.","The remote DNS server responds to queries for third-party domains
+that do not have the recursion bit set. 
+
+This may allow a remote attacker to determine which domains have
+recently been resolved via this name server, and therefore which hosts
+have been recently visited. 
+
+For instance, if an attacker was interested in whether your company
+utilizes the online services of a particular financial institution,
+they would be able to use this attack to build a statistical model
+regarding company usage of that financial institution.  Of course, the
+attack can also be used to find B2B partners, web-surfing patterns,
+external mail servers, and more.
+
+Note: If this is an internal DNS server not accessible to outside
+networks, attacks would be limited to the internal network. This
+may include employees, consultants and potentially users on
+a guest network or WiFi connection if supported.","Contact the vendor of the DNS software for a fix.","http://cs.unc.edu/~fabian/course_papers/cache_snooping.pdf","
+Nessus sent a non-recursive query for example.com
+and received 1 answer :
+
+93.184.216.34
+"
+"15901","","5.0","Medium","5.11.243.222","tcp","443","SSL Certificate Expiry","The remote server's SSL certificate has already expired.","This plugin checks expiry dates of certificates associated with SSL-
+enabled services on the target and reports whether any have already
+expired.","Purchase or generate a new SSL certificate to replace the existing
+one.","","
+The SSL certificate has already expired :
+
+  Subject          : C=CN, ST=GuangDong, L=guangzhou, O=Robustel, OU=Robustel, CN=172.16.2.222, emailAddress=info@roubstel.com
+  Issuer           : C=CN, ST=GuangDong, L=guangzhou, O=Robustel, OU=Robustel, CN=172.16.2.222, emailAddress=info@robustel.com
+  Not valid before : Sep 27 08:02:14 2012 GMT
+  Not valid after  : Jan  5 08:02:14 2013 GMT
+"
+"19506","","","None","5.11.243.222","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 5268 sec
+"
+"22964","","","None","5.11.243.222","tcp","22","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","5.11.243.222","tcp","443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A TLSv1.1 server answered on this port.
+"
+"22964","","","None","5.11.243.222","tcp","23","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A telnet server is running on this port."
+"22964","","","None","5.11.243.222","tcp","443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port through TLSv1.1."
+"24260","","","None","5.11.243.222","tcp","443","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.0
+SSL : yes
+Keep-Alive : no
+Options allowed : (Not implemented)
+Headers :
+
+  Server: Goahead/2.5.0 PeerSec-MatrixSSL/3.2.1-OPEN
+  Date: Thu Mar 19 02:38:50 2015
+  Pragma: no-cache
+  Cache-Control: no-cache
+  Content-Type: text/html
+  Location: https://5.11.243.222/index.asp
+  
+"
+"24260","","","None","5.11.243.222","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.0
+SSL : no
+Keep-Alive : no
+Options allowed : (Not implemented)
+Headers :
+
+  Server: Goahead/2.5.0 PeerSec-MatrixSSL/3.2.1-OPEN
+  Date: Thu Mar 19 02:38:53 2015
+  Pragma: no-cache
+  Cache-Control: no-cache
+  Content-Type: text/html
+  Location: http://5.11.243.222/index.asp
+  
+"
+"35371","","","None","5.11.243.222","udp","53","DNS Server hostname.bind Map Hostname Disclosure","The DNS server discloses the remote host name.","It is possible to learn the remote host name by querying the remote
+DNS server for 'hostname.bind' in the CHAOS domain.","It may be possible to disable this feature.  Consult the vendor's
+documentation for more information.","","
+The remote host name is :
+
+SOINTDNS1
+"
+"35450","CVE-2006-0987","5.0","Medium","5.11.243.222","udp","53","DNS Server Spoofed Request Amplification DDoS","The remote DNS server could be used in a distributed denial of service
+attack.","The remote DNS server answers to any request.  It is possible to query
+the name servers (NS) of the root zone ('.') and get an answer that
+is bigger than the original request.  By spoofing the source IP
+address, a remote attacker can leverage this 'amplification' to launch
+a denial of service attack against a third-party host using the remote
+DNS server.","Restrict access to your DNS server from public network or reconfigure
+it to reject such queries.","https://isc.sans.edu/diary/DNS+queries+for+/5713","
+The DNS query was 17 bytes long, the answer is 228 bytes long.
+"
+"42263","","5.8","Medium","5.11.243.222","tcp","23","Unencrypted Telnet Server","The remote Telnet server transmits traffic in cleartext.","The remote host is running a Telnet server over an unencrypted
+channel.
+
+Using Telnet over an unencrypted channel is not recommended as logins,
+passwords, and commands are transferred in cleartext. This allows a 
+remote, man-in-the-middle attacker to eavesdrop on a Telnet session to
+obtain credentials or other sensitive information and to modify
+traffic exchanged between a client and server.
+
+SSH is preferred over Telnet since it protects credentials from
+eavesdropping and can tunnel additional data streams such as an X11
+session.","Disable the Telnet service and use SSH instead.","","
+Nessus collected the following banner from the remote Telnet server :
+
+------------------------------ snip ------------------------------
+Cellular Router Configure Environmen
+Username: 
+------------------------------ snip ------------------------------
+"
+"45590","","","None","5.11.243.222","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:linux:linux_kernel:2.6
+"
+"51192","","6.4","Medium","5.11.243.222","tcp","443","SSL Certificate Cannot Be Trusted","The SSL certificate for this service cannot be trusted.","The server's X.509 certificate does not have a signature from a known
+public certificate authority.  This situation can occur in three
+different ways, each of which results in a break in the chain below
+which certificates cannot be trusted. 
+
+First, the top of the certificate chain sent by the server might not
+be descended from a known public certificate authority.  This can
+occur either when the top of the chain is an unrecognized, self-signed
+certificate, or when intermediate certificates are missing that would
+connect the top of the certificate chain to a known public certificate
+authority. 
+
+Second, the certificate chain may contain a certificate that is not
+valid at the time of the scan.  This can occur either when the scan
+occurs before one of the certificate's 'notBefore' dates, or after one
+of the certificate's 'notAfter' dates. 
+
+Third, the certificate chain may contain a signature that either
+didn't match the certificate's information, or could not be verified.  
+Bad signatures can be fixed by getting the certificate with
+the bad signature to be re-signed by its issuer.  Signatures that
+could not be verified are the result of the certificate's issuer using
+a signing algorithm that Nessus either does not support or does not
+recognize. 
+
+If the remote host is a public host in production, any break in the
+chain makes it more difficult for users to verify the authenticity and 
+identity of the web server. This could make it easier to carry out 
+man-in-the-middle attacks against the remote host.","Purchase or generate a proper certificate for this service.","","
+The following certificate was part of the certificate chain
+sent by the remote host, but has expired :
+
+|-Subject   : C=CN/ST=GuangDong/L=guangzhou/O=Robustel/OU=Robustel/CN=172.16.2.222/E=info@roubstel.com
+|-Not After : Jan 05 08:02:14 2013 GMT
+
+The following certificate was at the top of the certificate
+chain sent by the remote host, but is signed by an unknown
+certificate authority :
+
+|-Subject : C=CN/ST=GuangDong/L=guangzhou/O=Robustel/OU=Robustel/CN=172.16.2.222/E=info@roubstel.com
+|-Issuer  : C=CN/ST=GuangDong/L=guangzhou/O=Robustel/OU=Robustel/CN=172.16.2.222/E=info@robustel.com
+"
+"56984","","","None","5.11.243.222","tcp","443","SSL / TLS Versions Supported","The remote service encrypts communications.","This plugin detects which SSL and TLS versions are supported by the
+remote service for encrypting communications.","n/a","","
+This port supports SSLv3/TLSv1.0/TLSv1.1.
+"
+"69551","","","Low","5.11.243.222","tcp","443","SSL Certificate Chain Contains RSA Keys Less Than 2048 bits","The X.509 certificate chain used by this service contains certificates
+with RSA keys shorter than 2048 bits.","At least one of the X.509 certificates sent by the remote host has a
+key that is shorter than 2048 bits. According to industry standards
+set by the Certification Authority/Browser (CA/B) Forum, certificates
+issued after January 1, 2014 must be at least 2048 bits.
+
+Some browser SSL implementations may reject keys less than 2048 bits
+after January 1, 2014. Additionally, some SSL certificate vendors may
+revoke certificates less than 2048 bits before January 1, 2014.
+
+Note that Nessus will not flag root certificates with RSA keys less
+than 2048 bits if they were issued prior to December 31, 2010, as the
+standard considers them exempt.","Replace the certificate in the chain with the RSA key less than 2048
+bits in length with a longer key, and reissue any certificates signed
+by the old certificate.","https://www.cabforum.org/Baseline_Requirements_V1.pdf","
+The following certificates were part of the certificate chain
+sent by the remote host, but contain RSA keys that are considered
+to be weak :
+
+|-Subject        : C=CN/ST=GuangDong/L=guangzhou/O=Robustel/OU=Robustel/CN=172.16.2.222/E=info@roubstel.com
+|-RSA Key Length : 1024 bits
+"
+"84502","","","None","5.11.243.222","tcp","443","HSTS Missing From HTTPS Server","The remote web server is not enforcing HSTS.","The remote HTTPS server is not enforcing HTTP Strict Transport
+Security (HSTS). The lack of HSTS allows downgrade attacks,
+SSL-stripping man-in-the-middle attacks, and weakens cookie-hijacking
+protections.","Configure the remote web server to use HSTS.","https://tools.ietf.org/html/rfc6797","
+  The remote HTTPS server does not send the HTTP
+  ""Strict-Transport-Security"" header.
+"
+"10107","","","None","5.226.103.226","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+Siemens Switzerland Ltd."
+"10114","CVE-1999-0524","","None","5.226.103.226","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 66 seconds.
+"
+"11154","","","None","5.226.103.226","tcp","2000","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 2000
+  Type   : spontaneous
+  Banner : 
+0x00:  52 49 46 41 00 00 00 00 10 88 81 00 00 00 00 00    RIFA............
+           0x10:  00 00 08 00 00 00 00 01 CC 58 44 31 36 34 38 01    .........XD1648.
+           0x20:  00                                                 .               
+           
+"
+"11154","","","None","5.226.103.226","tcp","2001","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 2001
+  Type   : spontaneous
+  Banner : 
+0x00:  52 49 46 41 00 00 00 00 10 88 81 00 00 00 00 00    RIFA............
+           0x10:  00 00 08 00 00 00 00 01 CC 58 44 31 36 34 38 01    .........XD1648.
+           0x20:  00                                                 .               
+           
+"
+"11219","","","None","5.226.103.226","tcp","22","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 22/tcp was found to be open"
+"11219","","","None","5.226.103.226","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","5.226.103.226","tcp","2000","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 2000/tcp was found to be open"
+"11219","","","None","5.226.103.226","tcp","2001","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 2001/tcp was found to be open"
+"11936","","","None","5.226.103.226","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Linux Kernel 2.6
+Confidence level : 70
+Method : SinFP
+
+ 
+The remote host is running Linux Kernel 2.6"
+"12053","","","None","5.226.103.226","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+5.226.103.226 resolves as 5-226-103-226.static.ip.netia.com.pl.
+"
+"19506","","","None","5.226.103.226","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 1245 sec
+"
+"22964","","","None","5.226.103.226","tcp","22","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","5.226.103.226","tcp","80","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port."
+"24260","","","None","5.226.103.226","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : no
+Options allowed : OPTIONS, GET, HEAD, POST
+Headers :
+
+  Connection: close
+  Content-Type: text/html
+  ETag: ""1032638319""
+  Accept-Ranges: bytes
+  Last-Modified: Wed, 13 May 2009 10:34:22 GMT
+  Content-Length: 380
+  Date: Fri, 19 Aug 2016 00:59:56 GMT
+  Server: Siemens Switzerland Ltd.
+  
+"
+"43111","","","None","5.226.103.226","tcp","80","HTTP Methods Allowed (per directory)","This plugin determines which HTTP methods are allowed on various CGI
+directories.","By calling the OPTIONS method, it is possible to determine which HTTP 
+methods are allowed on each directory. 
+
+As this list may be incomplete, the plugin also tests - if 'Thorough
+tests' are enabled or 'Enable web applications tests' is set to 'yes'
+in the scan policy - various known HTTP methods on each directory and
+considers them as unsupported if it receives a response code of 400,
+403, 405, or 501. 
+
+Note that the plugin output is only informational and does not
+necessarily indicate the presence of any security vulnerabilities.","n/a","","Based on the response to an OPTIONS request :
+
+  - HTTP methods  GET  HEAD  POST OPTIONS are allowed on : 
+
+    /
+
+"
+"45590","","","None","5.226.103.226","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:linux:linux_kernel:2.6
+"
+"54615","","","None","5.226.103.226","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : general-purpose
+Confidence level : 70
+"
+"10302","","","None","5.39.233.13","tcp","443","Web Server robots.txt Information Disclosure","The remote web server contains a 'robots.txt' file.","The remote host contains a file named 'robots.txt' that is intended to
+prevent web 'robots' from visiting certain directories in a website for
+maintenance or indexing purposes.  A malicious user may also be able to
+use the contents of this file to learn of sensitive documents or
+directories on the affected site and either retrieve them directly or
+target them for other attacks.","Review the contents of the site's robots.txt file, use Robots META tags
+instead of entries in the robots.txt file, and/or adjust the web
+server's access controls to limit access to sensitive material.","http://www.robotstxt.org/wc/exclusion.html","Contents of robots.txt :
+
+User-agent: *
+Disallow: /
+
+"
+"10863","","","None","5.39.233.13","tcp","443","SSL Certificate Information","This plugin displays the SSL certificate.","This plugin connects to every SSL-related port and attempts to 
+extract and dump the X.509 certificate.","n/a","","Subject Name: 
+
+Country: US
+State/Province: Default state
+Organization: Netasq
+Organization Unit: sslvpnfull
+Common Name: openvpnserver.com
+
+Issuer Name: 
+
+Country: US
+State/Province: Default state
+Organization: Netasq
+Organization Unit: sslvpnfull
+Common Name: sslvpn-full-default-authority
+
+Serial Number: 00 E7 2A EE 08 
+
+Version: 3
+
+Signature Algorithm: SHA-1 With RSA Encryption
+
+Not Valid Before: Jan 17 11:02:34 2015 GMT
+Not Valid After: Jan 14 11:02:34 2025 GMT
+
+Public Key Info: 
+
+Algorithm: RSA Encryption
+Key Length: 2048 bits
+Public Key: 00 D5 57 FE B0 C6 24 5E 7D 93 5C EC 63 BC 6C 2A 52 98 23 0D 
+            02 71 B4 77 A5 9C 16 55 75 E0 8D 8F A1 F1 5B CB 09 0F A6 9A 
+            52 DB 94 E9 F4 B9 93 BB A4 B5 7E 54 73 9C 49 B7 FF 9F 03 B9 
+            55 E9 A7 20 D0 25 DE E0 C1 DC 3F E0 75 BA 2E 89 B5 89 E6 A8 
+            C9 A2 87 77 98 E2 09 C9 71 CF 8B CD 7B 58 8C 60 2F E3 B5 D9 
+            60 7A D7 A0 51 EE A1 F1 F7 71 18 7A 3D 97 74 D8 69 CA 7B CE 
+            09 7C 58 B7 43 AE 85 AD 37 D2 8F 5B 02 17 11 93 DF 51 00 04 
+            4B 6B A5 14 E4 1B 7E 58 31 BF A5 17 CE 19 0F 56 C6 CA D7 E1 
+            33 36 BC FC 30 05 C3 C4 7E D6 91 24 37 FE A6 F3 05 B2 7F 75 
+            21 BE 65 EF E6 35 D2 4B 80 B4 3D FC 4C B3 8B 64 57 F1 09 78 
+            B2 EE 43 21 4E 4A 57 BB 50 66 A2 24 F0 EC 00 35 7D 88 05 59 
+            4B 38 F9 3B 0B BA FF 4C A8 6F 1A 4C F8 04 4F 21 39 5F 57 78 
+            8C 67 FF 55 DE 43 1D 94 E3 58 B1 1E D2 D0 AD 77 B3 
+Exponent: 01 00 01 
+
+Signature Length: 512 bytes / 4096 bits
+Signature: 00 3B 5C 32 63 B0 41 67 6A E7 E0 68 64 DB F7 3F 4B 51 F4 CA 
+           F1 3B 59 5E 42 2E F3 25 3C 11 67 08 54 AA 15 AD ED AA 08 EE 
+           8F F4 5C F8 86 2E 62 FE D7 3D 3B 86 92 0B A1 63 B9 FC 0C 33 
+           68 67 45 51 A2 24 74 FB 18 A0 A7 5E 8B A4 5D D6 19 0F AA 84 
+           E5 75 71 57 71 A2 C0 81 3E 83 07 4B FC 8B FD A5 00 EF 01 B1 
+           F8 10 E9 D2 A7 92 E0 EF 22 7A 4D 48 38 60 43 D4 38 F6 CA 62 
+           33 FD 75 FD 8F C9 10 23 F6 27 A2 4E DF F6 20 DB 10 3E 7A 0B 
+           C6 7F 8A 34 DE EF B9 CC 50 F7 EB DC 55 6B 56 D1 A0 0C 6F C6 
+           F4 D9 20 2C FF 73 4B C0 93 EE 89 F1 6E 33 E6 41 52 E3 F4 C6 
+           13 8D C6 E7 5A 32 01 71 58 FC 54 C3 0B 3E EC 81 B0 AA B1 0F 
+           28 82 14 3D 5D 15 D2 E3 D6 80 E4 6D 12 EF 1D 6F 4D A6 95 31 
+           C4 E2 EA 8A 80 A4 0F E1 C0 F4 85 B4 E5 1A 4E 78 A7 45 42 10 
+           A2 D0 8E 5F AB 00 AC 9C 99 7B F3 7B 8C 1B 94 C8 03 26 34 87 
+           1B 3A 9A FA BA F6 6D 0E 04 02 15 7B C0 30 BF C8 EE CE B6 70 
+           43 9F 7D 1C 77 92 DD BD 3D FE 2E 6B F2 C1 47 BB 91 A7 AA E0 
+           4E 46 2C 2E 8F 18 91 6C 0D 77 43 A9 62 FD 02 BD 2E 52 74 9A 
+           04 B1 63 2B 29 5F 17 86 78 33 02 D5 E3 FE BC 08 A2 FB 29 01 
+           9E 69 41 02 8D B7 5E D7 FF 67 6B 93 5F 21 EF E4 6C 3A 0F 69 
+           72 3E BB B8 88 59 8F 93 13 7C 08 C8 E9 E0 A5 74 9F 80 48 5C 
+           2D 3E FB 9D AB 0A BE E8 43 61 3A 9A DA 74 C4 A2 03 5C 4E 5D 
+           C6 B4 F6 4E 00 0B E2 1B 78 00 35 5F E8 D1 C4 F8 1F 30 F4 4C 
+           39 CA CE 81 6C 45 C6 B1 0C 08 DF 80 5E 5B 53 64 95 B1 44 16 
+           52 C0 BF 35 09 49 A0 E1 2D 1A B0 F1 90 BD 34 5F C9 D3 AA 23 
+           3A 11 05 94 3B 0E 69 88 E4 00 25 90 C4 1B 1B 35 5F 93 5A C8 
+           06 86 38 30 66 AE 4A 62 97 C7 91 7F 61 F1 48 CD 57 DC D4 B1 
+           E8 AB 35 F8 1F 62 D7 79 25 67 E3 31 A6 
+
+Extension: Subject Key Identifier (2.5.29.14)
+Critical: 0
+Subject Key Identifier: 82 15 7E BC 93 45 41 84 50 41 0C 8F 21 F2 17 E0 66 1F 82 F2 
+
+
+Extension: Authority Key Identifier (2.5.29.35)
+Critical: 0
+Key Identifier: E7 09 F2 6C AF FB 5D E3 1E B2 D7 24 25 4B 36 99 EC 2B 01 4C 
+
+
+Extension: Basic Constraints (2.5.29.19)
+Critical: 0
+
+
+Extension: Key Usage (2.5.29.15)
+Critical: 1
+Key Usage: Digital Signature, Key Encipherment, Key Agreement
+
+
+Extension: Extended Key Usage (2.5.29.37)
+Critical: 0
+Purpose#1: Web Server Authentication (1.3.6.1.5.5.7.3.1)
+Purpose#2: Web Client Authentication (1.3.6.1.5.5.7.3.2)
+
+
+Extension: 2.16.840.1.113730.1.1
+Critical: 0
+Data: 03 02 06 40 
+
+
+Fingerprints : 
+
+SHA-256 Fingerprint: 9F 61 AC 6A 01 31 D5 CC C2 8B BE 38 EB 4F 25 61 3C 04 F1 A7 
+                     2C 04 9C DA 3D F9 73 17 8C 58 A5 43 
+SHA-1 Fingerprint: D6 A2 98 2E EA 12 91 81 BD 93 3D 8C CB 3E B6 F3 C8 F9 86 E9 
+MD5 Fingerprint: 19 2B CD 93 90 AE 37 E4 AB D1 6F DC 80 A9 D9 B3 
+
+"
+"11219","","","None","5.39.233.13","tcp","444","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 444/tcp was found to be open"
+"11219","","","None","5.39.233.13","tcp","8080","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8080/tcp was found to be open"
+"11219","","","None","5.39.233.13","tcp","443","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 443/tcp was found to be open"
+"12053","","","None","5.39.233.13","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+5.39.233.13 resolves as mail.si-tregorgoelo.fr.
+"
+"19506","","","None","5.39.233.13","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 5760 sec
+"
+"22964","","","None","5.39.233.13","tcp","443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A TLSv1.2 server answered on this port.
+"
+"22964","","","None","5.39.233.13","tcp","443","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","A web server is running on this port through TLSv1.2."
+"24260","","","None","5.39.233.13","tcp","443","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : yes
+Keep-Alive : yes
+Options allowed : (Not implemented)
+Headers :
+
+  Date: Fri, 19 Aug 2016 02:01:36 GMT
+  Connection: Keep-Alive
+  Content-Length: 300
+  Location: /auth/
+  Cache-Control: no-store,no-cache,must-revalidate
+  Pragma: no-cache
+  Expires: -1
+  Last-Modified: Mon, 12 Jan 2000 13:42:42 GMT
+  Content-Type: text/html
+  
+"
+"25220","","","None","5.39.233.13","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"35291","CVE-2004-2761","4.0","Medium","5.39.233.13","tcp","443","SSL Certificate Signed Using Weak Hashing Algorithm","An SSL certificate in the certificate chain has been signed using a
+weak hash algorithm.","The remote service uses an SSL certificate chain that has been signed
+using a cryptographically weak hashing algorithm (e.g. MD2, MD4, MD5,
+or SHA1). These signature algorithms are known to be vulnerable to
+collision attacks. An attacker can exploit this to generate another
+certificate with the same digital signature, allowing an attacker to
+masquerade as the affected service.
+
+Note that this plugin reports all SSL certificate chains signed with
+SHA-1 that expire after January 1, 2017 as vulnerable. This is in
+accordance with Google's gradual sunsetting of the SHA-1 cryptographic
+hash algorithm.
+
+Note that certificates in the chain that are contained in the Nessus
+CA database have been ignored.","Contact the Certificate Authority to have the certificate reissued.","http://tools.ietf.org/html/rfc3279
+http://www.phreedom.org/research/rogue-ca/
+http://technet.microsoft.com/en-us/security/advisory/961509","
+The following certificates were part of the certificate chain sent by
+the remote host, but contain hashes that are considered to be weak.
+
+|-Subject             : C=US/ST=Default state/O=Netasq/OU=sslvpnfull/CN=openvpnserver.com
+|-Signature Algorithm : SHA-1 With RSA Encryption
+|-Valid From          : Jan 17 11:02:34 2015 GMT
+|-Valid To            : Jan 14 11:02:34 2025 GMT
+
+|-Subject             : C=US/ST=Default state/O=Netasq/OU=sslvpnfull/CN=sslvpn-full-default-authority
+|-Signature Algorithm : SHA-1 With RSA Encryption
+|-Valid From          : Jan 10 11:02:34 2015 GMT
+|-Valid To            : Jan 14 11:02:34 2025 GMT
+"
+"45410","","","None","5.39.233.13","tcp","443","SSL Certificate commonName Mismatch","The SSL certificate commonName does not match the host name.","This service presents an SSL certificate for which the 'commonName'
+(CN) does not match the host name on which the service listens.","If the machine has several names, make sure that users connect to the
+service through the DNS host name that matches the common name in the
+certificate.","","
+The host name known by Nessus is :
+
+  mail.si-tregorgoelo.fr
+
+The Common Name in the certificate is :
+
+  openvpnserver.com
+"
+"45411","","5.0","Medium","5.39.233.13","tcp","443","SSL Certificate with Wrong Hostname","The SSL certificate for this service is for a different host.","The commonName (CN) of the SSL certificate presented on this service
+is for a different machine.","Purchase or generate a proper certificate for this service.","","
+The identities known by Nessus are :
+
+  vpn.si-tregorgoelo.fr
+  mail.si-tregorgoelo.fr
+
+The Common Name in the certificate is :
+
+  openvpnserver.com
+"
+"46180","","","None","5.39.233.13","tcp","0","Additional DNS Hostnames","Nessus has detected potential virtual hosts.","Hostnames different from the current hostname have been collected by
+miscellaneous plugins. Nessus has generated a list of hostnames that
+point to the remote host. Note that these are only the alternate
+hostnames for vhosts discovered on a web server.
+
+Different web servers may be hosted on name-based virtual hosts.","If you want to test them, re-scan using the special vhost syntax,
+such as :
+
+www.example.com[192.0.32.10]","http://en.wikipedia.org/wiki/Virtual_hosting","The following hostnames point to the remote host :
+  - vpn.si-tregorgoelo.fr
+"
+"51192","","6.4","Medium","5.39.233.13","tcp","443","SSL Certificate Cannot Be Trusted","The SSL certificate for this service cannot be trusted.","The server's X.509 certificate does not have a signature from a known
+public certificate authority.  This situation can occur in three
+different ways, each of which results in a break in the chain below
+which certificates cannot be trusted. 
+
+First, the top of the certificate chain sent by the server might not
+be descended from a known public certificate authority.  This can
+occur either when the top of the chain is an unrecognized, self-signed
+certificate, or when intermediate certificates are missing that would
+connect the top of the certificate chain to a known public certificate
+authority. 
+
+Second, the certificate chain may contain a certificate that is not
+valid at the time of the scan.  This can occur either when the scan
+occurs before one of the certificate's 'notBefore' dates, or after one
+of the certificate's 'notAfter' dates. 
+
+Third, the certificate chain may contain a signature that either
+didn't match the certificate's information, or could not be verified.  
+Bad signatures can be fixed by getting the certificate with
+the bad signature to be re-signed by its issuer.  Signatures that
+could not be verified are the result of the certificate's issuer using
+a signing algorithm that Nessus either does not support or does not
+recognize. 
+
+If the remote host is a public host in production, any break in the
+chain makes it more difficult for users to verify the authenticity and 
+identity of the web server. This could make it easier to carry out 
+man-in-the-middle attacks against the remote host.","Purchase or generate a proper certificate for this service.","","
+The following certificate was at the top of the certificate
+chain sent by the remote host, but is signed by an unknown
+certificate authority :
+
+|-Subject : C=US/ST=Default state/O=Netasq/OU=sslvpnfull/CN=sslvpn-full-default-authority
+|-Issuer  : C=US/ST=Default state/O=Netasq/OU=sslvpnfull/CN=sslvpn-full-default-authority
+"
+"56984","","","None","5.39.233.13","tcp","443","SSL / TLS Versions Supported","The remote service encrypts communications.","This plugin detects which SSL and TLS versions are supported by the
+remote service for encrypting communications.","n/a","","
+This port supports TLSv1.2.
+"
+"57582","","6.4","Medium","5.39.233.13","tcp","443","SSL Self-Signed Certificate","The SSL certificate chain for this service ends in an unrecognized
+self-signed certificate.","The X.509 certificate chain for this service is not signed by a
+recognized certificate authority.  If the remote host is a public host
+in production, this nullifies the use of SSL as anyone could establish
+a man-in-the-middle attack against the remote host. 
+
+Note that this plugin does not check for certificate chains that end
+in a certificate that is not self-signed, but is signed by an
+unrecognized certificate authority.","Purchase or generate a proper certificate for this service.","","
+The following certificate was found at the top of the certificate
+chain sent by the remote host, but is self-signed and was not
+found in the list of known certificate authorities :
+
+|-Subject : C=US/ST=Default state/O=Netasq/OU=sslvpnfull/CN=sslvpn-full-default-authority
+"
+"84502","","","None","5.39.233.13","tcp","443","HSTS Missing From HTTPS Server","The remote web server is not enforcing HSTS.","The remote HTTPS server is not enforcing HTTP Strict Transport
+Security (HSTS). The lack of HSTS allows downgrade attacks,
+SSL-stripping man-in-the-middle attacks, and weakens cookie-hijacking
+protections.","Configure the remote web server to use HSTS.","https://tools.ietf.org/html/rfc6797","
+  The remote HTTPS server does not send the HTTP
+  ""Strict-Transport-Security"" header.
+"
+"10107","","","None","50.120.212.249","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+SiemensGigaset-Server/1.0"
+"10114","CVE-1999-0524","","None","50.120.212.249","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 30 seconds.
+"
+"10267","","","None","50.120.212.249","tcp","22","SSH Server Type and Version Information","An SSH server is listening on this port.","It is possible to obtain information about the remote SSH server by
+sending an empty authentication request.","n/a","","
+SSH version : SSH-2.0-Siemens
+"
+"11154","","","None","50.120.212.249","tcp","443","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+The service on this port appears to be encrypted with SSL. If you
+would like Nessus to try harder to detect it, change the 'Test SSL
+based services' preference to 'All' and re-run the scan.
+"
+"11154","","","None","50.120.212.249","tcp","5554","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5554
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 03 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 04 63 6D 61 00    ............cma.
+           0x20:                                                                     
+           
+"
+"11154","","","None","50.120.212.249","tcp","5555","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5555
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 04 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 05 73 63 6D 00    ............scm.
+           0x20:                                                                     
+           
+"
+"11219","","","None","50.120.212.249","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","50.120.212.249","tcp","8080","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8080/tcp was found to be open"
+"11219","","","None","50.120.212.249","tcp","443","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 443/tcp was found to be open"
+"11219","","","None","50.120.212.249","tcp","22","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 22/tcp was found to be open"
+"11219","","","None","50.120.212.249","tcp","53","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 53/tcp was found to be open"
+"11219","","","None","50.120.212.249","tcp","5555","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5555/tcp was found to be open"
+"11219","","","None","50.120.212.249","tcp","5554","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5554/tcp was found to be open"
+"11936","","","None","50.120.212.249","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : FortiOS on Fortinet FortiGate
+Confidence level : 65
+Method : SinFP
+
+ 
+The remote host is running FortiOS on Fortinet FortiGate"
+"19506","","","None","50.120.212.249","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 1290 sec
+"
+"22964","","","None","50.120.212.249","tcp","53","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","50.120.212.249","tcp","8080","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","50.120.212.249","tcp","22","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An SSH server is running on this port."
+"24260","","","None","50.120.212.249","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : no
+Options allowed : (Not implemented)
+Headers :
+
+  Location: http://50.120.212.249/UE/welcome_login.html
+  Content-Length: 0
+  Server: SiemensGigaset-Server/1.0
+  Connection: close
+  
+"
+"25220","","","None","50.120.212.249","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"45590","","","None","50.120.212.249","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:fortinet:fortios
+"
+"54615","","","None","50.120.212.249","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : firewall
+Confidence level : 65
+"
+"70657","","","None","50.120.212.249","tcp","22","SSH Algorithms and Languages Supported","An SSH server is listening on this port.","This script detects which algorithms and languages are supported by
+the remote service for encrypting communications.","n/a","","
+Nessus negotiated the following encryption algorithm with the server : 3des-cbc
+
+The server supports the following options for kex_algorithms : 
+
+  diffie-hellman-group1-sha1
+
+The server supports the following options for server_host_key_algorithms : 
+
+  ssh-dss
+
+The server supports the following options for encryption_algorithms_client_to_server : 
+
+  3des-cbc
+
+The server supports the following options for encryption_algorithms_server_to_client : 
+
+  3des-cbc
+
+The server supports the following options for mac_algorithms_client_to_server : 
+
+  hmac-sha1
+
+The server supports the following options for mac_algorithms_server_to_client : 
+
+  hmac-sha1
+
+The server supports the following options for compression_algorithms_client_to_server : 
+
+  none
+
+The server supports the following options for compression_algorithms_server_to_client : 
+
+  none
+"
+"70658","CVE-2008-5161","2.6","Low","50.120.212.249","tcp","22","SSH Server CBC Mode Ciphers Enabled","The SSH server is configured to use Cipher Block Chaining.","The SSH server is configured to support Cipher Block Chaining (CBC)
+encryption.  This may allow an attacker to recover the plaintext message
+from the ciphertext. 
+
+Note that this plugin only checks for the options of the SSH server and
+does not check for vulnerable software versions.","Contact the vendor or consult product documentation to disable CBC mode
+cipher encryption, and enable CTR or GCM cipher mode encryption.","","
+The following client-to-server Cipher Block Chaining (CBC) algorithms
+are supported : 
+
+  3des-cbc
+
+The following server-to-client Cipher Block Chaining (CBC) algorithms
+are supported : 
+
+  3des-cbc
+"
+"10107","","","None","50.122.223.105","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+SiemensGigaset-Server/1.0"
+"10114","CVE-1999-0524","","None","50.122.223.105","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 72 seconds.
+"
+"10267","","","None","50.122.223.105","tcp","22","SSH Server Type and Version Information","An SSH server is listening on this port.","It is possible to obtain information about the remote SSH server by
+sending an empty authentication request.","n/a","","
+SSH version : SSH-2.0-Siemens
+SSH supported authentication : publickey,password
+"
+"11154","","","None","50.122.223.105","tcp","5554","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5554
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 01 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 02 63 6D 61 00    ............cma.
+           0x20:                                                                     
+           
+"
+"11154","","","None","50.122.223.105","tcp","5555","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5555
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 01 E7 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 01 E8 73 63 6D 00    ............scm.
+           0x20:                                                                     
+           
+"
+"11219","","","None","50.122.223.105","tcp","443","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 443/tcp was found to be open"
+"11219","","","None","50.122.223.105","tcp","53","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 53/tcp was found to be open"
+"11219","","","None","50.122.223.105","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","50.122.223.105","tcp","8080","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8080/tcp was found to be open"
+"11219","","","None","50.122.223.105","tcp","22","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 22/tcp was found to be open"
+"11219","","","None","50.122.223.105","tcp","5554","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5554/tcp was found to be open"
+"11219","","","None","50.122.223.105","tcp","5555","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5555/tcp was found to be open"
+"11936","","","None","50.122.223.105","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : FortiOS on Fortinet FortiGate
+Confidence level : 65
+Method : SinFP
+
+ 
+The remote host is running FortiOS on Fortinet FortiGate"
+"19506","","","None","50.122.223.105","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 1285 sec
+"
+"22964","","","None","50.122.223.105","tcp","53","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","50.122.223.105","tcp","8080","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","50.122.223.105","tcp","80","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","50.122.223.105","tcp","22","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An SSH server is running on this port."
+"24260","","","None","50.122.223.105","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : no
+Options allowed : (Not implemented)
+Headers :
+
+  Location: http://50.122.223.105/UE/welcome_login.html
+  Content-Length: 0
+  Server: SiemensGigaset-Server/1.0
+  Connection: close
+  
+"
+"25220","","","None","50.122.223.105","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"45590","","","None","50.122.223.105","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:fortinet:fortios
+"
+"54615","","","None","50.122.223.105","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : firewall
+Confidence level : 65
+"
+"70657","","","None","50.122.223.105","tcp","22","SSH Algorithms and Languages Supported","An SSH server is listening on this port.","This script detects which algorithms and languages are supported by
+the remote service for encrypting communications.","n/a","","
+Nessus negotiated the following encryption algorithm with the server : 3des-cbc
+
+The server supports the following options for kex_algorithms : 
+
+  diffie-hellman-group1-sha1
+
+The server supports the following options for server_host_key_algorithms : 
+
+  ssh-dss
+
+The server supports the following options for encryption_algorithms_client_to_server : 
+
+  3des-cbc
+
+The server supports the following options for encryption_algorithms_server_to_client : 
+
+  3des-cbc
+
+The server supports the following options for mac_algorithms_client_to_server : 
+
+  hmac-sha1
+
+The server supports the following options for mac_algorithms_server_to_client : 
+
+  hmac-sha1
+
+The server supports the following options for compression_algorithms_client_to_server : 
+
+  none
+
+The server supports the following options for compression_algorithms_server_to_client : 
+
+  none
+"
+"70658","CVE-2008-5161","2.6","Low","50.122.223.105","tcp","22","SSH Server CBC Mode Ciphers Enabled","The SSH server is configured to use Cipher Block Chaining.","The SSH server is configured to support Cipher Block Chaining (CBC)
+encryption.  This may allow an attacker to recover the plaintext message
+from the ciphertext. 
+
+Note that this plugin only checks for the options of the SSH server and
+does not check for vulnerable software versions.","Contact the vendor or consult product documentation to disable CBC mode
+cipher encryption, and enable CTR or GCM cipher mode encryption.","","
+The following client-to-server Cipher Block Chaining (CBC) algorithms
+are supported : 
+
+  3des-cbc
+
+The following server-to-client Cipher Block Chaining (CBC) algorithms
+are supported : 
+
+  3des-cbc
+"
+"10107","","","None","50.122.248.41","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+SiemensGigaset-Server/1.0"
+"10114","CVE-1999-0524","","None","50.122.248.41","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 55 seconds.
+"
+"10267","","","None","50.122.248.41","tcp","22","SSH Server Type and Version Information","An SSH server is listening on this port.","It is possible to obtain information about the remote SSH server by
+sending an empty authentication request.","n/a","","
+SSH version : SSH-2.0-Siemens
+SSH supported authentication : publickey,password
+"
+"11154","","","None","50.122.248.41","tcp","443","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+The service on this port appears to be encrypted with SSL. If you
+would like Nessus to try harder to detect it, change the 'Test SSL
+based services' preference to 'All' and re-run the scan.
+"
+"11154","","","None","50.122.248.41","tcp","5554","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5554
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 03 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 04 63 6D 61 00    ............cma.
+           0x20:                                                                     
+           
+"
+"11154","","","None","50.122.248.41","tcp","5555","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 5555
+  Type   : spontaneous
+  Banner : 
+0x00:  00 00 00 0C 00 00 00 10 00 00 00 02 00 00 00 01    ................
+           0x10:  00 00 00 0C 00 00 00 05 00 00 00 03 73 63 6D 00    ............scm.
+           0x20:                                                                     
+           
+"
+"11219","","","None","50.122.248.41","tcp","443","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 443/tcp was found to be open"
+"11219","","","None","50.122.248.41","tcp","8080","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 8080/tcp was found to be open"
+"11219","","","None","50.122.248.41","tcp","22","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 22/tcp was found to be open"
+"11219","","","None","50.122.248.41","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","50.122.248.41","tcp","53","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 53/tcp was found to be open"
+"11219","","","None","50.122.248.41","tcp","5555","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5555/tcp was found to be open"
+"11219","","","None","50.122.248.41","tcp","5554","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 5554/tcp was found to be open"
+"19506","","","None","50.122.248.41","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 1380 sec
+"
+"22964","","","None","50.122.248.41","tcp","53","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","50.122.248.41","tcp","8080","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","50.122.248.41","tcp","80","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","50.122.248.41","tcp","22","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An SSH server is running on this port."
+"24260","","","None","50.122.248.41","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : no
+Options allowed : (Not implemented)
+Headers :
+
+  Location: http://50.122.248.41/UE/welcome_login.html
+  Content-Length: 0
+  Server: SiemensGigaset-Server/1.0
+  Connection: close
+  
+"
+"25220","","","None","50.122.248.41","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"70657","","","None","50.122.248.41","tcp","22","SSH Algorithms and Languages Supported","An SSH server is listening on this port.","This script detects which algorithms and languages are supported by
+the remote service for encrypting communications.","n/a","","
+Nessus negotiated the following encryption algorithm with the server : 3des-cbc
+
+The server supports the following options for kex_algorithms : 
+
+  diffie-hellman-group1-sha1
+
+The server supports the following options for server_host_key_algorithms : 
+
+  ssh-dss
+
+The server supports the following options for encryption_algorithms_client_to_server : 
+
+  3des-cbc
+
+The server supports the following options for encryption_algorithms_server_to_client : 
+
+  3des-cbc
+
+The server supports the following options for mac_algorithms_client_to_server : 
+
+  hmac-sha1
+
+The server supports the following options for mac_algorithms_server_to_client : 
+
+  hmac-sha1
+
+The server supports the following options for compression_algorithms_client_to_server : 
+
+  none
+
+The server supports the following options for compression_algorithms_server_to_client : 
+
+  none
+"
+"70658","CVE-2008-5161","2.6","Low","50.122.248.41","tcp","22","SSH Server CBC Mode Ciphers Enabled","The SSH server is configured to use Cipher Block Chaining.","The SSH server is configured to support Cipher Block Chaining (CBC)
+encryption.  This may allow an attacker to recover the plaintext message
+from the ciphertext. 
+
+Note that this plugin only checks for the options of the SSH server and
+does not check for vulnerable software versions.","Contact the vendor or consult product documentation to disable CBC mode
+cipher encryption, and enable CTR or GCM cipher mode encryption.","","
+The following client-to-server Cipher Block Chaining (CBC) algorithms
+are supported : 
+
+  3des-cbc
+
+The following server-to-client Cipher Block Chaining (CBC) algorithms
+are supported : 
+
+  3des-cbc
+"
+"10107","","","None","50.127.201.61","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+Agranat-EmWeb/R4_01"
+"10114","CVE-1999-0524","","None","50.127.201.61","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The ICMP timestamps seem to be in little endian format (not in network format)
+The difference between the local and remote clocks is 3933 seconds.
+"
+"10551","","","None","50.127.201.61","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : ETHERNET/0
+ ifPhysAddress : 00206f1ac51a
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : GTI-DMT/0
+ ifPhysAddress : 000000000000
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : CONSOLE/0
+ ifPhysAddress : 000000000000
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : ATM-VC/1
+ ifPhysAddress : 000000000000
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : ATM-VC/2
+ ifPhysAddress : 000000000000
+
+"
+"10800","","","None","50.127.201.61","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens 5830 DMT Router (5830-001) v6.1.140
+Copyright (C) 2004 Siemens Subscriber Networks, Inc.
+All Rights Reserved
+ sysObjectID  : 1.3.6.1.4.1.1548.5830.0
+ sysUptime    : 2d 23h 20m 51s
+ sysContact   : 
+ sysName      : HomeCityIce
+ sysLocation  : 
+ sysServices  : 79
+
+"
+"11153","","","None","50.127.201.61","tcp","80","Service Detection (HELP Request)","The remote service could be identified.","It was possible to identify the remote service by its banner or by
+looking at the error message it sends when it receives a 'HELP'
+request.","n/a","","A web server seems to be running on this port."
+"11219","","","None","50.127.201.61","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11936","","","None","50.127.201.61","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"19506","","","None","50.127.201.61","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 2669 sec
+"
+"24260","","","None","50.127.201.61","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.0
+SSL : no
+Keep-Alive : no
+Options allowed : (Not implemented)
+Headers :
+
+  Server: Agranat-EmWeb/R4_01
+  WWW-Authenticate: Basic realm=""Siemens Web User Interface""
+  
+"
+"34022","","","None","50.127.201.61","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+50.127.201.61/255.255.255.255
+172.22.22.0/255.255.255.0
+172.22.22.22/255.255.255.255
+216.217.16.164/255.255.255.252
+216.217.16.165/255.255.255.255
+"
+"35296","","","None","50.127.201.61","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","50.127.201.61","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:20:6f:1a:c5:1a : FLOWPOINT CORPORATION
+"
+"40448","","","None","50.127.201.61","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","50.127.201.61","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"54615","","","None","50.127.201.61","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"12053","","","None","52.29.56.14","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+52.29.56.14 resolves as ec2-52-29-56-14.eu-central-1.compute.amazonaws.com.
+"
+"19506","","","None","52.29.56.14","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 1587 sec
+"
+"10114","CVE-1999-0524","","None","54.173.187.77","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 4 seconds.
+"
+"10800","","","None","54.173.187.77","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens, SIMATIC, S7-200
+ sysObjectID  : 1.3.6.1.4.1.20408
+ sysUptime    : 0d 1h 1m 22s
+ sysContact   : Siemens AG
+ sysName      : CP 443-1 EX40
+ sysLocation  : Venus
+ sysServices  : 72
+
+"
+"11219","","","None","54.173.187.77","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","54.173.187.77","tcp","502","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 502/tcp was found to be open"
+"11219","","","None","54.173.187.77","tcp","102","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 102/tcp was found to be open"
+"11936","","","None","54.173.187.77","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","54.173.187.77","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+54.173.187.77 resolves as ec2-54-173-187-77.compute-1.amazonaws.com.
+"
+"19506","","","None","54.173.187.77","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 1232 sec
+"
+"22964","","","None","54.173.187.77","tcp","102","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","54.173.187.77","tcp","502","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"24260","","","None","54.173.187.77","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : no
+Options allowed : GET,HEAD,POST,OPTIONS,TRACE
+Headers :
+
+  Date: Thu, 07 Jul 2016 09:43:29 GMT
+  Content-Type: text/html
+  Location: /index.html
+  Content-Length: 0
+  
+"
+"25220","","","None","54.173.187.77","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"35296","","","None","54.173.187.77","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"40448","","","None","54.173.187.77","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","54.173.187.77","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"43111","","","None","54.173.187.77","tcp","80","HTTP Methods Allowed (per directory)","This plugin determines which HTTP methods are allowed on various CGI
+directories.","By calling the OPTIONS method, it is possible to determine which HTTP 
+methods are allowed on each directory. 
+
+As this list may be incomplete, the plugin also tests - if 'Thorough
+tests' are enabled or 'Enable web applications tests' is set to 'yes'
+in the scan policy - various known HTTP methods on each directory and
+considers them as unsupported if it receives a response code of 400,
+403, 405, or 501. 
+
+Note that the plugin output is only informational and does not
+necessarily indicate the presence of any security vulnerabilities.","n/a","","Based on the response to an OPTIONS request :
+
+  - HTTP methods GET HEAD OPTIONS POST TRACE are allowed on : 
+
+    /
+
+"
+"54615","","","None","54.173.187.77","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10114","CVE-1999-0524","","None","58.126.210.73","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 41 seconds.
+"
+"10267","","","None","58.126.210.73","tcp","22","SSH Server Type and Version Information","An SSH server is listening on this port.","It is possible to obtain information about the remote SSH server by
+sending an empty authentication request.","n/a","","
+SSH version : SSH-2.0-OpenSSH_5.1p1 Debian-5
+"
+"10884","","","None","58.126.210.73","udp","123","Network Time Protocol (NTP) Server Detection","An NTP server with an insecure configuration is listening on the
+remote host.","An NTP server with an insecure configuration is listening on port 123.
+It provides information about its version, current date, current time,
+and it may also provide system information.","n/a","http://www.ntp.org","
+  Version : unknown
+"
+"11219","","","None","58.126.210.73","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","58.126.210.73","tcp","22","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 22/tcp was found to be open"
+"11219","","","None","58.126.210.73","tcp","502","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 502/tcp was found to be open"
+"11219","","","None","58.126.210.73","tcp","102","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 102/tcp was found to be open"
+"11936","","","None","58.126.210.73","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Linux Kernel 2.6 on Debian 5.0 (lenny)
+Confidence level : 95
+Method : SSH
+
+Not all fingerprints could give a match. If you think some or all of
+the following could be used to identify the host's operating system,
+please email them to os-signatures@nessus.org. Be sure to include a
+brief description of the host itself, such as the actual operating
+system or product / model names.
+
+mDNS:LINUX
+NTP:!:unknown
+SinFP:
+   P1:B10113:F0x12:W29200:O0204ffff:M1460:
+   P2:B10113:F0x12:W28960:O0204ffff0402080affffffff4445414401030307:M1460:
+   P3:B00000:F0x00:W0:O0:M0
+   P4:6801_7_p=102R
+SSH:SSH-2.0-OpenSSH_5.1p1 Debian-5
+
+ 
+The remote host is running Linux Kernel 2.6 on Debian 5.0 (lenny)"
+"12218","","5.0","Medium","58.126.210.73","udp","5353","mDNS Detection (Remote Network)","It is possible to obtain information about the remote host.","The remote service understands the Bonjour (also known as ZeroConf or
+mDNS) protocol, which allows anyone to uncover information from the
+remote host such as its operating system type and exact version, its
+hostname, and the list of services it is running. 
+
+This plugin attempts to discover mDNS used by hosts that are not on the
+network segment on which Nessus resides.","Filter incoming traffic to UDP port 5353, if desired.","","Nessus was able to extract the following information :
+
+  - mDNS hostname       : SCADA.local.
+
+  - Advertised services :
+    o Service name      : SCADA [b8:27:eb:82:c8:7a]._workstation._tcp.local.
+      Port number       : 9
+    o Service name      : SCADA._udisks-ssh._tcp.local.
+      Port number       : 22
+
+  - CPU type            : ARMV7L
+  - OS                  : LINUX
+"
+"19506","","","None","58.126.210.73","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : Detected
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 2669 sec
+"
+"22964","","","None","58.126.210.73","tcp","102","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","58.126.210.73","tcp","502","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"22964","","","None","58.126.210.73","tcp","22","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An SSH server is running on this port."
+"23811","","5.1","Medium","58.126.210.73","tcp","102","ICCP/COTP (ISO 8073) Protocol Detection","COTP (ISO 8073) is running on the host and may be part of an ICCP
+server, MMS application, or substation automation device that uses
+IEC61850 / UCA.","The ICCP stack (and other protocols such as MMS and IEC 61850) include
+ISO 8073 (RFC 905) at the Transport Layer. ISO 8073 specifies the
+Connection Oriented Transport Protocol (COTP) that uses a pair of user
+configurable 16-bit numeric, or in some cases ASCII string values, to
+identify client endpoints called Transport Service Access Points
+(TSAPs).
+
+Note that ICCP by itself does not offer protection against
+eavesdropping, spoofing, man-in-the-middle, and similar attacks.","Either limit traffic to this port to authorized hosts or upgrade to
+Secure ICCP, which protects the basic protocol with SSL / TLS
+encryption and digital certificates.","http://wiki.wireshark.org/COTP
+http://www.nessus.org/u?672d06fe","All TSAP addressess accepted.\n\n"
+"23816","","","None","58.126.210.73","tcp","102","Tamarack IEC 61850 Server Detection","The host may be running an IEC 61850 server developed by Tamarack
+Consulting, Inc.","Tamarack Consulting supplies software and consulting services to
+vendors implementing standards-based communications in the electric
+utility industry.  Although Windows demo versions of the stack are
+available from distributors such as Netted Automation, this software
+is primarily used in embedded microcontrollers such as RTUs and IEDs.","n/a","http://www.tamarack.com/",""
+"24260","","","None","58.126.210.73","tcp","80","HyperText Transfer Protocol (HTTP) Information","Some information about the remote HTTP configuration can be extracted.","This test gives some information about the remote HTTP protocol - the
+version used, whether HTTP Keep-Alive and HTTP pipelining are enabled,
+etc... 
+
+This test is informational only and does not denote any security
+problem.","n/a","","
+Protocol version : HTTP/1.1
+SSL : no
+Keep-Alive : no
+Options allowed : GET,HEAD,POST,OPTIONS,TRACE
+Headers :
+
+  Date: Wed, 17 Aug 2016 00:57:05 GMT
+  Content-Type: text/html
+  Location: /index.html
+  Content-Length: 0
+  
+"
+"25220","","","None","58.126.210.73","tcp","0","TCP/IP Timestamps Supported","The remote service implements TCP timestamps.","The remote host implements TCP timestamps, as defined by RFC1323.  A
+side effect of this feature is that the uptime of the remote host can
+sometimes be computed.","n/a","http://www.ietf.org/rfc/rfc1323.txt",""
+"33850","","10.0","Critical","58.126.210.73","tcp","0","Unsupported Unix Operating System","The operating system running on the remote host is no longer
+supported.","According to its self-reported version number, the Unix operating
+system running on the remote host is no longer supported.
+
+Lack of support implies that no new security patches for the product
+will be released by the vendor. As a result, it is likely to contain
+security vulnerabilities.","Upgrade to a version of the Unix operating system that is currently
+supported.","","
+Debian 5.0 support ended on 2012-02-06.
+Upgrade to Debian Linux 8.x (""Jessie"").
+
+For more information, see : http://www.debian.org/releases/
+
+"
+"39520","","","None","58.126.210.73","tcp","22","Backported Security Patch Detection (SSH)","Security patches are backported.","Security patches may have been 'backported' to the remote SSH server
+without changing its version number. 
+
+Banner-based checks have been disabled to avoid false positives. 
+
+Note that this test is informational only and does not denote any
+security problem.","n/a","https://access.redhat.com/security/updates/backporting/?sc_cid=3093","
+Give Nessus credentials to perform local checks.
+"
+"43111","","","None","58.126.210.73","tcp","80","HTTP Methods Allowed (per directory)","This plugin determines which HTTP methods are allowed on various CGI
+directories.","By calling the OPTIONS method, it is possible to determine which HTTP 
+methods are allowed on each directory. 
+
+As this list may be incomplete, the plugin also tests - if 'Thorough
+tests' are enabled or 'Enable web applications tests' is set to 'yes'
+in the scan policy - various known HTTP methods on each directory and
+considers them as unsupported if it receives a response code of 400,
+403, 405, or 501. 
+
+Note that the plugin output is only informational and does not
+necessarily indicate the presence of any security vulnerabilities.","n/a","","Based on the response to an OPTIONS request :
+
+  - HTTP methods GET HEAD OPTIONS POST TRACE are allowed on : 
+
+    /
+
+"
+"45590","","","None","58.126.210.73","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE : 
+
+  cpe:/o:debian:debian_linux:5.0 -> Debian GNU/Linux 5.0
+
+Following application CPE matched on the remote system :
+
+  cpe:/a:openbsd:openssh:5.1 -> OpenBSD  OpenSSH 5.1
+"
+"54615","","","None","58.126.210.73","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : general-purpose
+Confidence level : 95
+"
+"10551","","","None","58.211.39.155","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : lo
+ ifPhysAddress : 4c504241434b
+
+
+ Interface 2 information :
+ ifIndex       : 1
+ ifDescr       : lo
+ ifPhysAddress : 4c504241434b
+
+"
+"10800","","","None","58.211.39.155","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens, SIMATIC HMI, Smart 1000 IE, 6AV6 647-0AI11-3AX0, HW:1, FW:V01.08.04.01
+ sysObjectID  : 0.0
+ sysUptime    : 4d 21h 3m 8s
+ sysContact   : 
+ sysName      : hmidevice
+ sysLocation  : 
+ sysServices  : 76
+
+"
+"11219","","","None","58.211.39.155","tcp","102","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 102/tcp was found to be open"
+"11219","","","None","58.211.39.155","tcp","2308","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 2308/tcp was found to be open"
+"11936","","","None","58.211.39.155","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"19506","","","None","58.211.39.155","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:30 
+Scan duration : 5245 sec
+"
+"22964","","","None","58.211.39.155","tcp","2308","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"34022","","","None","58.211.39.155","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+127.0.0.0/255.0.0.0
+"
+"35296","","","None","58.211.39.155","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"40448","","","None","58.211.39.155","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","58.211.39.155","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"54615","","","None","58.211.39.155","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"

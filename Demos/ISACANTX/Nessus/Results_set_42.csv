@@ -1,0 +1,3269 @@
+Plugin ID,CVE,CVSS,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output
+"10114","CVE-1999-0524","","None","92.65.107.89","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 7094 seconds.
+"
+"10551","","","None","92.65.107.89","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d15eae0c
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d15eae0c
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15eae0c
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15eae0d
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15eae0e
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15eae0f
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.65.107.89","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 1d 5h 43m 45s
+ sysContact   : 
+ sysName      : 004-E450-B0C/003-1116-G0G/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.65.107.89","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.65.107.89","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.65.107.89 resolves as static.kpn.net.
+"
+"14274","","","None","92.65.107.89","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.65.107.89","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.65.107.89","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.65.107.89","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:39 
+Scan duration : 1344 sec
+"
+"34022","","","None","92.65.107.89","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+127.0.0.0/255.0.0.0
+"
+"35296","","","None","92.65.107.89","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.65.107.89","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:5e:ae:0d : Siemens Home & Office Comm. Devices
+00:18:d1:5e:ae:0c : Siemens Home & Office Comm. Devices
+00:18:d1:5e:ae:0f : Siemens Home & Office Comm. Devices
+00:18:d1:5e:ae:0e : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.65.107.89","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.65.107.89","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.65.107.89","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.65.107.89","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10114","CVE-1999-0524","","None","92.65.113.49","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 6421 seconds.
+"
+"10551","","","None","92.65.113.49","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d16107d8
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d16107d8
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d16107d8
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d16107d9
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d16107da
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d16107db
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.65.113.49","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 0d 11h 59m 13s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-A0V/003-2116-INT/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.65.113.49","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.65.113.49","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.65.113.49 resolves as static.kpn.net.
+"
+"14274","","","None","92.65.113.49","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.65.113.49","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.65.113.49","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.65.113.49","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:34 
+Scan duration : 1076 sec
+"
+"34022","","","None","92.65.113.49","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+127.0.0.0/255.0.0.0
+"
+"35296","","","None","92.65.113.49","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.65.113.49","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:61:07:db : Siemens Home & Office Comm. Devices
+00:18:d1:61:07:da : Siemens Home & Office Comm. Devices
+00:18:d1:61:07:d9 : Siemens Home & Office Comm. Devices
+00:18:d1:61:07:d8 : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.65.113.49","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.65.113.49","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.65.113.49","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.65.113.49","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10092","","","None","92.65.136.105","tcp","21","FTP Server Detection","An FTP server is listening on a remote port.","It is possible to obtain the banner of the remote FTP server by
+connecting to a remote port.","n/a","","
+The remote FTP banner is :
+
+220 FTP Server Ready
+"
+"10114","CVE-1999-0524","","None","92.65.136.105","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 6577 seconds.
+"
+"10551","","","None","92.65.136.105","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0013a3801444
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0013a3801444
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.65.136.105","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks 5450-Series (E752)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 1d 6h 15m 8s
+ sysContact   : support@efficient.com
+ sysName      : 004-E752-AFC/003-2185-G09/Build 91-127
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11219","","","None","92.65.136.105","tcp","21","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 21/tcp was found to be open"
+"11936","","","None","92.65.136.105","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens SpeedStream Router
+Confidence level : 100
+Method : SNMP
+
+ 
+The remote host is running Siemens SpeedStream Router"
+"12053","","","None","92.65.136.105","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.65.136.105 resolves as static.kpn.net.
+"
+"14274","","","None","92.65.136.105","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.65.136.105","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.65.136.105","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.65.136.105","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:30 
+Scan duration : 1561 sec
+"
+"22964","","","None","92.65.136.105","tcp","21","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An FTP server is running on this port."
+"34022","","","None","92.65.136.105","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+192.168.0.154/255.255.255.255
+"
+"35296","","","None","92.65.136.105","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.65.136.105","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:13:a3:80:14:44 : Siemens Com CPE Devices
+"
+"40448","","","None","92.65.136.105","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.65.136.105","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.65.136.105","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.65.136.105","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : router
+Confidence level : 100
+"
+"10107","","","None","92.65.150.113","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+NetPort Software 1.1"
+"10114","CVE-1999-0524","","None","92.65.150.113","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 6289 seconds.
+"
+"10551","","","None","92.65.150.113","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d15bfdc8
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d15bfdc8
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15bfdc8
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15bfdc9
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15bfdca
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15bfdcb
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.65.150.113","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 0d 17h 59m 13s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-B0C/003-1116-G0G/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11219","","","None","92.65.150.113","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11936","","","None","92.65.150.113","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.65.150.113","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.65.150.113 resolves as static.kpn.net.
+"
+"14274","","","None","92.65.150.113","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.65.150.113","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.65.150.113","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.65.150.113","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:29 
+Scan duration : 1373 sec
+"
+"22964","","","None","92.65.150.113","tcp","80","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"34022","","","None","92.65.150.113","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+127.0.0.0/255.0.0.0
+"
+"35296","","","None","92.65.150.113","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.65.150.113","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:5b:fd:cb : Siemens Home & Office Comm. Devices
+00:18:d1:5b:fd:ca : Siemens Home & Office Comm. Devices
+00:18:d1:5b:fd:c9 : Siemens Home & Office Comm. Devices
+00:18:d1:5b:fd:c8 : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.65.150.113","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.65.150.113","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.65.150.113","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.65.150.113","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10114","CVE-1999-0524","","None","92.65.236.177","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 6065 seconds.
+"
+"10551","","","None","92.65.236.177","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d161178c
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d161178c
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d161178c
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d161178d
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d161178e
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d161178f
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.65.236.177","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 0d 18h 52m 16s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-A0V/003-2116-INT/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.65.236.177","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.65.236.177","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.65.236.177 resolves as static.kpn.net.
+"
+"14274","","","None","92.65.236.177","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.65.236.177","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.65.236.177","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.65.236.177","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:29 
+Scan duration : 1091 sec
+"
+"34022","","","None","92.65.236.177","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+222.197.172.249/255.255.255.255
+"
+"35296","","","None","92.65.236.177","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.65.236.177","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:61:17:8e : Siemens Home & Office Comm. Devices
+00:18:d1:61:17:8d : Siemens Home & Office Comm. Devices
+00:18:d1:61:17:8c : Siemens Home & Office Comm. Devices
+00:18:d1:61:17:8f : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.65.236.177","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.65.236.177","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.65.236.177","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.65.236.177","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10107","","","None","92.66.137.17","tcp","80","HTTP Server Type and Version","A web server is running on the remote host.","This plugin attempts to determine the type and the version of the
+remote web server.","n/a","","The remote web server type is :
+
+NetPort Software 1.1"
+"10114","CVE-1999-0524","","None","92.66.137.17","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 5929 seconds.
+"
+"10551","","","None","92.66.137.17","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0013a32ad68f
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0013a32ad68f
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.66.137.17","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks 5450-Series (E752)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 1d 10h 56m 42s
+ sysContact   : support@efficient.com
+ sysName      : 004-E752-A5S/003-2116-G01/Build 91-45
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11219","","","None","92.66.137.17","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11936","","","None","92.66.137.17","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens SpeedStream Router
+Confidence level : 100
+Method : SNMP
+
+ 
+The remote host is running Siemens SpeedStream Router"
+"12053","","","None","92.66.137.17","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.66.137.17 resolves as static.kpn.net.
+"
+"14274","","","None","92.66.137.17","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.66.137.17","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.66.137.17","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.66.137.17","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:15 
+Scan duration : 2003 sec
+"
+"22964","","","None","92.66.137.17","tcp","80","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","The service closed the connection without sending any data.
+It might be protected by some sort of TCP wrapper."
+"34022","","","None","92.66.137.17","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+127.0.0.0/255.0.0.0
+"
+"35296","","","None","92.66.137.17","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.66.137.17","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:13:a3:2a:d6:8f : Siemens Com CPE Devices
+"
+"40448","","","None","92.66.137.17","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.66.137.17","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.66.137.17","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.66.137.17","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : router
+Confidence level : 100
+"
+"10114","CVE-1999-0524","","None","92.66.165.89","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 5176 seconds.
+"
+"10551","","","None","92.66.165.89","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d1619cf4
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d1619cf4
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1619cf4
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1619cf5
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1619cf6
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1619cf7
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.66.165.89","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 4d 4h 39m 56s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-A0V/003-2116-INT/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.66.165.89","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.66.165.89","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.66.165.89 resolves as static.kpn.net.
+"
+"14274","","","None","92.66.165.89","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.66.165.89","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.66.165.89","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.66.165.89","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:14 
+Scan duration : 947 sec
+"
+"34022","","","None","92.66.165.89","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+223.220.253.38/255.255.255.255
+"
+"35296","","","None","92.66.165.89","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.66.165.89","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:61:9c:f6 : Siemens Home & Office Comm. Devices
+00:18:d1:61:9c:f5 : Siemens Home & Office Comm. Devices
+00:18:d1:61:9c:f4 : Siemens Home & Office Comm. Devices
+00:18:d1:61:9c:f7 : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.66.165.89","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.66.165.89","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.66.165.89","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.66.165.89","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10092","","","None","92.66.178.57","tcp","21","FTP Server Detection","An FTP server is listening on a remote port.","It is possible to obtain the banner of the remote FTP server by
+connecting to a remote port.","n/a","","
+The remote FTP banner is :
+
+220 FTP server ready.
+"
+"11154","","","None","92.66.178.57","tcp","80","Unknown Service Detection: Banner Retrieval","There is an unknown service running on the remote host.","Nessus was unable to identify a service on the remote host even though
+it returned a banner of some type.","n/a","","
+If you know what this service is and think the banner could be used to
+identify it, please send a description of the service along with the
+following output to svc-signatures@nessus.org :
+
+  Port   : 80
+  Type   : spontaneous
+  Banner : 
+0x00:  3C 54 49 54 4C 45 3E 35 30 33 20 53 65 72 76 69    <TITLE>503 Servi
+           0x10:  63 65 20 55 6E 61 76 61 69 6C 61 62 6C 65 3C 2F    ce Unavailable</
+           0x20:  54 49 54 4C 45 3E 3C 42 4F 44 59 3E 3C 70 3E 3C    TITLE><BODY><p><
+           0x30:  48 32 3E 4D 61 78 69 6D 75 6D 20 6E 75 6D 62 65    H2>Maximum numbe
+           0x40:  72 20 6F 66 20 63 6F 6E 6E 65 63 74 69 6F 6E 73    r of connections
+           0x50:  20 68 61 73 20 62 65 65 6E 20 65 78 63 65 65 64     has been exceed
+           0x60:  65 64 3C 2F 48 32 3E 0D 0A 3C 70 3E 3C 48 33 3E    ed</H2>..<p><H3>
+           0x70:  50 6C 65 61 73 65 20 74 72 79 20 61 67 61 69 6E    Please try again
+           0x80:  20 6C 61 74 65 72 21 21 21 3C 2F 48 33 3E 0D 0A     later!!!</H3>..
+           0x90:  3C 2F 42 4F 44 59 3E 0D 0A                         </BODY>..       
+           
+"
+"11219","","","None","92.66.178.57","tcp","80","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 80/tcp was found to be open"
+"11219","","","None","92.66.178.57","tcp","21","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 21/tcp was found to be open"
+"11219","","","None","92.66.178.57","tcp","502","Nessus SYN scanner","It is possible to determine which TCP ports are open.","This plugin is a SYN 'half-open' port scanner.  It shall be reasonably
+quick even against a firewalled target. 
+
+Note that SYN scans are less intrusive than TCP (full connect) scans
+against broken services, but they might cause problems for less robust
+firewalls and also leave unclosed connections on the remote target, if
+the network is loaded.","Protect your target with an IP filter.","","Port 502/tcp was found to be open"
+"11936","","","None","92.66.178.57","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : HP JetDirect Printer
+OpenVMS 7.2
+Tru64 UNIX 5.0A
+Tru64 UNIX 5.1
+Tru64 UNIX 5.1A
+Confidence level : 54
+Method : SinFP
+
+ 
+The remote host is running one of these operating systems : 
+HP JetDirect Printer
+OpenVMS 7.2
+Tru64 UNIX 5.0A
+Tru64 UNIX 5.1
+Tru64 UNIX 5.1A"
+"12053","","","None","92.66.178.57","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.66.178.57 resolves as static.kpn.net.
+"
+"19506","","","None","92.66.178.57","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:13 
+Scan duration : 4725 sec
+"
+"22964","","","None","92.66.178.57","tcp","21","Service Detection","The remote service could be identified.","Nessus was able to identify the remote service by its banner or by
+looking at the error message it sends when it receives an HTTP
+request.","n/a","","An FTP server is running on this port."
+"23818","","5.0","Medium","92.66.178.57","tcp","502","Modbus/TCP Discrete Input Access","Discrete inputs from a Modicon field device, such as a PLC, RTU, or
+IED, can be read using function code 2.","Using function code 2, Modbus can read the discrete inputs from a
+Modbus slave, which is commonly used by SCADA and DCS field devices.
+Discrete inputs represent binary (i.e boolean) values that often map
+to switches, relays, or other sensors. A sample of discrete inputs
+read from the device are provided by the plugin output.
+
+The ability to read discrete inputs may help an attacker profile a
+system.","Restrict access to the Modbus port (TCP/502) to authorized Modbus
+clients.","http://www.modbus.org","
+  Discrete input # : 2
+  Data             : 0
+
+  Discrete input # : 1
+  Data             : 0
+
+  Discrete input # : 0
+  Data             : 0
+"
+"45590","","","None","92.66.178.57","tcp","0","Common Platform Enumeration (CPE)","It is possible to enumerate CPE names that matched on the remote
+system.","By using information obtained from a Nessus scan, this plugin reports
+CPE (Common Platform Enumeration) matches for various hardware and
+software products found on a host. 
+
+Note that if an official CPE is not available for the product, this
+plugin computes the best possible CPE based on the information
+available from the scan.","n/a","http://cpe.mitre.org/
+https://nvd.nist.gov/cpe.cfm","
+The remote operating system matched the following CPE's : 
+
+  cpe:/o:hp:tru64:5.0a -> HP Tru64 5.0a
+  cpe:/o:hp:tru64:5.1 -> HP Compaq Tru64 5.1
+  cpe:/o:hp:tru64:5.1a -> HP Tru64 5.1a
+"
+"46215","","","None","92.66.178.57","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"10114","CVE-1999-0524","","None","92.66.220.193","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 4092 seconds.
+"
+"10551","","","None","92.66.220.193","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d162d188
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d162d188
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d162d188
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d162d189
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d162d18a
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d162d18b
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.66.220.193","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 3d 18h 20m 23s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-B0C/003-1116-INT/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.66.220.193","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.66.220.193","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.66.220.193 resolves as static.kpn.net.
+"
+"14274","","","None","92.66.220.193","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.66.220.193","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.66.220.193","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.66.220.193","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:57 
+Scan duration : 942 sec
+"
+"34022","","","None","92.66.220.193","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+127.0.0.0/255.0.0.0
+"
+"35296","","","None","92.66.220.193","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.66.220.193","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:62:d1:8b : Siemens Home & Office Comm. Devices
+00:18:d1:62:d1:8a : Siemens Home & Office Comm. Devices
+00:18:d1:62:d1:89 : Siemens Home & Office Comm. Devices
+00:18:d1:62:d1:88 : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.66.220.193","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.66.220.193","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.66.220.193","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.66.220.193","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10114","CVE-1999-0524","","None","92.66.233.241","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 4217 seconds.
+"
+"10551","","","None","92.66.233.241","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d1b1dae1
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d1b1dae1
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b1dae1
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b1dae2
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b1dae3
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b1dae4
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.66.233.241","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 1d 16h 47m 57s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-B0C/003-1116-INT/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.66.233.241","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.66.233.241","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.66.233.241 resolves as static.kpn.net.
+"
+"14274","","","None","92.66.233.241","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.66.233.241","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.66.233.241","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.66.233.241","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:57 
+Scan duration : 1036 sec
+"
+"34022","","","None","92.66.233.241","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+127.0.0.0/255.0.0.0
+"
+"35296","","","None","92.66.233.241","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.66.233.241","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:b1:da:e4 : Siemens Home & Office Comm. Devices
+00:18:d1:b1:da:e3 : Siemens Home & Office Comm. Devices
+00:18:d1:b1:da:e2 : Siemens Home & Office Comm. Devices
+00:18:d1:b1:da:e1 : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.66.233.241","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.66.233.241","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.66.233.241","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.66.233.241","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10114","CVE-1999-0524","","None","92.66.44.81","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 5928 seconds.
+"
+"10551","","","None","92.66.44.81","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d15d2408
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d15d2408
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15d2408
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15d2409
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15d240a
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d15d240b
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.66.44.81","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : 
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 1d 14h 59m 36s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-B0C/003-1116-G0G/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"12053","","","None","92.66.44.81","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.66.44.81 resolves as static.kpn.net.
+"
+"14274","","","None","92.66.44.81","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.66.44.81","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.66.44.81","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.66.44.81","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:26 
+Scan duration : 1055 sec
+"
+"34022","","","None","92.66.44.81","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+127.0.0.0/255.0.0.0
+"
+"35296","","","None","92.66.44.81","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.66.44.81","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:5d:24:0a : Siemens Home & Office Comm. Devices
+00:18:d1:5d:24:09 : Siemens Home & Office Comm. Devices
+00:18:d1:5d:24:08 : Siemens Home & Office Comm. Devices
+00:18:d1:5d:24:0b : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.66.44.81","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.66.44.81","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.66.44.81","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"10114","CVE-1999-0524","","None","92.66.65.233","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 5978 seconds.
+"
+"10551","","","None","92.66.65.233","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d162e66c
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d162e66c
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d162e66c
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d162e66d
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d162e66e
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d162e66f
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.66.65.233","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 1d 3h 11m 29s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-A0V/003-2116-INT/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.66.65.233","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.66.65.233","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.66.65.233 resolves as static.kpn.net.
+"
+"14274","","","None","92.66.65.233","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.66.65.233","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.66.65.233","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.66.65.233","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:24 
+Scan duration : 988 sec
+"
+"34022","","","None","92.66.65.233","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+216.226.94.96/255.255.255.255
+"
+"35296","","","None","92.66.65.233","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.66.65.233","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:62:e6:6f : Siemens Home & Office Comm. Devices
+00:18:d1:62:e6:6c : Siemens Home & Office Comm. Devices
+00:18:d1:62:e6:6e : Siemens Home & Office Comm. Devices
+00:18:d1:62:e6:6d : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.66.65.233","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.66.65.233","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.66.65.233","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.66.65.233","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10114","CVE-1999-0524","","None","92.66.87.105","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 5433 seconds.
+"
+"10551","","","None","92.66.87.105","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d1b2b749
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d1b2b749
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b2b749
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b2b74a
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b2b74b
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b2b74c
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.66.87.105","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 3d 4h 42m 23s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-B0C/003-1116-INT/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.66.87.105","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.66.87.105","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.66.87.105 resolves as static.kpn.net.
+"
+"14274","","","None","92.66.87.105","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.66.87.105","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.66.87.105","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.66.87.105","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:20 
+Scan duration : 810 sec
+"
+"34022","","","None","92.66.87.105","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+192.12.5.235/255.255.255.255
+"
+"35296","","","None","92.66.87.105","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.66.87.105","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:b2:b7:4b : Siemens Home & Office Comm. Devices
+00:18:d1:b2:b7:4a : Siemens Home & Office Comm. Devices
+00:18:d1:b2:b7:4c : Siemens Home & Office Comm. Devices
+00:18:d1:b2:b7:49 : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.66.87.105","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.66.87.105","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.66.87.105","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.66.87.105","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10114","CVE-1999-0524","","None","92.66.87.97","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 5742 seconds.
+"
+"10551","","","None","92.66.87.97","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d1b24725
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d1b24725
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b24725
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b24726
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b24727
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b24728
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.66.87.97","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 0d 3h 22m 52s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-B0C/003-1116-INT/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.66.87.97","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.66.87.97","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.66.87.97 resolves as static.kpn.net.
+"
+"14274","","","None","92.66.87.97","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.66.87.97","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.66.87.97","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.66.87.97","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 1:24 
+Scan duration : 962 sec
+"
+"34022","","","None","92.66.87.97","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+127.0.0.0/255.0.0.0
+"
+"35296","","","None","92.66.87.97","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.66.87.97","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:b2:47:28 : Siemens Home & Office Comm. Devices
+00:18:d1:b2:47:25 : Siemens Home & Office Comm. Devices
+00:18:d1:b2:47:27 : Siemens Home & Office Comm. Devices
+00:18:d1:b2:47:26 : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.66.87.97","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.66.87.97","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.66.87.97","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.66.87.97","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10114","CVE-1999-0524","","None","92.67.102.97","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 4865 seconds.
+"
+"10551","","","None","92.67.102.97","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d1624d24
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d1624d24
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1624d24
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1624d25
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1624d26
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1624d27
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.67.102.97","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 3d 4h 57m 22s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-A0V/003-2116-INT/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.67.102.97","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.67.102.97","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.67.102.97 resolves as static.kpn.net.
+"
+"14274","","","None","92.67.102.97","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.67.102.97","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.67.102.97","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.67.102.97","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:51 
+Scan duration : 2028 sec
+"
+"34022","","","None","92.67.102.97","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+188.241.156.249/255.255.255.255
+"
+"35296","","","None","92.67.102.97","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.67.102.97","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:62:4d:27 : Siemens Home & Office Comm. Devices
+00:18:d1:62:4d:25 : Siemens Home & Office Comm. Devices
+00:18:d1:62:4d:26 : Siemens Home & Office Comm. Devices
+00:18:d1:62:4d:24 : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.67.102.97","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.67.102.97","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.67.102.97","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.67.102.97","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
+"10114","CVE-1999-0524","","None","92.67.49.169","icmp","0","ICMP Timestamp Request Remote Date Disclosure","It is possible to determine the exact time set on the remote host.","The remote host answers to an ICMP timestamp request.  This allows an
+attacker to know the date that is set on the targeted machine, which
+may assist an unauthenticated, remote attacker in defeating time-based
+authentication protocols.
+
+Timestamps returned from machines running Windows Vista / 7 / 2008 /
+2008 R2 are deliberately incorrect, but usually within 1000 seconds of
+the actual system time.","Filter out the ICMP timestamp requests (13), and the outgoing ICMP
+timestamp replies (14).","","The difference between the local and remote clocks is 4868 seconds.
+"
+"10551","","","None","92.67.49.169","udp","161","SNMP Request Network Interfaces Enumeration","The list of network interfaces cards of the remote host can be obtained via
+SNMP.","It is possible to obtain the list of the network interfaces installed
+on the remote host by sending SNMP requests with the OID 1.3.6.1.2.1.2.1.0
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","
+ Interface 1 information :
+ ifIndex       : 1
+ ifDescr       : loopback (pseudo ethernet)
+ ifPhysAddress : 0018d1b2b39d
+
+
+ Interface 2 information :
+ ifIndex       : 2
+ ifDescr       : ti
+ ifPhysAddress : 
+
+
+ Interface 3 information :
+ ifIndex       : 3
+ ifDescr       : Bridge
+ ifPhysAddress : 0018d1b2b39d
+
+
+ Interface 4 information :
+ ifIndex       : 4
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b2b39d
+
+
+ Interface 5 information :
+ ifIndex       : 5
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b2b39e
+
+
+ Interface 6 information :
+ ifIndex       : 6
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b2b39f
+
+
+ Interface 7 information :
+ ifIndex       : 7
+ ifDescr       : Ethernet
+ ifPhysAddress : 0018d1b2b3a0
+
+
+ Interface 8 information :
+ ifIndex       : 8
+ ifDescr       : ATM
+ ifPhysAddress : 
+
+
+ Interface 9 information :
+ ifIndex       : 9
+ ifDescr       : RFC-2364
+ ifPhysAddress : 70
+
+"
+"10800","","","None","92.67.49.169","udp","161","SNMP Query System Information Disclosure","The System Information of the remote host can be obtained via SNMP.","It is possible to obtain the system information about the remote
+host by sending SNMP requests with the OID 1.3.6.1.2.1.1.1.
+
+An attacker may use this information to gain more knowledge about
+the target host.","Disable the SNMP service on the remote host if you do not use it,
+or filter incoming UDP packets going to this port.","","System information :
+ sysDescr     : Siemens Subscriber Networks SE565-Series (E450)
+ sysObjectID  : 1.3.6.1.4.1.763.3
+ sysUptime    : 1d 6h 23m 44s
+ sysContact   : support@efficient.com
+ sysName      : 004-E450-B0C/003-1116-G0G/Build 115-65
+ sysLocation  : 
+ sysServices  : 78
+
+"
+"11936","","","None","92.67.49.169","tcp","0","OS Identification","It is possible to guess the remote operating system.","Using a combination of remote probes (e.g., TCP/IP, SMB, HTTP, NTP,
+SNMP, etc.), it is possible to guess the name of the remote operating
+system in use. It is also possible sometimes to guess the version of
+the operating system.","n/a","","
+Remote operating system : Siemens Device
+Confidence level : 80
+Method : SNMP
+
+ 
+The remote host is running Siemens Device"
+"12053","","","None","92.67.49.169","tcp","0","Host Fully Qualified Domain Name (FQDN) Resolution","It was possible to resolve the name of the remote host.","Nessus was able to resolve the FQDN of the remote host.","n/a","","
+92.67.49.169 resolves as static.kpn.net.
+"
+"14274","","","None","92.67.49.169","udp","7","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 7/udp was found to be open"
+"14274","","","None","92.67.49.169","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","Port 161/udp was found to be open"
+"14274","","","None","92.67.49.169","udp","161","Nessus SNMP Scanner","SNMP information is enumerated to learn about other open ports.","This plugin runs an SNMP scan against the remote machine to find open
+ports.
+
+See the section 'plugins options' to configure it.","n/a","","
+Nessus SNMP scanner was able to retrieve the open port list
+with the community name: public
+It found 0 open TCP ports and 2 open UDP ports.
+"
+"19506","","","None","92.67.49.169","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.8.1
+Plugin feed version : 201608181730
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Device Discovery Test
+Scanner IP : 172.31.33.81
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 100
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2016/8/19 0:56 
+Scan duration : 1813 sec
+"
+"34022","","","None","92.67.49.169","udp","161","SNMP Query Routing Information Disclosure","The list of IP routes on the remote host can be obtained via SNMP.","It is possible to obtain the routing information on the remote host
+by sending SNMP requests with the OID 1.3.6.1.2.1.4.21
+
+An attacker may use this information to gain more knowledge about the
+network topology.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","","
+127.0.0.0/255.0.0.0
+"
+"35296","","","None","92.67.49.169","udp","161","SNMP Protocol Version Detection","This plugin reports the protocol version negotiated with the remote
+SNMP agent.","By sending an SNMP 'get-next-request', it is possible to determine the
+protocol version of the remote SNMP agent.","Disable the SNMP service on the remote host if you do not use it, or
+filter incoming UDP packets going to this port.","http://en.wikipedia.org/wiki/Simple_Network_Management_Protocol","
+Nessus has negotiated SNMP communications at SNMPv1.
+"
+"35716","","","None","92.67.49.169","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:18:d1:b2:b3:a0 : Siemens Home & Office Comm. Devices
+00:18:d1:b2:b3:9e : Siemens Home & Office Comm. Devices
+00:18:d1:b2:b3:9d : Siemens Home & Office Comm. Devices
+00:18:d1:b2:b3:9f : Siemens Home & Office Comm. Devices
+"
+"40448","","","None","92.67.49.169","udp","161","SNMP Supported Protocols Detection","This plugin reports all the protocol versions successfully negotiated
+with the remote SNMP agent.","Extend the SNMP settings data already gathered by testing for\
+SNMP versions other than the highest negotiated.","n/a","","This host supports SNMP version SNMPv1.
+"
+"41028","CVE-1999-0517","7.5","High","92.67.49.169","udp","161","SNMP Agent Default Community Name (public)","The community name of the remote SNMP server can be guessed.","It is possible to obtain the default community name of the remote
+SNMP server.
+
+An attacker may use this information to gain more knowledge about the
+remote host, or to change the configuration of the remote system (if
+the default community allows such modifications).","Disable the SNMP service on the remote host if you do not use it.
+Either filter incoming UDP packets going to this port, or change the 
+default community string.","","
+The remote SNMP server replies to the following default community
+string :
+
+public"
+"46215","","","None","92.67.49.169","tcp","0","Inconsistent Hostname and IP Address","The remote host's hostname is not consistent with DNS information.","The name of this machine either does not resolve or resolves to a
+different IP address. 
+
+This may come from a badly configured reverse DNS or from a host file
+in use on the Nessus scanning host. 
+
+As a result, URLs in plugin output may not be directly usable in a web
+browser and some web tests may be incomplete.","Fix the reverse DNS or host file.","","The host name 'static.kpn.net' does not resolve to an IP address"
+"54615","","","None","92.67.49.169","tcp","0","Device Type","It is possible to guess the remote device type.","Based on the remote operating system, it is possible to determine
+what the remote system type is (eg: a printer, router, general-purpose
+computer, etc).","n/a","","Remote device type : embedded
+Confidence level : 80
+"
