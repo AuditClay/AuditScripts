@@ -1,3 +1,7 @@
+"Demo for ISACANTX Nov 13, 2020"
+"How many vulnerabilities exist in the environment?"
+"How many servers are we analyzing?"
+
 #NOTE: This demo uses the Import-Excel module by Doug Finke
 #To install it, you can run "Install-Module Import-Excel" from an elevated PowerShell prompt
 cd .\Nessus\
