@@ -8,8 +8,8 @@ Get-Date
 Get-Date -Hour 0 -Minute 0 -Second 0 -Millisecond 0
 
 #The date will need to be in Unix epoch format for import into Graphite
-$epochTime = Get-Date -Hour 0 -Minute 0 -Second 0 -Millisecond 0
-
+$epochTime = Get-Date -Hour 0 -Minute 0 -Second 0 -Millisecond 0 -UFormat %s
+$epochTime
 
 $d = import-csv -path .\Results_set_0.csv
 
