@@ -23,22 +23,29 @@ $results = ($d | Where-Object risk -ne 'none' | Select-Object host, risk |Group-
 #View the results for this CSV
 $results
 
+#Next we would make a script to process the file and output the results in the Graphite import format
+#Here's the script we wrote:
+Get-Content processResults.ps1
+
+#And here's the output when we run it against a file
+.\processResults.ps1 -fileName .\Results_set_0.csv
+
+#We could even run against all the CSVs to make one big import file
+.\processResults.ps1 -fileName (Get-ChildItem *.csv)
+
 #Setup the text file
 $resultsFile = ".\vulnData.txt"
 if(Test-Path -Path $resultsFile ) {Remove-Item -Path $resultsFile -Force}
 
-#Run a loop to process all the results
-foreach( $res in $results )
-{
-  $graphitePath = "vuln." + ($res.Name -replace "\.","-" -replace ", ", ".")
-  $vulnCount = $res.Count
-  write-output "$graphitePath $vulnCount $epochTime" 
-}
+#Run the script and save the results to a file, ready for import
+.\processResults.ps1 -fileName (Get-ChildItem *.csv) | Out-File -FilePath vulnData.txt -Encoding ascii
 
-#Let's save that to the file
-foreach( $res in $results )
-{
-  $graphitePath = "vuln." + ($res.Name -replace "\.","-" -replace ", ", ".")
-  $vulnCount = $res.Count
-  write-output "$graphitePath $vulnCount $epochTime" | Out-File -FilePath $resultsFile -Encoding ascii -Append
-}
+#view the contents of the file
+Get-Content .\vulnData.txt
+
+#To import the file, we'll use the Unix netcat command to dump the file to Graphite Carbon intake daemon
+Get-Content .\vulnData.txt | wsl nc -vv -N 10.50.7.50 2003
+
+if(Test-Path -Path $resultsFile ) {Remove-Item -Path $resultsFile -Force}
+
+Set-Location ..
