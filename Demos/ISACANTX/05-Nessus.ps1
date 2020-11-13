@@ -1,4 +1,7 @@
 "Demo for ISACANTX Nov 13, 2020"
+############################################################################
+#NOTE TO CLAY: Run this from your laptop, not the VM, because it uses Excel#
+############################################################################
 #How many vulnerabilities exist in the environment?
 #How many servers are we analyzing?
 
