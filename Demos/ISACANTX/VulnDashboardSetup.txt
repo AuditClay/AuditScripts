@@ -1,0 +1,35 @@
+(1)Add Title Panel
+
+(2)Add Panel for Critical Vulns over time
+
+Vuln * crit
+sumSeries()
+
+Discuss the downward trend and the automatic Y-Range
+
+Set the y axis minium to zero
+
+Panel | Axes | Left Y| Y-Min = 0
+
+(3)Add Single Stat Panel for  Today's critical count
+
+Vuln * crit
+sumSeries()
+
+Set visualization to Stat
+Set Display | Calculation to Last non null - notice stat change
+Set Threshold (under Field tab)
+
+(4) Gauge for pct servers with 1+ critical vuln
+series A: vuln * crit
+currentabove(1) countSeries()
+
+series B: vuln * total
+countSeries()
+
+series C: 
+divideSeries( #A, #B)
+
+Set panel type to gauge
+Field | Standard Options | Unit - Misc Percent 0.0-1.0
+Add thresholds at .01 and .05

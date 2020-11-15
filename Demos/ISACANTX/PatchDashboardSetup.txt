@@ -1,0 +1,29 @@
+(0) Title Panel
+(1) Average patch age
+Series: Patchage *
+averageSeries()
+
+Set threshold of 30 days
+
+Looks pretty good, right???
+
+(2) Patchvelocity graph
+Series: patchvelocity *
+sumseries()
+
+Still looks good???
+
+(3)Max patch age graph
+Series: patchage *
+maxseries()
+
+
+Change query to patchage *
+CurrentAbove(0) AliasByMetric
+
+Change to a table
+transform series to rows
+Last (not null)
+
+Add overrides Fields with name to rename
+
