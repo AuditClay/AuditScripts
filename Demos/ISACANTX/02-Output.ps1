@@ -86,5 +86,3 @@ Get-Service | Where-Object { $_.Status -eq 'stopped’ }
 
 #regex for AUD followed by EXACTLY 4 digits
 'AUD507' -match 'AUD[0-9]{4}'
-
-"The End"

@@ -1,29 +1,4 @@
-﻿"Demo for ISACANTX Nov 13, 2020"
-#Determine the PowerShell version installed
-$PSVersionTable
-$PSVersionTable.PSVersion
-
-#List available commands
-Get-Command
-
-#Count the number available
-Get-Command | Measure-Object
-
-#Aside - Measure-Object - the auditor's best friend!
-1,2,3,4,5 | Measure-Object -Average
-1,2,3,4,5 | Measure-Object -Average -Sum -Maximum -Minimum
-
-#Limit the commands returned by get-command
-Get-Command -Name Write*
-
-#Equivalent to this command, because of "positional" parameters
-Get-Command Write*
-
-#PowerShell is not CaSe SensiTive
-geT-ComMand wrIte-HoSt
-
-
-####### Move the cmds above here into 00-XXXX
+﻿"Demo for SEC557 Classes"
 
 #List only cmdlets
 Get-Command -CommandType Cmdlet
@@ -126,5 +101,3 @@ Get-Help Get-ADUser -ShowWindow
 
 #Get a GUI window to build a command
 Show-Command Get-Acl
-
-"The End"
