@@ -7,11 +7,11 @@ sumSeries()
 
 Discuss the downward trend and the automatic Y-Range
 
-Set the y axis minium to zero
+Set the y axis minimum to zero
 
 Panel | Axes | Left Y| Y-Min = 0
 
-(3)Add Single Stat Panel for  Today's critical count
+(3)Add Single Stat Panel for Today's critical count
 
 Vuln * crit
 sumSeries()

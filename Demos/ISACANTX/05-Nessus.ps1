@@ -102,19 +102,44 @@ $d | Where-Object Risk -ne 'None' | Select-Object Name,Host,Risk,@{N='SeeAlso';E
 #Open the spreadsheet
 Invoke-Item $excelFileName
 
-#Let's also color the High vulns as orange, and the medium as yellow
 if( Test-Path $excelFileName ) { Remove-Item $excelFileName }
 
+#Let's also color the High vulns as orange, and the medium as yellow
 $highFormat = New-ConditionalText "High" -Range "C:C" -ForeGroundColor Black -BackgroundColor orange
 $medFormat = New-ConditionalText "Medium" -Range "C:C" -ForeGroundColor Black -BackgroundColor yellow
 
-$d | Where-Object Risk -ne 'None' | Select-Object Name,Host,Risk,@{N='SeeAlso';E={$_.'See Also' -replace "\n", " "}},Solution | Export-Excel -path $excelFilename -AutoFilter -ConditionalFormat $critFormat, $highFormat, $medFormat
+$d | Where-Object Risk -ne 'None' | 
+  Select-Object Name,Host,Risk,@{N='SeeAlso';E={$_.'See Also' -replace "\n", " "}},Solution | 
+  Export-Excel -path $excelFilename -WorksheetName "VulnScan" -AutoFilter -ConditionalFormat $critFormat, $highFormat, $medFormat
 
 #Open the spreadsheet
 Invoke-Item $excelFileName
 
+if( Test-Path $excelFileName ) { Remove-Item $excelFileName }
 #Build the spreadsheet, adding a pivot table for findings by host
-$d | Where-Object Risk -ne 'None' | Select-Object Name,Host,Risk,@{N='SeeAlso';E={$_.'See Also' -replace "\n", " "}},Solution | Export-Excel -path $excelFilename -AutoFilter -includePivotTable -PivotRows Host,Name,Solution,SeeAlso -PivotFilter Risk
+$d | Where-Object Risk -ne 'None' | 
+  Select-Object Name,Host,Risk,@{N='SeeAlso';E={$_.'See Also' -replace "\n", " "}},Solution | 
+  Export-Excel -path $excelFilename -AutoFilter -includePivotTable -PivotRows Host,Name,Solution,SeeAlso -PivotFilter Risk
+
+
+$critFormat = New-ConditionalText "Critical" -Range "C:C" -ForeGroundColor Black -BackgroundColor Red
+$highFormat = New-ConditionalText "High" -Range "C:C" -ForeGroundColor Black -BackgroundColor orange
+$medFormat = New-ConditionalText "Medium" -Range "C:C" -ForeGroundColor Black -BackgroundColor yellow
+
+if( Test-Path $excelFileName ) { Remove-Item $excelFileName }
+
+$xl = $d | Where-Object Risk -ne 'None' | 
+  Select-Object Name,Host,Risk,@{N='SeeAlso';E={$_.'See Also' -replace "\n", " "}},Solution | 
+  Export-Excel -path $excelFilename -WorksheetName "VulnScan" -AutoFilter -PassThru -ConditionalFormat $critFormat, $highFormat, $medFormat
+
+$pt1 = New-PivotTableDefinition -PivotTableName "ByHost" -PivotRows Host,Name,Solution,SeeAlso -PivotFilter Risk
+$pt2 = New-PivotTableDefinition -PivotTableName "ByVuln" -PivotRows Name,Host,Solution,SeeAlso -PivotFilter Risk
+
+$xl = Export-Excel -ExcelPackage $xl -WorksheetName "VulnScan" -PivotTableDefinition $pt1 -PassThru
+Export-Excel -ExcelPackage $xl -WorksheetName "VulnScan" -PivotTableDefinition $pt2 -Show
+
+
+
 
 #Open the spreadsheet
 Invoke-Item $excelFileName

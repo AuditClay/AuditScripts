@@ -18,4 +18,5 @@ ForEach( $svc in (Get-Service) ) {
     Write-Host -BackgroundColor white -ForegroundColor Red ($svc.Name).ToLower()
   }
 }
+
 clear-host

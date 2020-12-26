@@ -13,7 +13,7 @@ $patchFile = "patches.csv"
 $graphiteFile = "patchData.txt"
 
 #Create the empty files
-New-Item -Path . -Name $patchFile -ItemType "File" -Force -Value "`"Source`",`"InstalledOn`",`"HotFixID`",`"Description`",`"InstalledBy`"`n"
+New-Item -Path . -Name $patchFile -ItemType "File" -Force -Value "`"Source`",`"DateOffset`",`"HotFixID`",`"Description`",`"InstalledBy`"`n"
 New-Item -Path . -Name $graphiteFile -ItemType "File" -Force
 
 $primes = @(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 
@@ -73,7 +73,8 @@ for( $i = 0; $i -lt $numDays; ++$i)
                         $kb = Get-Random  -Minimum 1000000 -Maximum 9999999
                         $patchResult = [PSCustomObject]@{
                             Source = $serverName
-                            InstalledOn = $d
+                            #InstalledOn = $d
+                            DateOffest = 0 - (New-TimeSpan -Start $d -End (Get-Date)).Days
                             HotFixID = "MSKB" + $kb
                             Description = "Security Update", "Update" | Get-Random
                             InstalledBy = "NT AUTHORITY\SYSTEM"
