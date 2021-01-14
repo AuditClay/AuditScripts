@@ -10,8 +10,8 @@ $numServers = 50
 $minVuln = 60
 $maxVuln = 200
 $minFixed = 1
-$maxFixed = 5
-$maxNewVuln = 40
+$maxFixed = 10
+$maxNewVuln = 60
 $minNewVuln = 10
 
 #Output filenames
