@@ -35,11 +35,11 @@ Get-Random -SetSeed 314159 | Out-Null
 for( $s=0; $s -lt $numServers; ++$s )
 {
     $totalVuln = Get-Random -Minimum $minVuln -Maximum $maxVuln
-    $vulnNone[$s]= [int]($totalVuln * .50)
-    $vulnLow[$s]= [int]($totalVuln * .15)
-    $vulnMed[$s]= [int]($totalVuln * .20)
-    $vulnHigh[$s]= [int]($totalVuln * .10)
-    $vulnCrit[$s]= [int]($totalVuln * .05)
+    $vulnLow[$s]= [int]($totalVuln * .3)
+    $vulnMed[$s]= [int]($totalVuln * .4)
+    $vulnHigh[$s]= [int]($totalVuln * .2)
+    $vulnCrit[$s]= [int]($totalVuln * .1)
+    $vulnNone[$s] = Get-Random -Minimum $minVuln -Maximum $maxVuln
 }
 
 for( $i = -91; $i -lt 0; ++$i)
