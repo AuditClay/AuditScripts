@@ -22,7 +22,7 @@ Change query to patchage *
 CurrentAbove(0) AliasByMetric
 
 Change to a table
-transform series to rows
+transform Reduce series to rows
 Last (not null)
 
 Add overrides Fields with name to rename

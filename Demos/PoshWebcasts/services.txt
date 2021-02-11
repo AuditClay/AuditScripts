@@ -1,0 +1,1206 @@
+
+Name      : PcaSvc
+Status    : Running
+StartType : Manual
+
+Name      : UmRdpService
+Status    : Running
+StartType : Manual
+
+Name      : TokenBroker
+Status    : Running
+StartType : Manual
+
+Name      : TimeBrokerSvc
+Status    : Running
+StartType : Manual
+
+Name      : TermService
+Status    : Running
+StartType : Manual
+
+Name      : TapiSrv
+Status    : Running
+StartType : Manual
+
+Name      : StorSvc
+Status    : Running
+StartType : Manual
+
+Name      : KeyIso
+Status    : Running
+StartType : Manual
+
+Name      : SstpSvc
+Status    : Running
+StartType : Manual
+
+Name      : SSDPSRV
+Status    : Running
+StartType : Manual
+
+Name      : DisplayEnhancementService
+Status    : Running
+StartType : Manual
+
+Name      : SessionEnv
+Status    : Running
+StartType : Manual
+
+Name      : SEMgrSvc
+Status    : Running
+StartType : Manual
+
+Name      : SecurityHealthService
+Status    : Running
+StartType : Manual
+
+Name      : DsSvc
+Status    : Running
+StartType : Manual
+
+Name      : EFS
+Status    : Running
+StartType : Manual
+
+Name      : QWAVE
+Status    : Running
+StartType : Manual
+
+Name      : PrintWorkflowUserSvc_c34e1
+Status    : Running
+StartType : Manual
+
+Name      : PolicyAgent
+Status    : Running
+StartType : Manual
+
+Name      : PlugPlay
+Status    : Running
+StartType : Manual
+
+Name      : fdPHost
+Status    : Running
+StartType : Manual
+
+Name      : FDResPub
+Status    : Running
+StartType : Manual
+
+Name      : PimIndexMaintenanceSvc_c34e1
+Status    : Running
+StartType : Manual
+
+Name      : FontCache3.0.0.0
+Status    : Running
+StartType : Manual
+
+Name      : netprofm
+Status    : Running
+StartType : Manual
+
+Name      : NcbService
+Status    : Running
+StartType : Manual
+
+Name      : lmhosts
+Status    : Running
+StartType : Manual
+
+Name      : LicenseManager
+Status    : Running
+StartType : Manual
+
+Name      : lfsvc
+Status    : Running
+StartType : Manual
+
+Name      : InstallService
+Status    : Running
+StartType : Manual
+
+Name      : UnistoreSvc_c34e1
+Status    : Running
+StartType : Manual
+
+Name      : UserDataSvc_c34e1
+Status    : Running
+StartType : Manual
+
+Name      : StateRepository
+Status    : Running
+StartType : Manual
+
+Name      : WdNisSvc
+Status    : Running
+StartType : Manual
+
+Name      : Appinfo
+Status    : Running
+StartType : Manual
+
+Name      : WdiServiceHost
+Status    : Running
+StartType : Manual
+
+Name      : BTAGService
+Status    : Running
+StartType : Manual
+
+Name      : BthAvctpSvc
+Status    : Running
+StartType : Manual
+
+Name      : WinHttpAutoProxySvc
+Status    : Running
+StartType : Manual
+
+Name      : camsvc
+Status    : Running
+StartType : Manual
+
+Name      : bthserv
+Status    : Running
+StartType : Manual
+
+Name      : cbdhsvc_c34e1
+Status    : Running
+StartType : Manual
+
+Name      : VaultSvc
+Status    : Running
+StartType : Manual
+
+Name      : WebClient
+Status    : Running
+StartType : Manual
+
+Name      : CertPropSvc
+Status    : Running
+StartType : Manual
+
+Name      : wuauserv
+Status    : Running
+StartType : Manual
+
+Name      : WinDefend
+Status    : Running
+StartType : Automatic
+
+Name      : Winmgmt
+Status    : Running
+StartType : Automatic
+
+Name      : NVDisplay.ContainerLocalSystem
+Status    : Running
+StartType : Automatic
+
+Name      : WinRM
+Status    : Running
+StartType : Automatic
+
+Name      : WlanSvc
+Status    : Running
+StartType : Automatic
+
+Name      : OneSyncSvc_c34e1
+Status    : Running
+StartType : Automatic
+
+Name      : WpnService
+Status    : Running
+StartType : Automatic
+
+Name      : Power
+Status    : Running
+StartType : Automatic
+
+Name      : NVWMI
+Status    : Running
+StartType : Automatic
+
+Name      : NvTelemetryContainer
+Status    : Running
+StartType : Automatic
+
+Name      : nsi
+Status    : Running
+StartType : Automatic
+
+Name      : MacriumService
+Status    : Running
+StartType : Automatic
+
+Name      : WpnUserService_c34e1
+Status    : Running
+StartType : Automatic
+
+Name      : mpssvc
+Status    : Running
+StartType : Automatic
+
+Name      : LSM
+Status    : Running
+StartType : Automatic
+
+Name      : LPlatSvc
+Status    : Running
+StartType : Automatic
+
+Name      : LogiFacecamService
+Status    : Running
+StartType : Automatic
+
+Name      : LMS
+Status    : Running
+StartType : Automatic
+
+Name      : wscsvc
+Status    : Running
+StartType : Automatic
+
+Name      : WSearch
+Status    : Running
+StartType : Automatic
+
+Name      : WTabletServiceISD
+Status    : Running
+StartType : Automatic
+
+Name      : Lenovo Instant On
+Status    : Running
+StartType : Automatic
+
+Name      : LanmanWorkstation
+Status    : Running
+StartType : Automatic
+
+Name      : LanmanServer
+Status    : Running
+StartType : Automatic
+
+Name      : NlaSvc
+Status    : Running
+StartType : Automatic
+
+Name      : UserManager
+Status    : Running
+StartType : Automatic
+
+Name      : RpcEptMapper
+Status    : Running
+StartType : Automatic
+
+Name      : RasMan
+Status    : Running
+StartType : Automatic
+
+Name      : VagrantVMware
+Status    : Running
+StartType : Automatic
+
+Name      : TrkWks
+Status    : Running
+StartType : Automatic
+
+Name      : VMAuthdService
+Status    : Running
+StartType : Automatic
+
+Name      : Themes
+Status    : Running
+StartType : Automatic
+
+Name      : TechSmith Uploader Service
+Status    : Running
+StartType : Automatic
+
+Name      : TeamViewer
+Status    : Running
+StartType : Automatic
+
+Name      : TabletInputService
+Status    : Running
+StartType : Automatic
+
+Name      : SystemEventsBroker
+Status    : Running
+StartType : Automatic
+
+Name      : SysMain
+Status    : Running
+StartType : Automatic
+
+Name      : SynTPEnhService
+Status    : Running
+StartType : Automatic
+
+Name      : stisvc
+Status    : Running
+StartType : Automatic
+
+Name      : VMnetDHCP
+Status    : Running
+StartType : Automatic
+
+Name      : VMUSBArbService
+Status    : Running
+StartType : Automatic
+
+Name      : ProfSvc
+Status    : Running
+StartType : Automatic
+
+Name      : SQLWriter
+Status    : Running
+StartType : Automatic
+
+Name      : VMware NAT Service
+Status    : Running
+StartType : Automatic
+
+Name      : ShellHWDetection
+Status    : Running
+StartType : Automatic
+
+Name      : SgrmBroker
+Status    : Running
+StartType : Automatic
+
+Name      : VMwareHostd
+Status    : Running
+StartType : Automatic
+
+Name      : SENS
+Status    : Running
+StartType : Automatic
+
+Name      : vmwsprrdpwks
+Status    : Running
+StartType : Automatic
+
+Name      : WbioSrvc
+Status    : Running
+StartType : Automatic
+
+Name      : Schedule
+Status    : Running
+StartType : Automatic
+
+Name      : SamSs
+Status    : Running
+StartType : Automatic
+
+Name      : Wcmsvc
+Status    : Running
+StartType : Automatic
+
+Name      : RtkAudioService
+Status    : Running
+StartType : Automatic
+
+Name      : RpcSs
+Status    : Running
+StartType : Automatic
+
+Name      : UsoSvc
+Status    : Running
+StartType : Automatic
+
+Name      : Spooler
+Status    : Running
+StartType : Automatic
+
+Name      : jhi_service
+Status    : Running
+StartType : Automatic
+
+Name      : XenServerHealthCheck
+Status    : Running
+StartType : Automatic
+
+Name      : IpOverUsbSvc
+Status    : Running
+StartType : Automatic
+
+Name      : ftnlsv3hv
+Status    : Running
+StartType : Automatic
+
+Name      : Audiosrv
+Status    : Running
+StartType : Automatic
+
+Name      : FontCache
+Status    : Running
+StartType : Automatic
+
+Name      : EventSystem
+Status    : Running
+StartType : Automatic
+
+Name      : EventLog
+Status    : Running
+StartType : Automatic
+
+Name      : BFE
+Status    : Running
+StartType : Automatic
+
+Name      : Bonjour Service
+Status    : Running
+StartType : Automatic
+
+Name      : EgnyteConnectDesktopUpdate
+Status    : Running
+StartType : Automatic
+
+Name      : BrokerInfrastructure
+Status    : Running
+StartType : Automatic
+
+Name      : DusmSvc
+Status    : Running
+StartType : Automatic
+
+Name      : DPS
+Status    : Running
+StartType : Automatic
+
+Name      : ftscanmgrhv
+Status    : Running
+StartType : Automatic
+
+Name      : CDPSvc
+Status    : Running
+StartType : Automatic
+
+Name      : DoSvc
+Status    : Running
+StartType : Automatic
+
+Name      : Dolby DAX2 API Service
+Status    : Running
+StartType : Automatic
+
+Name      : ClickToRunSvc
+Status    : Running
+StartType : Automatic
+
+Name      : client_service
+Status    : Running
+StartType : Automatic
+
+Name      : Dnscache
+Status    : Running
+StartType : Automatic
+
+Name      : DispBrokerDesktopSvc
+Status    : Running
+StartType : Automatic
+
+Name      : CoreMessagingRegistrar
+Status    : Running
+StartType : Automatic
+
+Name      : DiagTrack
+Status    : Running
+StartType : Automatic
+
+Name      : Dhcp
+Status    : Running
+StartType : Automatic
+
+Name      : CryptSvc
+Status    : Running
+StartType : Automatic
+
+Name      : DcomLaunch
+Status    : Running
+StartType : Automatic
+
+Name      : CDPUserSvc_c34e1
+Status    : Running
+StartType : Automatic
+
+Name      : AudioEndpointBuilder
+Status    : Running
+StartType : Automatic
+
+Name      : DeviceAssociationService
+Status    : Running
+StartType : Automatic
+
+Name      : IBMPMSVC
+Status    : Running
+StartType : Automatic
+
+Name      : ibtsiva
+Status    : Running
+StartType : Automatic
+
+Name      : igfxCUIService2.0.0.0
+Status    : Running
+StartType : Automatic
+
+Name      : iphlpsvc
+Status    : Running
+StartType : Automatic
+
+Name      : IKEEXT
+Status    : Running
+StartType : Automatic
+
+Name      : AdobeARMservice
+Status    : Running
+StartType : Automatic
+
+Name      : shpamsvc
+Status    : Stopped
+StartType : Disabled
+
+Name      : AppVClient
+Status    : Stopped
+StartType : Disabled
+
+Name      : ssh-agent
+Status    : Stopped
+StartType : Disabled
+
+Name      : uhssvc
+Status    : Stopped
+StartType : Disabled
+
+Name      : HDHomeRun RECORD
+Status    : Stopped
+StartType : Disabled
+
+Name      : RemoteAccess
+Status    : Stopped
+StartType : Disabled
+
+Name      : RemoteRegistry
+Status    : Stopped
+StartType : Disabled
+
+Name      : NetTcpPortSharing
+Status    : Stopped
+StartType : Disabled
+
+Name      : UevAgentService
+Status    : Stopped
+StartType : Disabled
+
+Name      : tzautoupdate
+Status    : Stopped
+StartType : Disabled
+
+Name      : VacSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : AppIDSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : ALG
+Status    : Stopped
+StartType : Manual
+
+Name      : VBoxSDS
+Status    : Stopped
+StartType : Manual
+
+Name      : vds
+Status    : Stopped
+StartType : Manual
+
+Name      : CaptureService_c34e1
+Status    : Stopped
+StartType : Manual
+
+Name      : vmicguestinterface
+Status    : Stopped
+StartType : Manual
+
+Name      : AJRouter
+Status    : Stopped
+StartType : Manual
+
+Name      : ClipSVC
+Status    : Stopped
+StartType : Manual
+
+Name      : aspnet_state
+Status    : Stopped
+StartType : Manual
+
+Name      : upnphost
+Status    : Stopped
+StartType : Manual
+
+Name      : COMSysApp
+Status    : Stopped
+StartType : Manual
+
+Name      : ConsentUxUserSvc_c34e1
+Status    : Stopped
+StartType : Manual
+
+Name      : vmicheartbeat
+Status    : Stopped
+StartType : Manual
+
+Name      : TrustedInstaller
+Status    : Stopped
+StartType : Manual
+
+Name      : TroubleshootingSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : XblAuthManager
+Status    : Stopped
+StartType : Manual
+
+Name      : cphs
+Status    : Stopped
+StartType : Manual
+
+Name      : cplspcon
+Status    : Stopped
+StartType : Manual
+
+Name      : XblGameSave
+Status    : Stopped
+StartType : Manual
+
+Name      : TieringEngineService
+Status    : Stopped
+StartType : Manual
+
+Name      : CredentialEnrollmentManagerUserSvc_c34e1
+Status    : Stopped
+StartType : Manual
+
+Name      : CscService
+Status    : Stopped
+StartType : Manual
+
+Name      : XboxGipSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : WwanSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : AppMgmt
+Status    : Stopped
+StartType : Manual
+
+Name      : vmicshutdown
+Status    : Stopped
+StartType : Manual
+
+Name      : vmicrdv
+Status    : Stopped
+StartType : Manual
+
+Name      : BcastDVRUserService_c34e1
+Status    : Stopped
+StartType : Manual
+
+Name      : wcncsvc
+Status    : Stopped
+StartType : Manual
+
+Name      : AxInstSV
+Status    : Stopped
+StartType : Manual
+
+Name      : WdiSystemHost
+Status    : Stopped
+StartType : Manual
+
+Name      : autotimesvc
+Status    : Stopped
+StartType : Manual
+
+Name      : WManSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : wlpasvc
+Status    : Stopped
+StartType : Manual
+
+Name      : BDESVC
+Status    : Stopped
+StartType : Manual
+
+Name      : wlidsvc
+Status    : Stopped
+StartType : Manual
+
+Name      : WEPHOSTSVC
+Status    : Stopped
+StartType : Manual
+
+Name      : wercplsupport
+Status    : Stopped
+StartType : Manual
+
+Name      : WerSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : WFDSConMgrSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : WiaRpc
+Status    : Stopped
+StartType : Manual
+
+Name      : wisvc
+Status    : Stopped
+StartType : Manual
+
+Name      : AssignedAccessManagerSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : Wecsvc
+Status    : Stopped
+StartType : Manual
+
+Name      : vmickvpexchange
+Status    : Stopped
+StartType : Manual
+
+Name      : wbengine
+Status    : Stopped
+StartType : Manual
+
+Name      : WalletService
+Status    : Stopped
+StartType : Manual
+
+Name      : AppXSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : vmictimesync
+Status    : Stopped
+StartType : Manual
+
+Name      : vmicvmsession
+Status    : Stopped
+StartType : Manual
+
+Name      : vmicvss
+Status    : Stopped
+StartType : Manual
+
+Name      : AppReadiness
+Status    : Stopped
+StartType : Manual
+
+Name      : WPDBusEnum
+Status    : Stopped
+StartType : Manual
+
+Name      : WpcMonSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : WarpJITSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : BluetoothUserService_c34e1
+Status    : Stopped
+StartType : Manual
+
+Name      : workfolderssvc
+Status    : Stopped
+StartType : Manual
+
+Name      : WMPNetworkSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : wmiApSrv
+Status    : Stopped
+StartType : Manual
+
+Name      : defragsvc
+Status    : Stopped
+StartType : Manual
+
+Name      : VSStandardCollectorService150
+Status    : Stopped
+StartType : Manual
+
+Name      : W32Time
+Status    : Stopped
+StartType : Manual
+
+Name      : WaaSMedicSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : BITS
+Status    : Stopped
+StartType : Manual
+
+Name      : VSS
+Status    : Stopped
+StartType : Manual
+
+Name      : AarSvc_c34e1
+Status    : Stopped
+StartType : Manual
+
+Name      : DeviceInstall
+Status    : Stopped
+StartType : Manual
+
+Name      : NetSetupSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : NgcCtnrSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : NgcSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : GoogleChromeElevationService
+Status    : Stopped
+StartType : Manual
+
+Name      : NvContainerLocalSystem
+Status    : Stopped
+StartType : Manual
+
+Name      : FrameServer
+Status    : Stopped
+StartType : Manual
+
+Name      : ose
+Status    : Stopped
+StartType : Manual
+
+Name      : GraphicsPerfSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : p2pimsvc
+Status    : Stopped
+StartType : Manual
+
+Name      : XboxNetApiSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : PeerDistSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : perceptionsimulation
+Status    : Stopped
+StartType : Manual
+
+Name      : PerfHost
+Status    : Stopped
+StartType : Manual
+
+Name      : PhoneSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : fhsvc
+Status    : Stopped
+StartType : Manual
+
+Name      : DeviceAssociationBrokerSvc_c34e1
+Status    : Stopped
+StartType : Manual
+
+Name      : p2psvc
+Status    : Stopped
+StartType : Manual
+
+Name      : Netman
+Status    : Stopped
+StartType : Manual
+
+Name      : Netlogon
+Status    : Stopped
+StartType : Manual
+
+Name      : NcdAutoSetup
+Status    : Stopped
+StartType : Manual
+
+Name      : KtmRm
+Status    : Stopped
+StartType : Manual
+
+Name      : Intel(R) Capability Licensing Service TCP IP Interface
+Status    : Stopped
+StartType : Manual
+
+Name      : lltdsvc
+Status    : Stopped
+StartType : Manual
+
+Name      : icssvc
+Status    : Stopped
+StartType : Manual
+
+Name      : HvHost
+Status    : Stopped
+StartType : Manual
+
+Name      : hidserv
+Status    : Stopped
+StartType : Manual
+
+Name      : LxpSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : MessagingService_c34e1
+Status    : Stopped
+StartType : Manual
+
+Name      : MicrosoftEdgeElevationService
+Status    : Stopped
+StartType : Manual
+
+Name      : MixedRealityOpenXRSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : MozillaMaintenance
+Status    : Stopped
+StartType : Manual
+
+Name      : gupdatem
+Status    : Stopped
+StartType : Manual
+
+Name      : MSDTC
+Status    : Stopped
+StartType : Manual
+
+Name      : MSiSCSI
+Status    : Stopped
+StartType : Manual
+
+Name      : msiserver
+Status    : Stopped
+StartType : Manual
+
+Name      : NaturalAuthentication
+Status    : Stopped
+StartType : Manual
+
+Name      : NcaSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : Fax
+Status    : Stopped
+StartType : Manual
+
+Name      : PNRPAutoReg
+Status    : Stopped
+StartType : Manual
+
+Name      : pla
+Status    : Stopped
+StartType : Manual
+
+Name      : PrintNotify
+Status    : Stopped
+StartType : Manual
+
+Name      : SensrSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : dmwappushservice
+Status    : Stopped
+StartType : Manual
+
+Name      : SharedAccess
+Status    : Stopped
+StartType : Manual
+
+Name      : SharedRealitySvc
+Status    : Stopped
+StartType : Manual
+
+Name      : DmEnrollmentSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : smphost
+Status    : Stopped
+StartType : Manual
+
+Name      : SmsRouter
+Status    : Stopped
+StartType : Manual
+
+Name      : SNMPTRAP
+Status    : Stopped
+StartType : Manual
+
+Name      : spectrum
+Status    : Stopped
+StartType : Manual
+
+Name      : IpxlatCfgSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : diagsvc
+Status    : Stopped
+StartType : Manual
+
+Name      : diagnosticshub.standardcollector.service
+Status    : Stopped
+StartType : Manual
+
+Name      : DevQueryBroker
+Status    : Stopped
+StartType : Manual
+
+Name      : DevicesFlowUserSvc_c34e1
+Status    : Stopped
+StartType : Manual
+
+Name      : svsvc
+Status    : Stopped
+StartType : Manual
+
+Name      : swprv
+Status    : Stopped
+StartType : Manual
+
+Name      : DevicePickerUserSvc_c34e1
+Status    : Stopped
+StartType : Manual
+
+Name      : PNRPsvc
+Status    : Stopped
+StartType : Manual
+
+Name      : SensorDataService
+Status    : Stopped
+StartType : Manual
+
+Name      : SensorService
+Status    : Stopped
+StartType : Manual
+
+Name      : dot3svc
+Status    : Stopped
+StartType : Manual
+
+Name      : edgeupdatem
+Status    : Stopped
+StartType : Manual
+
+Name      : RetailDemo
+Status    : Stopped
+StartType : Manual
+
+Name      : RmSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : embeddedmode
+Status    : Stopped
+StartType : Manual
+
+Name      : Sense
+Status    : Stopped
+StartType : Manual
+
+Name      : RpcLocator
+Status    : Stopped
+StartType : Manual
+
+Name      : Eaphost
+Status    : Stopped
+StartType : Manual
+
+Name      : DsmSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : SCardSvr
+Status    : Stopped
+StartType : Manual
+
+Name      : ScDeviceEnum
+Status    : Stopped
+StartType : Manual
+
+Name      : SCPolicySvc
+Status    : Stopped
+StartType : Manual
+
+Name      : SDRSVC
+Status    : Stopped
+StartType : Manual
+
+Name      : seclogon
+Status    : Stopped
+StartType : Manual
+
+Name      : EntAppSvc
+Status    : Stopped
+StartType : Manual
+
+Name      : RasAuto
+Status    : Stopped
+StartType : Manual
+
+Name      : PushToInstall
+Status    : Stopped
+StartType : Manual
+
+Name      : Intel(R) TPM Provisioning Service
+Status    : Stopped
+StartType : Automatic
+
+Name      : edgeupdate
+Status    : Stopped
+StartType : Automatic
+
+Name      : gpsvc
+Status    : Stopped
+StartType : Automatic
+
+Name      : gupdate
+Status    : Stopped
+StartType : Automatic
+
+Name      : MapsBroker
+Status    : Stopped
+StartType : Automatic
+
+Name      : sppsvc
+Status    : Stopped
+StartType : Automatic
+
+

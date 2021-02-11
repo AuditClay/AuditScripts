@@ -9,12 +9,12 @@ $numServers = 100
 $maxPatch = 8
 
 #Output filenames
-$patchFile = "patches.csv"
-$graphiteFile = "patchData.txt"
+$patchFile = "patchInput.csv"
+$patchAgeFile = "patchAgeInput.csv"
 
 #Create the empty files
 New-Item -Path . -Name $patchFile -ItemType "File" -Force -Value "`"Source`",`"DateOffset`",`"HotFixID`",`"Description`",`"InstalledBy`"`n"
-New-Item -Path . -Name $graphiteFile -ItemType "File" -Force
+New-Item -Path . -Name $patchAgeFile -ItemType "File" -Force -Value "`"ServerName`",`"PatchAge`",`"DateOffset`"`n"
 
 $primes = @(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 
 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 
@@ -43,6 +43,7 @@ for( $i = 0; $i -lt $numDays; ++$i)
     $d = $day0.AddDays($i)
     #Use the Unix epoch time format for Graphite
     $unixTime = get-date -Date $d -UFormat %s 
+    $dateOffset = 0 - (New-TimeSpan -Start $d -End (Get-Date)).Days
 
     #This organization patches on Friday night/Saturday morning
     if( $d.DayOfWeek.value__ -eq 6 )
@@ -60,10 +61,6 @@ for( $i = 0; $i -lt $numDays; ++$i)
                 }
                 else 
                 {
-                    #Write the day's patch count to the velocity file for Graphite
-                    $numPatches = Get-Random  -Minimum 1 -Maximum $maxPatch
-                    "patchvelocity.$serverName $numPatches $unixTime" | 
-                        Out-File -FilePath $graphiteFile -Append -Encoding ascii
                     $patchAge[$s] = -1
 
                     #Write the patches installed out to the CSV for patches
@@ -74,7 +71,7 @@ for( $i = 0; $i -lt $numDays; ++$i)
                         $patchResult = [PSCustomObject]@{
                             Source = $serverName
                             #InstalledOn = $d
-                            DateOffest = 0 - (New-TimeSpan -Start $d -End (Get-Date)).Days
+                            DateOffest = $dateOffset
                             HotFixID = "MSKB" + $kb
                             Description = "Security Update", "Update" | Get-Random
                             InstalledBy = "NT AUTHORITY\SYSTEM"
@@ -89,10 +86,13 @@ for( $i = 0; $i -lt $numDays; ++$i)
     }
     for( $s=0; $s -lt $numServers; ++$s )
     {
-        $serverName = "Server$s"
         ++$patchAge[$s]
-        $p = $patchAge[$s]
-        "patchage.$serverName $p $unixTime" | 
-            Out-File -FilePath $graphiteFile -Append -Encoding ascii
+        $patchAgeObject = [PSCustomObject]@{
+            ServerName = "Server$s"
+            PatchAge = $patchAge[$s]
+            DateOffset = $dateOffset
+        }
+        $patchAgeObject | ConvertTo-Csv -NoTypeInformation | select-object -skip 1 | 
+        Out-File -Append -FilePath $patchAgeFile -Encoding ascii
     }
 }

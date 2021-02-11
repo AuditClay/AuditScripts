@@ -14,10 +14,13 @@ $maxFixed = 5
 $maxNewVuln = 40
 
 #Output filenames
-$graphiteFile = "vulnData.txt"
+$outputFile = "vulnDataInput.csv"
 
 #Create the empty files
-New-Item -Path . -Name $graphiteFile -ItemType "File" -Force
+New-Item -Path . -Name $outputFile -ItemType "File" -Force
+
+"ServerName,Criticality,Count,DateOffset" | 
+            Out-File -FilePath $outputFile -Append -Encoding ascii
 
 #set initial "patch age" for all servers to 0 - as if they were newly deployed
 $vulnNone = New-Object int[] $numServers
@@ -39,14 +42,11 @@ for( $s=0; $s -lt $numServers; ++$s )
     $vulnCrit[$s]= [int]($totalVuln * .05)
 }
 
-for( $i = 0; $i -lt $numDays; ++$i)
+for( $i = 0-$numDays; $i -le 0; ++$i)
 {
     write-host "Processing $d"
     #Increment to the next day in the series
-    $d = $day0.AddDays($i)
-    #Use the Unix epoch time format for Graphite
-    $unixTime = get-date -Date $d -UFormat %s 
-
+    $d = $day1.AddDays($i)
     
     for( $s=0; $s -lt $numServers; ++$s )
     {
@@ -85,28 +85,28 @@ for( $i = 0; $i -lt $numDays; ++$i)
         $vulnCrit[$s]= [int]($totalVuln * .05)
 
         $v = $vulnNone[$s]
-        "vuln.$serverName.none $v $unixTime" | 
-            Out-File -FilePath $graphiteFile -Append -Encoding ascii
+        "$serverName,none,$v,$i" | 
+            Out-File -FilePath $outputFile -Append -Encoding ascii
 
         $v = $vulnLow[$s]
-        "vuln.$serverName.low $v $unixTime" | 
-            Out-File -FilePath $graphiteFile -Append -Encoding ascii
+        "$serverName,low,$v,$i" | 
+            Out-File -FilePath $outputFile -Append -Encoding ascii
 
         $v = $vulnMed[$s]
-        "vuln.$serverName.med $v $unixTime" | 
-            Out-File -FilePath $graphiteFile -Append -Encoding ascii
+        "$serverName,med,$v,$i" | 
+            Out-File -FilePath $outputFile -Append -Encoding ascii
 
         $v = $vulnHigh[$s]
-        "vuln.$serverName.high $v $unixTime" | 
-            Out-File -FilePath $graphiteFile -Append -Encoding ascii
+        "$serverName,high,$v,$i" | 
+            Out-File -FilePath $outputFile -Append -Encoding ascii
 
         $v = $vulnCrit[$s]
-        "vuln.$serverName.crit $v $unixTime" | 
-            Out-File -FilePath $graphiteFile -Append -Encoding ascii
+        "$serverName,crit,$v,$i" | 
+            Out-File -FilePath $outputFile -Append -Encoding ascii
     
         $v = $totalVuln
-        "vuln.$serverName.total $v $unixTime" | 
-            Out-File -FilePath $graphiteFile -Append -Encoding ascii
+        "$serverName,total,$v,$i" | 
+            Out-File -FilePath $outputFile -Append -Encoding ascii
     
         }
 }
