@@ -53,6 +53,7 @@ Get-Process | Sort-Object "WS(M)" -Descending | Select-Object -First 5
 Get-Service |Group-Object -Property StartType
 
 #Comparison operators - commonly used with Where-Object or if statements
+#operators include -eq, -ne, -gt, -lt, -ge, -le
 1 -lt 3
 2 -gt 2
 2 -ge 2
@@ -63,26 +64,34 @@ Get-Service |Group-Object -Property StartType
 'AUD507' -like 'aud*'
 'AUD507' -notlike 'aud*9'
 
-#In operators
+#In operators - Checks to see if object is contained in a list
 3 -in 1..7
 5 -notin 1..4
 
-#Contains operators
+#Contains operators - Checks to see if a list contains an object
 1..10 -contains 4
 1..10 -notcontains 12
 1..1000 -notcontains 12
 
-###Is/IsNot
+###Is/IsNot - Checks for the .NET type of the object
+1 -is [int]
+[Math]::Pi -isnot [string]
 
-##Split
+##Split - breaks a string into "tokens" based on a delimiter
+"Clay was here" -split " "
+"1,2,3,4" -split ","
 
-## Replace
+## Replace - uses regex to replace parts of a string
+"Clay was here 1234" -replace "[0-9]+", "XXX" 
+
+## Omit the replacement value to eliminate the expression
+"Clay was here 1234" -replace "[0-9]+"
 
 #BONUS - Regular expressions - use the -match operator
-# regex for AUD followed by 1 or more digits
+# regex for SEC followed by 1 or more digits
 'SEC557' -match 'SEC[0-9]+'
 
-#regex for AUD followed by EXACTLY 4 digits
+#regex for SEC followed by EXACTLY 4 digits
 'SEC557' -match 'SEC[0-9]{4}'
 'SEC557' -notmatch 'SEC[0-9]{4}'
 
